@@ -21,6 +21,9 @@ export const siteConfig = {
   },
   repoUrl: "https://github.com/gustavocunha9978/portfolio",
 
+  /** Visual do hero: "network" (rede de tecnologias) ou "console" (painel de status). */
+  heroVariant: "network" as "network" | "console",
+
   /** Badge de status no hero e no header. */
   availableForWork: true,
 
