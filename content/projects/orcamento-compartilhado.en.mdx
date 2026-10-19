@@ -1,0 +1,42 @@
+---
+title: Shared household budget
+slug: orcamento-compartilhado
+summary: A couple's budgeting app that replaced a manual spreadsheet — simultaneous multi-device editing with real-time Firestore.
+category: [fullstack]
+stack: [React, TypeScript, Vite, Firebase Auth, Firestore, Firebase Hosting, Recharts, jsPDF]
+role: Developer
+period: 2026
+status: produção
+visibility: privado
+cover: /images/projects/orcamento-compartilhado/cover.svg
+gallery: []
+metrics: ["Real-time sync", "PDF export"]
+featured: false
+order: 8
+---
+
+## Problem
+
+The household budget lived in a spreadsheet only one person could update at a time. When both edited, one
+overwrote the other, and neither had the month's picture on their phone.
+
+## Solution
+
+A **React + TypeScript** web app with **Firebase Auth** and **Firestore**. Every screen subscribes to its data
+with `onSnapshot`, so a change on one phone shows up on the other instantly — no refresh button and no
+version conflicts.
+
+- Income per person (salary, bonuses, returns, reimbursements) and fixed and variable expenses
+- Configurable default categories
+- On-screen sync indicator
+- **Recharts** dashboard and monthly **PDF** export
+
+## Result
+
+- The spreadsheet was retired
+- Both edit at the same time, from any device
+- Hosted on Firebase Hosting, no server to maintain
+
+## Lessons learned
+
+- For two users and real time, Firestore gets there faster than building an API plus WebSockets.

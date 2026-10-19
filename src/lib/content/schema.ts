@@ -24,7 +24,7 @@ export const projectFrontmatterSchema = z
     category: z.array(z.enum(projectCategories)).min(1),
     stack: z.array(z.string().min(1)).min(1),
     role: z.string().min(1),
-    period: z.string().min(1),
+    period: z.union([z.string().min(1), z.number()]).transform(String),
     status: z.enum(projectStatuses),
     visibility: z.enum(["público", "privado"]),
     repoUrl: z.url().optional(),

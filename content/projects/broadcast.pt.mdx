@@ -1,0 +1,36 @@
+---
+title: Broadcast
+slug: broadcast
+summary: SaaS multi-tenant de disparo e agendamento de mensagens — conexões, contatos e envios em tempo real com Firebase.
+category: [fullstack]
+stack:
+  [React, TypeScript, Vite, Material UI, Tailwind CSS, Firebase Auth, Firestore, Cloud Functions]
+role: Desenvolvedor
+period: mai 2026
+status: concluído
+visibility: público
+repoUrl: https://github.com/gustavocunha9978/broadcast
+liveUrl: https://teste-a716a.web.app
+cover: /images/projects/broadcast/cover.svg
+gallery: []
+metrics: ["Multi-tenant", "Agendamento de envios"]
+featured: false
+order: 9
+---
+
+## Problema
+
+Pequenas empresas precisam mandar a mesma mensagem para listas de contatos e programar envios, sem
+misturar os dados de um cliente com os de outro.
+
+## Solução
+
+- **Multi-tenant** com isolamento por usuário garantido nas _security rules_ do Firestore
+- Gestão de conexões, contatos e mensagens com atualização em tempo real
+- Agendamento de envios por um _hook_ no frontend, com **Cloud Function** opcional para rodar o
+  agendador no servidor
+- Interface com Material UI + Tailwind, deploy automatizado no Firebase Hosting
+
+## Aprendizados
+
+- No Firebase, as _security rules_ são o backend: isolamento entre tenants começa ali.

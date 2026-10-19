@@ -1,0 +1,35 @@
+---
+title: Broadcast
+slug: broadcast
+summary: Multi-tenant SaaS for sending and scheduling bulk messages — connections, contacts and sends in real time with Firebase.
+category: [fullstack]
+stack:
+  [React, TypeScript, Vite, Material UI, Tailwind CSS, Firebase Auth, Firestore, Cloud Functions]
+role: Developer
+period: May 2026
+status: concluído
+visibility: público
+repoUrl: https://github.com/gustavocunha9978/broadcast
+liveUrl: https://teste-a716a.web.app
+cover: /images/projects/broadcast/cover.svg
+gallery: []
+metrics: ["Multi-tenant", "Scheduled sends"]
+featured: false
+order: 9
+---
+
+## Problem
+
+Small businesses need to send the same message to contact lists and schedule sends, without mixing one
+customer's data with another's.
+
+## Solution
+
+- **Multi-tenant**, with per-user isolation enforced in Firestore _security rules_
+- Connections, contacts and messages management with real-time updates
+- Send scheduling through a frontend hook, with an optional **Cloud Function** to run the scheduler server-side
+- Material UI + Tailwind interface, automated deploy to Firebase Hosting
+
+## Lessons learned
+
+- On Firebase, security rules are the backend: tenant isolation starts there.

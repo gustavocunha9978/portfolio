@@ -1,0 +1,62 @@
+---
+title: Maschio & Soares Law Firm
+slug: maschio-soares-advogados
+summary: Law firm website — first built with Next.js + Tailwind v4 on Vercel, then rebuilt as a custom WordPress theme with no page builder so the client can edit it on their own.
+category: [web]
+stack: [Next.js, TypeScript, Tailwind CSS v4, Vercel, WordPress, PHP]
+role: Web Developer
+period: 2026
+status: produção
+visibility: público
+repoUrl: https://github.com/gustavocunha9978/Soares_Advogados
+# TODO(gustavo): production liveUrl
+cover: /images/projects/maschio-soares-advogados/cover.svg
+gallery: []
+metrics: ["2 implementations", "No page builder"]
+featured: true
+order: 5
+---
+
+## Problem
+
+The firm needed a serious online presence — practice areas, team, publications and contact — with a
+look that matches a law firm, and without calling a developer for every new paragraph.
+
+## Solution
+
+The first version used **Next.js (App Router) + TypeScript + Tailwind CSS v4**, statically generated and
+deployed on Vercel. Dynamic pages for each lawyer (`/profissionais/[slug]`) and each article
+(`/publicacoes/[slug]`), content centralized in a single file and editorial typography (Fraunces + Inter +
+Space Mono).
+
+Since the client wanted to edit content on their own, the site was rebuilt as a **custom WordPress theme**
+in PHP: _custom post types_ for lawyers, practice areas and publications, _meta boxes_ for structured
+fields and **no page builder** — the layout stays under code control, and the client only edits content.
+
+## Result
+
+- Complete firm website: practice areas, team, publications, social responsibility and contact
+- A WordPress version the firm edits without a developer
+- [TODO: production link and a metric — e.g. Lighthouse score, inquiries received]
+
+## Impact
+
+[TODO: feedback from the firm]
+
+## Technical challenges
+
+### Async `params` in Next.js 15/16
+
+In dynamic routes, `params` became a `Promise`. Code written the old way (`params.slug`) compiles but breaks
+at runtime. The fix was `const { slug } = await params` in every page and in `generateMetadata`.
+
+### Color collision in Tailwind v4
+
+Defining tokens inside `@theme` with the same names as the default palette overwrote the default colors and
+changed existing utilities. The fix was giving brand tokens **their own names** — a practice I carried
+into this portfolio.
+
+## Lessons learned
+
+- The best technology is the one the client can maintain after handoff.
+- In WordPress, CPTs + meta boxes give flexibility without giving up layout control.

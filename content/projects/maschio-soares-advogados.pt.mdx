@@ -1,0 +1,65 @@
+---
+title: Maschio & Soares Advogados
+slug: maschio-soares-advogados
+summary: Site institucional de escritório de advocacia — primeiro em Next.js + Tailwind v4 na Vercel, depois recriado como tema WordPress próprio, sem page builder, para o cliente editar sozinho.
+category: [web]
+stack: [Next.js, TypeScript, Tailwind CSS v4, Vercel, WordPress, PHP]
+role: Desenvolvedor Web
+period: 2026
+status: produção
+visibility: público
+repoUrl: https://github.com/gustavocunha9978/Soares_Advogados
+# TODO(gustavo): liveUrl do site em produção
+cover: /images/projects/maschio-soares-advogados/cover.svg
+gallery: []
+metrics: ["2 implementações", "Sem page builder"]
+featured: true
+order: 5
+---
+
+## Problema
+
+O escritório precisava de presença digital séria: áreas de atuação, equipe, publicações e contato,
+com um visual à altura de um escritório de advocacia — e sem depender de desenvolvedor para cada texto
+novo.
+
+## Solução
+
+A primeira versão foi feita em **Next.js (App Router) + TypeScript + Tailwind CSS v4**, com geração
+estática e deploy na Vercel. Páginas dinâmicas para cada profissional (`/profissionais/[slug]`) e cada
+publicação (`/publicacoes/[slug]`), conteúdo centralizado num único arquivo e tipografia editorial
+(Fraunces + Inter + Space Mono).
+
+Como o cliente queria editar o conteúdo sozinho, o site foi recriado como **tema WordPress próprio**
+em PHP: _custom post types_ para profissionais, áreas e publicações, _meta boxes_ para os campos
+estruturados e **nenhum page builder** — o layout continua sob controle do código, e o cliente só
+edita conteúdo.
+
+## Resultado
+
+- Site institucional completo: atuação, equipe, publicações, responsabilidade social e contato
+- Versão WordPress que o escritório edita sem desenvolvedor
+- [TODO: link de produção e métrica — ex.: Lighthouse, contatos recebidos]
+
+## Impacto
+
+[TODO: retorno do escritório]
+
+## Desafios técnicos
+
+### `params` assíncronos no Next.js 15/16
+
+Nas rotas dinâmicas, `params` passou a ser uma `Promise`. Código no padrão antigo (`params.slug`)
+compila, mas quebra em runtime. A correção foi `const { slug } = await params` em todas as páginas e
+em `generateMetadata`.
+
+### Colisão de cores no Tailwind v4
+
+Ao definir tokens com os mesmos nomes da paleta padrão dentro de `@theme`, as cores padrão foram
+sobrescritas e utilitários existentes mudaram de cor. A solução foi usar **nomes próprios** para os
+tokens da marca — prática que repeti neste portfólio.
+
+## Aprendizados
+
+- A melhor tecnologia é a que o cliente consegue manter depois da entrega.
+- Em WordPress, CPT + meta boxes entrega flexibilidade sem abrir mão do layout.

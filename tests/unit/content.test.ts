@@ -46,10 +46,7 @@ describe("conteúdo real", () => {
 
   it("experiências que apontam para um case apontam para um case que existe", async () => {
     const slugs = new Set((await getProjects("pt")).map((p) => p.frontmatter.slug));
-    const missing = experience
-      .filter((e) => e.projectSlug && !slugs.has(e.projectSlug))
-      .map((e) => e.projectSlug);
-    // Enquanto os cases não forem todos escritos (Fase 4), só garantimos o formato.
-    expect(missing.every((s) => /^[a-z0-9-]+$/.test(s!))).toBe(true);
+    const missing = experience.filter((e) => e.projectSlug && !slugs.has(e.projectSlug));
+    expect(missing.map((e) => e.projectSlug)).toEqual([]);
   });
 });

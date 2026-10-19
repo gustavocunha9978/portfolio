@@ -1,0 +1,60 @@
+---
+title: Escalas Life
+slug: escalas-life
+summary: Sistema de escalas para ministérios de igreja — multi-ambiente, com permissões por papel, indisponibilidades e escala automática mensal que respeita as restrições de cada voluntário.
+category: [fullstack]
+stack: [TypeScript, Node.js, React, Vite, PostgreSQL, Supabase, Docker, Vercel]
+role: Desenvolvedor Fullstack
+period: ago — out 2026
+status: produção
+visibility: privado
+cover: /images/projects/escalas-life/cover.svg
+gallery: []
+metrics: ["Escala automática mensal", "Regras validadas no servidor"]
+featured: true
+order: 7
+---
+
+## Problema
+
+Montar a escala do mês de som, louvor, mídia e recepção era um quebra-cabeça feito à mão no WhatsApp:
+gente escalada no dia em que avisou que não podia, a mesma pessoa em duas funções no mesmo culto e
+voluntário que nunca entrava no rodízio.
+
+## Solução
+
+Um web app com **ambientes separados** (cada ministério jovem com sua identidade visual), **permissões
+por papel** e todas as regras críticas validadas **no servidor** — não só na interface: vínculo ao
+ambiente e ao ministério, função compatível, indisponibilidade e conflito de horário.
+
+Minhas entregas no projeto:
+
+- **Escala automática mensal**: gera a escala de um ministério para todos os cultos do mês, respeitando
+  indisponibilidades e restrições por pessoa, com pontuação de rodízio e desempate determinístico — a
+  prévia e a gravação produzem exatamente o mesmo resultado
+- CRUD completo e **recuperação de senha**
+- **Ordem do culto** para a equipe de líderes
+- Correções de segurança e robustez apontadas em revisão
+
+## Resultado
+
+- Escala do mês gerada em segundos, sem conflito de horário nem pessoa indisponível escalada
+- Rodízio justo entre voluntários
+- [TODO: nº de voluntários / ministérios usando]
+
+## Impacto
+
+[TODO: tempo economizado pelos líderes por mês]
+
+## Desafios técnicos
+
+### Escala automática previsível
+
+Um gerador com aleatoriedade produz uma prévia diferente da escala gravada — e o líder perde a
+confiança. A pontuação usa pesos explícitos (rodízio, pares que servem juntos) e um **desempate
+determinístico**, coberto por testes.
+
+## Aprendizados
+
+- Regra que só existe na interface não é regra.
+- Algoritmo que decide por pessoas precisa ser explicável e repetível.
