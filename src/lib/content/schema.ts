@@ -30,7 +30,9 @@ export const projectFrontmatterSchema = z
     repoUrl: z.url().optional(),
     liveUrl: z.url().optional(),
     cover: z.string().startsWith("/"),
-    gallery: z.array(z.object({ src: z.string().startsWith("/"), alt: z.string().min(1) })).default([]),
+    gallery: z
+      .array(z.object({ src: z.string().startsWith("/"), alt: z.string().min(1) }))
+      .default([]),
     metrics: z.array(z.string().min(1)).default([]),
     featured: z.boolean().default(false),
     order: z.number().int().default(100),

@@ -32,12 +32,16 @@ async function readCollection<S extends z.ZodType>(
       const parsed = schema.safeParse(data);
       if (!parsed.success) {
         // Falha alto no build: frontmatter quebrado não deve ir para produção.
-        throw new Error(`Frontmatter inválido em content/${collection}/${file}:\n${parsed.error.message}`);
+        throw new Error(
+          `Frontmatter inválido em content/${collection}/${file}:\n${parsed.error.message}`,
+        );
       }
       const expectedSlug = file.slice(0, -suffix.length);
       const fm = parsed.data as { slug: string };
       if (fm.slug !== expectedSlug) {
-        throw new Error(`content/${collection}/${file}: slug "${fm.slug}" difere do nome do arquivo`);
+        throw new Error(
+          `content/${collection}/${file}: slug "${fm.slug}" difere do nome do arquivo`,
+        );
       }
       return {
         frontmatter: parsed.data,
