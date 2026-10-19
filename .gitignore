@@ -29,3 +29,6 @@ docs/_private/
 # scripts locais de screenshot
 *.tmp.mjs
 sheet.tmp.html
+
+# skill de UI/UX do Claude Code (ferramenta local de desenvolvimento)
+.claude/skills/
