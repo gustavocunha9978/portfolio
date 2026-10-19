@@ -9,7 +9,6 @@
     "about": "About",
     "experience": "Experience",
     "services": "Services",
-    "blog": "Blog",
     "music": "Music",
     "contact": "Contact",
     "cv": "Download CV",
@@ -118,5 +117,199 @@
   "theme": {
     "light": "Light theme",
     "dark": "Dark theme"
+  },
+  "projects": {
+    "title": "Projects",
+    "intro": "Production systems, automations and experiments that became products. Each case study shows the problem, the solution and the result — no made-up numbers.",
+    "filterCategory": "Category",
+    "filterTech": "Technology",
+    "all": "All",
+    "anyTech": "Any technology",
+    "count": "{count, plural, =0 {No projects} one {# project} other {# projects}}",
+    "empty": "No projects match this filter.",
+    "clear": "Clear filters"
+  },
+  "case": {
+    "back": "All projects",
+    "role": "Role",
+    "period": "Period",
+    "status": "Status",
+    "stack": "Stack",
+    "links": "Links",
+    "repo": "Source on GitHub",
+    "live": "View live",
+    "readTime": "{minutes} min read",
+    "prev": "Previous",
+    "next": "Next",
+    "diagram": "Architecture diagram",
+    "gallery": "Gallery",
+    "cta": "Want something similar for your business?",
+    "ctaButton": "Let's talk"
+  },
+  "experience": {
+    "title": "Experience",
+    "intro": "Where I've worked, what I shipped and which tools I used. A print-friendly version lives at /cv.",
+    "present": "present",
+    "kind": {
+      "work": "Job",
+      "freelance": "Freelance",
+      "hackathon": "Hackathon",
+      "education": "Education"
+    },
+    "seeCase": "View case study",
+    "skillsTitle": "Skills",
+    "skillsIntro": "No percentage bars — just how much I actually use each thing.",
+    "printable": "Print-friendly version"
+  },
+  "services": {
+    "title": "Services",
+    "intro": "Custom systems for companies, law firms, gyms and churches. You work with me directly, from the first call to delivery.",
+    "problem": "Problem it solves",
+    "deliverables": "What you get",
+    "timeline": "Typical timeline",
+    "related": "Related case study",
+    "processTitle": "How it works",
+    "process": [
+      {
+        "title": "Call",
+        "body": "A 30-minute call to understand the problem, who uses it and what already exists."
+      },
+      {
+        "title": "Proposal",
+        "body": "Scope, timeline and price in writing. No surprises halfway through."
+      },
+      {
+        "title": "Build",
+        "body": "Short iterations you can test while the project moves."
+      },
+      {
+        "title": "Delivery",
+        "body": "System deployed, documented, and the people who'll use it trained."
+      },
+      {
+        "title": "Support",
+        "body": "Follow-up after launch for adjustments and new features."
+      }
+    ],
+    "faqTitle": "FAQ",
+    "faq": [
+      {
+        "q": "How much does a system cost?",
+        "a": "It depends on scope. After our first call I send a fixed proposal with a defined timeline and price."
+      },
+      {
+        "q": "Do I need everything figured out before we talk?",
+        "a": "No. You only need to know the problem you want to solve — we design the scope together."
+      },
+      {
+        "q": "Who owns the code and the data?",
+        "a": "You do. Code, database and credentials are handed over at the end of the project."
+      },
+      {
+        "q": "Do you offer support after delivery?",
+        "a": "Yes. Adjustments and new features can be on demand or through a monthly plan."
+      },
+      {
+        "q": "Do you work with clients outside Brazil?",
+        "a": "Yes. The whole process works remotely, with video calls, in English or Portuguese."
+      }
+    ],
+    "ctaTitle": "Ready to get your idea off the ground?",
+    "ctaBody": "Book a free 30-minute call.",
+    "ctaButton": "Book a call"
+  },
+  "about": {
+    "title": "About",
+    "photoAlt": "Photo of Gustavo Cunha",
+    "photoTodo": "[TODO: profile photo]",
+    "story": [
+      "I'm a fullstack developer from Toledo, in southern Brazil, with a degree in Science and Technology. I got into this out of curiosity about how things work and stayed for the satisfaction of seeing a system solve a real problem.",
+      "Today I work as an RPA developer at Sicredi, automating processes with Python and PHP. On the side, I build systems for clients: a gym management SaaS running in production, business websites and computer vision projects.",
+      "Away from code, I'm a drummer, I teach drums and I play at church. Faith and family are what drive me — and they're where my wish to do good work comes from, even when nobody's watching."
+    ],
+    "howTitle": "How I work",
+    "how": [
+      {
+        "title": "Pragmatic decisions",
+        "body": "I pick tools for the problem, not for the hype. Sometimes that's Firestore; sometimes it's PostgreSQL with Redis."
+      },
+      {
+        "title": "Complete delivery",
+        "body": "Code, tests, deployment, docs and training. A system that only runs on my machine isn't delivered."
+      },
+      {
+        "title": "Docs for every audience",
+        "body": "A README for developers, a manual for users and a summary for decision makers."
+      },
+      {
+        "title": "Local and cheap when it makes sense",
+        "body": "The church people counter runs on a local computer with zero cloud cost. Not everything needs a paid server."
+      }
+    ],
+    "musicLink": "See the music side"
+  },
+  "contact": {
+    "title": "Contact",
+    "intro": "A role, a project or just a question: pick whichever channel you prefer. I reply within one business day.",
+    "formTitle": "Send a message",
+    "name": "Name",
+    "email": "Email",
+    "type": "Subject",
+    "types": {
+      "vaga": "Job opportunity",
+      "projeto": "Project / quote",
+      "outro": "Other"
+    },
+    "message": "Message",
+    "messagePlaceholder": "Tell me a bit about the context…",
+    "send": "Send message",
+    "sending": "Sending…",
+    "success": "Message sent! I'll get back to you soon.",
+    "errors": {
+      "nameMin": "Please enter your name.",
+      "nameMax": "Name is too long.",
+      "email": "Please enter a valid email.",
+      "type": "Please choose a subject.",
+      "messageMin": "Please write at least 10 characters.",
+      "messageMax": "Message is too long.",
+      "rateLimited": "Too many messages in a row. Please try again in a few minutes.",
+      "generic": "Couldn't send right now. Please try WhatsApp or email."
+    },
+    "scheduleTitle": "Book a call",
+    "scheduleBody": "Pick a time straight from my calendar.",
+    "scheduleLoad": "Show available times",
+    "otherTitle": "Other channels",
+    "whatsapp": "WhatsApp"
+  },
+  "music": {
+    "title": "Music",
+    "intro": "Before code, there were drums. I've played for years, I teach, and I serve on the church worship team. Rhythm, discipline and teamwork — the same things I bring to projects.",
+    "videos": "Videos",
+    "photos": "Photos",
+    "videoTodo": "[TODO: YouTube video]",
+    "photoTodo": "[TODO: photo playing]",
+    "play": "Play video: {title}"
+  },
+  "cv": {
+    "title": "Résumé",
+    "print": "Print / save as PDF",
+    "download": "Download PDF",
+    "summary": "Fullstack developer with systems in production: a multi-tenant SaaS with payments and mobile apps, process automation (RPA, Python, PHP) and computer vision. Currently an RPA developer at Sicredi.",
+    "experience": "Experience",
+    "education": "Education",
+    "skills": "Skills",
+    "projects": "Featured projects"
+  },
+  "notFound": {
+    "title": "Deploy failed",
+    "body": "The page you were looking for doesn't exist — or it moved and someone forgot to update the link.",
+    "home": "Back to home",
+    "projects": "See projects",
+    "log": [
+      "$ deploy --page {path}",
+      "[build] resolving route…",
+      "[error] 404: route not found",
+      "[rollback] redirecting to a page that exists ✓"
+    ]
   }
 }

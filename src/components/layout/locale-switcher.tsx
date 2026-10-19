@@ -47,7 +47,7 @@ export function LocaleSwitcher() {
           disabled={pending}
           onClick={() => locale !== current && switchTo(locale)}
           className={cn(
-            "rounded-md px-2 py-1 transition-colors",
+            "min-h-10 min-w-10 rounded-md px-2 py-1 transition-colors sm:min-h-0 sm:min-w-0",
             locale === current ? "bg-surface-2 text-ink-0" : "text-ink-2 hover:text-ink-0",
           )}
         >

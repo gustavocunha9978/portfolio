@@ -9,7 +9,7 @@ export async function Footer() {
   const nav = await getTranslations("nav");
 
   return (
-    <footer className="border-t border-line">
+    <footer className="border-t border-line print:hidden">
       <div className="mx-auto grid max-w-6xl gap-8 px-4 py-12 sm:grid-cols-[1.5fr_1fr_auto] sm:px-6">
         <div>
           <p className="font-mono text-sm text-ink-0">gustavo.cunha</p>
@@ -25,6 +25,16 @@ export async function Footer() {
                 </Link>
               </li>
             ))}
+            <li>
+              <Link href="/musica" className="text-ink-1 hover:text-ink-0">
+                {nav("music")}
+              </Link>
+            </li>
+            <li>
+              <Link href="/cv" className="text-ink-1 hover:text-ink-0">
+                CV
+              </Link>
+            </li>
           </ul>
         </nav>
         <div className="flex items-start gap-3">

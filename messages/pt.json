@@ -9,7 +9,6 @@
     "about": "Sobre",
     "experience": "Experiência",
     "services": "Serviços",
-    "blog": "Blog",
     "music": "Música",
     "contact": "Contato",
     "cv": "Baixar CV",
@@ -118,5 +117,199 @@
   "theme": {
     "light": "Tema claro",
     "dark": "Tema escuro"
+  },
+  "projects": {
+    "title": "Projetos",
+    "intro": "Sistemas em produção, automações e experimentos que viraram produto. Cada case mostra o problema, a solução e o resultado — sem número inventado.",
+    "filterCategory": "Categoria",
+    "filterTech": "Tecnologia",
+    "all": "Todos",
+    "anyTech": "Qualquer tecnologia",
+    "count": "{count, plural, =0 {Nenhum projeto} one {# projeto} other {# projetos}}",
+    "empty": "Nenhum projeto com esse filtro.",
+    "clear": "Limpar filtros"
+  },
+  "case": {
+    "back": "Todos os projetos",
+    "role": "Papel",
+    "period": "Período",
+    "status": "Status",
+    "stack": "Stack",
+    "links": "Links",
+    "repo": "Código no GitHub",
+    "live": "Ver em produção",
+    "readTime": "{minutes} min de leitura",
+    "prev": "Anterior",
+    "next": "Próximo",
+    "diagram": "Diagrama de arquitetura",
+    "gallery": "Galeria",
+    "cta": "Quer algo parecido para o seu negócio?",
+    "ctaButton": "Vamos conversar"
+  },
+  "experience": {
+    "title": "Experiência",
+    "intro": "Onde trabalhei, o que entreguei e com quais ferramentas. A versão para impressão está em /cv.",
+    "present": "atual",
+    "kind": {
+      "work": "Emprego",
+      "freelance": "Freelance",
+      "hackathon": "Hackathon",
+      "education": "Formação"
+    },
+    "seeCase": "Ver case",
+    "skillsTitle": "Habilidades",
+    "skillsIntro": "Sem barra de porcentagem: só o quanto eu realmente uso cada coisa.",
+    "printable": "Versão para impressão"
+  },
+  "services": {
+    "title": "Serviços",
+    "intro": "Sistemas sob medida para empresas, escritórios, academias e igrejas. Você fala comigo direto, do primeiro contato à entrega.",
+    "problem": "Problema que resolve",
+    "deliverables": "O que você recebe",
+    "timeline": "Prazo típico",
+    "related": "Case relacionado",
+    "processTitle": "Como funciona",
+    "process": [
+      {
+        "title": "Conversa",
+        "body": "Uma chamada de 30 minutos para entender o problema, quem usa e o que já existe."
+      },
+      {
+        "title": "Proposta",
+        "body": "Escopo, prazo e valor por escrito. Sem surpresa no meio do caminho."
+      },
+      {
+        "title": "Desenvolvimento",
+        "body": "Entregas curtas que você testa enquanto o projeto anda."
+      },
+      {
+        "title": "Entrega",
+        "body": "Sistema publicado, documentação e treinamento de quem vai usar."
+      },
+      {
+        "title": "Suporte",
+        "body": "Acompanhamento depois da entrega para ajustes e evolução."
+      }
+    ],
+    "faqTitle": "Perguntas frequentes",
+    "faq": [
+      {
+        "q": "Quanto custa um sistema?",
+        "a": "Depende do escopo. Depois da primeira conversa eu envio uma proposta fechada, com prazo e valor definidos."
+      },
+      {
+        "q": "Preciso ter tudo definido antes de falar com você?",
+        "a": "Não. Basta saber o problema que você quer resolver — o escopo a gente desenha junto."
+      },
+      {
+        "q": "O código e os dados ficam com quem?",
+        "a": "Com você. O sistema é seu: código, banco de dados e acessos são entregues no fim do projeto."
+      },
+      {
+        "q": "Você dá suporte depois da entrega?",
+        "a": "Sim. Ajustes e evolução podem ser combinados por demanda ou por um plano mensal."
+      },
+      {
+        "q": "Trabalha com empresas de outras cidades?",
+        "a": "Sim. Todo o processo funciona remoto, com reuniões por vídeo."
+      }
+    ],
+    "ctaTitle": "Vamos tirar sua ideia do papel?",
+    "ctaBody": "Agende uma conversa de 30 minutos, sem compromisso.",
+    "ctaButton": "Agendar conversa"
+  },
+  "about": {
+    "title": "Sobre",
+    "photoAlt": "Foto de Gustavo Cunha",
+    "photoTodo": "[TODO: foto de perfil]",
+    "story": [
+      "Sou desenvolvedor fullstack em Toledo, no oeste do Paraná, formado em Ciência e Tecnologia. Comecei pela curiosidade de entender como as coisas funcionam e fiquei pelo prazer de ver um sistema resolvendo um problema de verdade.",
+      "Hoje trabalho como desenvolvedor RPA no Sicredi, automatizando processos com Python e PHP. Em paralelo, construo sistemas para clientes: um SaaS de gestão para academias que está em produção, sites institucionais e projetos de visão computacional.",
+      "Fora do código, sou baterista, dou aulas de bateria e toco na igreja. A fé e a família são o que me move — e é delas que vem a vontade de fazer um trabalho bem feito, mesmo quando ninguém está olhando."
+    ],
+    "howTitle": "Como eu trabalho",
+    "how": [
+      {
+        "title": "Decisões pragmáticas",
+        "body": "Escolho a ferramenta pelo problema, não pela moda. Às vezes é Firestore; às vezes é PostgreSQL com Redis."
+      },
+      {
+        "title": "Entrega completa",
+        "body": "Código, testes, deploy, documentação e treinamento. Sistema que só roda na minha máquina não é entrega."
+      },
+      {
+        "title": "Documentação para cada público",
+        "body": "Um README para quem desenvolve, um manual para quem usa e um resumo para quem decide."
+      },
+      {
+        "title": "Local e barato quando faz sentido",
+        "body": "O contador de pessoas da igreja roda num computador local, com custo de nuvem zero. Nem tudo precisa de servidor pago."
+      }
+    ],
+    "musicLink": "Conheça o lado música"
+  },
+  "contact": {
+    "title": "Contato",
+    "intro": "Vaga, projeto ou só uma pergunta: escolha o canal que preferir. Respondo em até um dia útil.",
+    "formTitle": "Mande uma mensagem",
+    "name": "Nome",
+    "email": "E-mail",
+    "type": "Assunto",
+    "types": {
+      "vaga": "Vaga de emprego",
+      "projeto": "Projeto / orçamento",
+      "outro": "Outro"
+    },
+    "message": "Mensagem",
+    "messagePlaceholder": "Conte um pouco do contexto…",
+    "send": "Enviar mensagem",
+    "sending": "Enviando…",
+    "success": "Mensagem enviada! Respondo em breve.",
+    "errors": {
+      "nameMin": "Informe seu nome.",
+      "nameMax": "Nome muito longo.",
+      "email": "Informe um e-mail válido.",
+      "type": "Escolha um assunto.",
+      "messageMin": "Escreva pelo menos 10 caracteres.",
+      "messageMax": "Mensagem muito longa.",
+      "rateLimited": "Muitas mensagens seguidas. Tente de novo em alguns minutos.",
+      "generic": "Não foi possível enviar agora. Tente pelo WhatsApp ou e-mail."
+    },
+    "scheduleTitle": "Agende uma conversa",
+    "scheduleBody": "Escolha um horário direto na minha agenda.",
+    "scheduleLoad": "Ver horários disponíveis",
+    "otherTitle": "Outros canais",
+    "whatsapp": "WhatsApp"
+  },
+  "music": {
+    "title": "Música",
+    "intro": "Antes do código, veio a bateria. Toco há anos, dou aulas e sirvo no louvor da igreja. Ritmo, disciplina e trabalho em equipe — as mesmas coisas que levo para os projetos.",
+    "videos": "Vídeos",
+    "photos": "Fotos",
+    "videoTodo": "[TODO: vídeo do YouTube]",
+    "photoTodo": "[TODO: foto tocando]",
+    "play": "Reproduzir vídeo: {title}"
+  },
+  "cv": {
+    "title": "Currículo",
+    "print": "Imprimir / salvar PDF",
+    "download": "Baixar PDF",
+    "summary": "Desenvolvedor fullstack com sistemas em produção: SaaS multi-tenant com pagamentos e apps mobile, automação de processos (RPA, Python, PHP) e visão computacional. Atualmente desenvolvedor RPA no Sicredi.",
+    "experience": "Experiência",
+    "education": "Formação",
+    "skills": "Habilidades",
+    "projects": "Projetos em destaque"
+  },
+  "notFound": {
+    "title": "Deploy falhou",
+    "body": "A página que você procurou não existe — ou foi movida e alguém esqueceu de atualizar o link.",
+    "home": "Voltar ao início",
+    "projects": "Ver projetos",
+    "log": [
+      "$ deploy --page {path}",
+      "[build] resolving route…",
+      "[error] 404: route not found",
+      "[rollback] redirecting to a page that exists ✓"
+    ]
   }
 }

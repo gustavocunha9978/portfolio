@@ -29,7 +29,7 @@ export function MobileMenu({ children }: { children?: React.ReactNode }) {
         aria-controls={panelId}
         aria-label={open ? t("close") : t("menu")}
         onClick={() => setOpen((v) => !v)}
-        className="inline-flex size-9 items-center justify-center rounded-lg border border-line text-ink-1"
+        className="inline-flex size-11 items-center justify-center rounded-lg border border-line text-ink-1 sm:size-9"
       >
         {open ? (
           <X className="size-4" aria-hidden="true" />

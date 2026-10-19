@@ -14,7 +14,7 @@ export async function Header() {
   const cvHref = siteConfig.cv[locale];
 
   return (
-    <header className="sticky top-0 z-50 border-b border-line/70 bg-surface-0/80 backdrop-blur-md">
+    <header className="sticky top-0 z-50 border-b border-line/70 bg-surface-0/80 backdrop-blur-md print:hidden">
       <a
         href="#conteudo"
         className="sr-only focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-50 focus:rounded-md focus:bg-surface-1 focus:px-3 focus:py-2"

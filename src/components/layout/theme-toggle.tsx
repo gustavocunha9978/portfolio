@@ -25,7 +25,7 @@ export function ThemeToggle() {
       onClick={() => setTheme(isDark ? "light" : "dark")}
       aria-label={label}
       title={label}
-      className="inline-flex size-9 items-center justify-center rounded-lg border border-line text-ink-1 transition-colors hover:text-ink-0"
+      className="inline-flex size-11 items-center justify-center rounded-lg border border-line text-ink-1 transition-colors hover:text-ink-0 sm:size-9"
     >
       {isDark ? (
         <Sun className="size-4" aria-hidden="true" />
