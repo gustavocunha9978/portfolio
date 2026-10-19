@@ -1,0 +1,85 @@
+@import "tailwindcss";
+
+/* Dark mode por classe (next-themes), não por media query. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/*
+ * Tokens de marca. Nomes próprios (brand-*, accent-*, surface-*, ink-*) para nunca
+ * colidir com a paleta padrão do Tailwind (emerald, blue etc. continuam intactos).
+ */
+@theme {
+  --color-brand-300: #6ee7b7;
+  --color-brand-400: #34d399;
+  --color-brand-500: #10b981;
+  --color-brand-600: #059669;
+  --color-brand-700: #047857;
+
+  --color-accent-300: #7dd3fc;
+  --color-accent-400: #38bdf8;
+  --color-accent-500: #2563eb;
+  --color-accent-600: #1d4ed8;
+  --color-accent-700: #1e40af;
+
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, "SFMono-Regular", monospace;
+}
+
+/* Tokens semânticos que mudam com o tema. */
+:root {
+  --surface-0: #f7fafc;
+  --surface-1: #ffffff;
+  --surface-2: #edf2f7;
+  --line: #d6dee8;
+  --ink-0: #0b1220;
+  --ink-1: #334155;
+  --ink-2: #526077;
+}
+
+.dark {
+  --surface-0: #0b1220;
+  --surface-1: #101a2c;
+  --surface-2: #16233a;
+  --line: #22324d;
+  --ink-0: #e8eef7;
+  --ink-1: #b6c2d4;
+  --ink-2: #8796ad;
+}
+
+@theme inline {
+  --color-surface-0: var(--surface-0);
+  --color-surface-1: var(--surface-1);
+  --color-surface-2: var(--surface-2);
+  --color-line: var(--line);
+  --color-ink-0: var(--ink-0);
+  --color-ink-1: var(--ink-1);
+  --color-ink-2: var(--ink-2);
+}
+
+html {
+  color-scheme: light;
+}
+html.dark {
+  color-scheme: dark;
+}
+
+body {
+  background: var(--surface-0);
+  color: var(--ink-0);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent-400);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

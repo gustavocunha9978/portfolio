@@ -1,0 +1,23 @@
+{
+  "meta": {
+    "title": "Gustavo Cunha · Desenvolvedor Fullstack",
+    "description": "Desenvolvedor fullstack em Toledo-PR. Sistemas web e mobile em produção, automação com Python/RPA e dashboards de dados com Power BI."
+  },
+  "nav": {
+    "home": "Início",
+    "projects": "Projetos",
+    "about": "Sobre",
+    "experience": "Experiência",
+    "services": "Serviços",
+    "blog": "Blog",
+    "music": "Música",
+    "contact": "Contato",
+    "cv": "Baixar CV",
+    "skipToContent": "Pular para o conteúdo",
+    "language": "Idioma",
+    "theme": "Alternar tema"
+  },
+  "status": {
+    "available": "disponível para projetos"
+  }
+}

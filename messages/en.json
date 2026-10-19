@@ -1,0 +1,23 @@
+{
+  "meta": {
+    "title": "Gustavo Cunha · Fullstack Developer",
+    "description": "Fullstack developer based in Brazil. Web and mobile systems running in production, Python/RPA automation and Power BI data dashboards."
+  },
+  "nav": {
+    "home": "Home",
+    "projects": "Projects",
+    "about": "About",
+    "experience": "Experience",
+    "services": "Services",
+    "blog": "Blog",
+    "music": "Music",
+    "contact": "Contact",
+    "cv": "Download CV",
+    "skipToContent": "Skip to content",
+    "language": "Language",
+    "theme": "Toggle theme"
+  },
+  "status": {
+    "available": "open to work"
+  }
+}
