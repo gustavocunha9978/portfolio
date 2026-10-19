@@ -5,7 +5,6 @@ import { getProjects } from "@/lib/content/loader";
 import { whatsappUrl } from "@/lib/links";
 import { siteConfig } from "@/site.config";
 import { skillGroups } from "@/data/skills";
-import { testimonials } from "@/data/testimonials";
 import { WhatsappIcon } from "@/components/icons/brand";
 import { Reveal } from "@/components/motion/reveal";
 import { ProjectCard } from "@/components/projects/project-card";
@@ -15,9 +14,6 @@ import { Container, Section } from "@/components/ui/section";
 import { CountUp } from "./count-up";
 import { Hero, type HeroVariant } from "./hero";
 import { VisionDemo } from "./vision-demo";
-
-/** Placeholders (todo: true) só aparecem em desenvolvimento. */
-const showTodos = process.env.NODE_ENV !== "production";
 
 export async function HomeView({ variant }: { variant: HeroVariant }) {
   const locale = await getLocale();
@@ -35,10 +31,13 @@ export async function HomeView({ variant }: { variant: HeroVariant }) {
     { value: 194, label: t("metrics.tests") },
   ];
 
-  const productionStack = skillGroups.flatMap((g) =>
-    g.skills.filter((s) => s.level === "production").map((s) => s.name),
-  );
-  const testimonial = testimonials.find((x) => x.featured && (showTodos || !x.todo));
+  const productionStack = [
+    ...new Set(
+      skillGroups.flatMap((g) =>
+        g.skills.filter((s) => s.level === "production").map((s) => s.name),
+      ),
+    ),
+  ];
 
   return (
     <>
@@ -130,32 +129,6 @@ export async function HomeView({ variant }: { variant: HeroVariant }) {
             </Link>
           </Reveal>
         </Section>
-
-        {/* Depoimento em destaque */}
-        {testimonial && (
-          <Section id="depoimento" className="border-t border-line">
-            <Reveal>
-              <figure
-                className={
-                  testimonial.todo
-                    ? "rounded-2xl border border-dashed border-fg-warn/60 p-8"
-                    : "rounded-2xl border border-line bg-surface-1 p-8"
-                }
-              >
-                <p className="mb-4 font-mono text-xs tracking-wider text-ink-2 uppercase">
-                  {t("testimonial.title")}
-                </p>
-                <blockquote className="text-xl leading-relaxed text-balance">
-                  “{testimonial.quote[locale]}”
-                </blockquote>
-                <figcaption className="mt-5 text-sm text-ink-2">
-                  <span className="font-medium text-ink-0">{testimonial.author}</span> ·{" "}
-                  {testimonial.role[locale]}
-                </figcaption>
-              </figure>
-            </Reveal>
-          </Section>
-        )}
 
         {/* CTA */}
         <Section id="contato" className="border-t border-line">
