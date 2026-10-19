@@ -31,7 +31,7 @@ export const skillGroups: SkillGroup[] = [
       { name: "WebSockets (Socket.io)", level: "production" },
       { name: "Python", level: "production" },
       { name: "FastAPI", level: "production" },
-      { name: "PHP", level: "frequent" },
+      { name: "PHP", level: "production" },
       { name: "C# / .NET", level: "frequent" },
     ],
   },
@@ -87,6 +87,7 @@ export const skillGroups: SkillGroup[] = [
     skills: [
       { name: "Python (automação)", level: "production" },
       { name: "UiPath", level: "production" },
+      { name: "PHP", level: "production" },
       { name: "Selenium", level: "frequent" },
       { name: "Web Scraping", level: "frequent" },
     ],

@@ -24,27 +24,26 @@ export type ExperienceItem = {
 
 export const experience: ExperienceItem[] = [
   {
-    id: "automacao-atual",
+    id: "sicredi",
     kind: "work",
-    // Confidencial: não citar a empresa enquanto não houver autorização.
-    org: "[TODO: empresa atual ou 'Empresa do setor financeiro']",
-    role: { pt: "[TODO: cargo] · Automação / RPA", en: "[TODO: title] · Automation / RPA" },
+    org: "Sicredi",
+    role: { pt: "Desenvolvedor RPA", en: "RPA Developer" },
     start: "TODO",
     end: null,
+    // O case "migracao-rpa-python" é anônimo de propósito: não linkar este item a ele.
     achievements: {
       pt: [
-        "Migrei robôs UiPath (.xaml) para Python orientado a objetos, com DAOs, cliente de API e automação de sistema legado",
-        "Mantive comportamento idêntico ao robô original: zero perda de regra de negócio no processo de concessão de crédito",
-        "[TODO: resultado mensurável — ex.: tempo de execução, nº de processos migrados]",
+        "Desenvolvo e mantenho automações de processos em Python e PHP",
+        "Migro robôs UiPath (.xaml) para Python orientado a objetos, com DAOs, cliente de API e automação de sistema legado, preservando as regras de negócio",
+        "[TODO: resultado mensurável — ex.: nº de processos automatizados, horas economizadas]",
       ],
       en: [
-        "Migrated UiPath robots (.xaml) to object-oriented Python with DAOs, an API client and legacy-system automation",
-        "Kept behavior identical to the original robot — no business rule lost in a credit-approval process",
-        "[TODO: measurable result — e.g. runtime, number of processes migrated]",
+        "Build and maintain process automations in Python and PHP",
+        "Migrate UiPath robots (.xaml) to object-oriented Python with DAOs, an API client and legacy-system automation, preserving business rules",
+        "[TODO: measurable result — e.g. processes automated, hours saved]",
       ],
     },
-    stack: ["Python", "UiPath", "RPA", "SQL", "REST APIs"],
-    projectSlug: "migracao-rpa-python",
+    stack: ["Python", "PHP", "UiPath", "RPA", "SQL", "REST APIs"],
   },
   {
     id: "personal-manager",

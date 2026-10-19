@@ -24,6 +24,7 @@ const nodes: { id: string; label: string; x: number; y: number; group: Group }[]
   { id: "docker", label: "Docker", x: 196, y: 430, group: "infra" },
   { id: "prisma", label: "Prisma", x: 204, y: 150, group: "data" },
   { id: "rpa", label: "RPA", x: 380, y: 156, group: "ai" },
+  { id: "php", label: "PHP", x: 520, y: 400, group: "backend" },
 ];
 
 const center = { x: 290, y: 258 };
@@ -36,6 +37,8 @@ const edges: [string, string][] = [
   ["next", "rn"],
   ["py", "yolo"],
   ["py", "rpa"],
+  ["php", "rpa"],
+  ["php", "py"],
   ["pg", "bi"],
   ["docker", "yolo"],
   ["docker", "bi"],
