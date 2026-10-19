@@ -1,11 +1,12 @@
 @import "tailwindcss";
 
-/* Dark mode por classe (next-themes), não por media query. */
+/* Dark mode por classe (next-themes). Sem classe nenhuma (sem JS), o site já nasce escuro. */
 @custom-variant dark (&:where(.dark, .dark *));
+@custom-variant light (&:where(.light, .light *));
 
 /*
- * Tokens de marca. Nomes próprios (brand-*, accent-*, surface-*, ink-*) para nunca
- * colidir com a paleta padrão do Tailwind (emerald, blue etc. continuam intactos).
+ * Tokens de marca. Nomes próprios (brand-*, accent-*, surface-*, ink-*, fg-*) para nunca
+ * colidir com a paleta padrão do Tailwind — emerald, blue etc. continuam intactos.
  */
 @theme {
   --color-brand-300: #6ee7b7;
@@ -22,27 +23,75 @@
 
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, "SFMono-Regular", monospace;
+
+  --animate-pulse-dot: pulse-dot 2s ease-out infinite;
+  --animate-float: float 7s ease-in-out infinite;
+  --animate-grid-pan: grid-pan 24s linear infinite;
+
+  @keyframes pulse-dot {
+    0% {
+      box-shadow: 0 0 0 0 color-mix(in oklab, var(--fg-brand) 55%, transparent);
+    }
+    70%,
+    100% {
+      box-shadow: 0 0 0 8px transparent;
+    }
+  }
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-6px);
+    }
+  }
+  @keyframes grid-pan {
+    to {
+      background-position: 48px 48px;
+    }
+  }
 }
 
-/* Tokens semânticos que mudam com o tema. */
-:root {
-  --surface-0: #f7fafc;
-  --surface-1: #ffffff;
-  --surface-2: #edf2f7;
-  --line: #d6dee8;
-  --ink-0: #0b1220;
-  --ink-1: #334155;
-  --ink-2: #526077;
-}
-
+/*
+ * Tokens semânticos por tema. Todos os pares texto/fundo passam WCAG AA (≥ 4.5:1):
+ * no claro, o verde e o azul de texto são as variações escuras (700/600).
+ */
+:root,
 .dark {
   --surface-0: #0b1220;
   --surface-1: #101a2c;
   --surface-2: #16233a;
   --line: #22324d;
+  --line-strong: #2e4366;
   --ink-0: #e8eef7;
   --ink-1: #b6c2d4;
   --ink-2: #8796ad;
+  --fg-brand: #34d399;
+  --fg-accent: #38bdf8;
+  --fg-warn: #fbbf24;
+  --grad-from: #34d399;
+  --grad-to: #38bdf8;
+  --glow: color-mix(in oklab, #10b981 22%, transparent);
+  color-scheme: dark;
+}
+
+.light {
+  --surface-0: #f7fafc;
+  --surface-1: #ffffff;
+  --surface-2: #edf2f7;
+  --line: #d6dee8;
+  --line-strong: #b9c6d6;
+  --ink-0: #0b1220;
+  --ink-1: #334155;
+  --ink-2: #526077;
+  --fg-brand: #047857;
+  --fg-accent: #1d4ed8;
+  --fg-warn: #b45309;
+  --grad-from: #047857;
+  --grad-to: #1d4ed8;
+  --glow: color-mix(in oklab, #10b981 14%, transparent);
+  color-scheme: light;
 }
 
 @theme inline {
@@ -50,16 +99,13 @@
   --color-surface-1: var(--surface-1);
   --color-surface-2: var(--surface-2);
   --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
   --color-ink-0: var(--ink-0);
   --color-ink-1: var(--ink-1);
   --color-ink-2: var(--ink-2);
-}
-
-html {
-  color-scheme: light;
-}
-html.dark {
-  color-scheme: dark;
+  --color-fg-brand: var(--fg-brand);
+  --color-fg-accent: var(--fg-accent);
+  --color-fg-warn: var(--fg-warn);
 }
 
 body {
@@ -67,10 +113,38 @@ body {
   color: var(--ink-0);
 }
 
+::selection {
+  background: color-mix(in oklab, var(--fg-brand) 30%, transparent);
+}
+
 :focus-visible {
-  outline: 2px solid var(--color-accent-400);
+  outline: 2px solid var(--fg-accent);
   outline-offset: 3px;
   border-radius: 4px;
+}
+
+@utility text-gradient {
+  background: linear-gradient(90deg, var(--grad-from), var(--grad-to));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Borda com gradiente verde→azul (usada em elementos ativos/hover). */
+@utility border-gradient {
+  border: 1px solid transparent;
+  background:
+    linear-gradient(var(--surface-1), var(--surface-1)) padding-box,
+    linear-gradient(120deg, var(--grad-from), var(--grad-to)) border-box;
+}
+
+/* Malha sutil de fundo, que some nas bordas. */
+@utility bg-grid {
+  background-image:
+    linear-gradient(to right, var(--line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--line) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, black 30%, transparent 75%);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -81,5 +155,8 @@ body {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+  .motion-packet {
+    display: none;
   }
 }

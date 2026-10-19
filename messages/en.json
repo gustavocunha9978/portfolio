@@ -15,9 +15,111 @@
     "cv": "Download CV",
     "skipToContent": "Skip to content",
     "language": "Language",
-    "theme": "Toggle theme"
+    "theme": "Toggle theme",
+    "menu": "Menu",
+    "close": "Close menu",
+    "cta": "Let's talk",
+    "primary": "Main navigation"
   },
   "status": {
     "available": "open to work"
+  },
+  "home": {
+    "eyebrow": "toledo-pr · brazil",
+    "role": "Fullstack Developer · Automation · Data",
+    "value": "I build systems that run in production: SaaS with payments and mobile apps, automation that replaces manual work, and computer vision running on-premise with zero cloud cost.",
+    "paths": {
+      "label": "Where to start",
+      "recruiter": {
+        "title": "I'm a recruiter",
+        "desc": "Experience, stack and résumé"
+      },
+      "client": {
+        "title": "I need a system",
+        "desc": "Services, timelines and booking"
+      }
+    },
+    "metrics": {
+      "label": "By the numbers",
+      "users": "active users on a system of mine in production",
+      "production": "systems in production",
+      "cases": "documented case studies",
+      "tests": "automated tests in the largest project"
+    },
+    "featured": {
+      "title": "Featured projects",
+      "subtitle": "Problem, solution and result — what shipped and why.",
+      "all": "See all projects"
+    },
+    "vision": {
+      "kicker": "computer vision",
+      "title": "Counting people sounds easy. Not counting them twice doesn't.",
+      "body": "In a real project, YOLOv8 detects and ByteTrack follows each person across frames. A count only happens when the trajectory crosses the line — with a dead zone and cooldown so nobody is counted again.",
+      "cta": "Read the case study",
+      "counter": "entries",
+      "label": "Animated demo: detection boxes follow people crossing a counting line",
+      "exits": "exits",
+      "camera": "CAM-01 · entrance",
+      "deadZone": "dead zone"
+    },
+    "stack": {
+      "title": "Stack I use in production",
+      "more": "See all skills"
+    },
+    "testimonial": {
+      "title": "What people say"
+    },
+    "contact": {
+      "title": "Got a project or a role?",
+      "body": "Tell me the context. I reply within one business day.",
+      "schedule": "Book a call",
+      "whatsapp": "Message on WhatsApp",
+      "form": "Send a message"
+    },
+    "network": {
+      "label": "Diagram of connected technologies: backend, frontend, mobile, data, AI and infrastructure"
+    },
+    "console": {
+      "title": "status · production",
+      "label": "Illustrative panel showing system status and an event log",
+      "services": "services",
+      "log": "log",
+      "lines": [
+        "$ git push origin main",
+        "[ci] lint ✓  typecheck ✓  194 tests ✓",
+        "[deploy] personal-manager/api → railway ✓",
+        "[vision] track #42 crossed the line · entry +1",
+        "[rpa] credit process · rules 1:1 ✓",
+        "[web] maschio-soares → production ✓"
+      ]
+    }
+  },
+  "project": {
+    "status": {
+      "produção": "production",
+      "concluído": "completed",
+      "em andamento": "in progress"
+    },
+    "private": "Private code · available on request",
+    "privateShort": "private code",
+    "category": {
+      "fullstack": "Fullstack",
+      "mobile": "Mobile",
+      "ia-visao": "AI / Vision",
+      "automacao": "Automation",
+      "dados-bi": "Data / BI",
+      "web": "Web"
+    },
+    "readCase": "View case"
+  },
+  "footer": {
+    "tagline": "Systems that run in production.",
+    "built": "Built with Next.js",
+    "source": "source on GitHub",
+    "rights": "All rights reserved."
+  },
+  "theme": {
+    "light": "Light theme",
+    "dark": "Dark theme"
   }
 }

@@ -25,3 +25,6 @@ Thumbs.db
 
 # notas locais (inventário de repos, dados sensíveis)
 docs/_private/
+
+# scripts locais de screenshot
+*.tmp.mjs
