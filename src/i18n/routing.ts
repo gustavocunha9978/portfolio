@@ -17,8 +17,6 @@ export const routing = defineRouting({
     "/sobre": { pt: "/sobre", en: "/about" },
     "/experiencia": { pt: "/experiencia", en: "/experience" },
     "/servicos": { pt: "/servicos", en: "/services" },
-    "/blog": "/blog",
-    "/blog/[slug]": "/blog/[slug]",
     "/musica": { pt: "/musica", en: "/music" },
     "/contato": { pt: "/contato", en: "/contact" },
     "/cv": "/cv",

@@ -5,19 +5,14 @@ import matter from "gray-matter";
 import readingTime from "reading-time";
 import type { z } from "zod";
 import type { Locale } from "@/i18n/routing";
-import {
-  postFrontmatterSchema,
-  projectFrontmatterSchema,
-  type PostFrontmatter,
-  type ProjectFrontmatter,
-} from "./schema";
+import { projectFrontmatterSchema, type ProjectFrontmatter } from "./schema";
 
 const CONTENT_DIR = path.join(process.cwd(), "content");
 
 export type Entry<T> = { frontmatter: T; body: string; readingMinutes: number };
 
 async function readCollection<S extends z.ZodType>(
-  collection: "projects" | "blog",
+  collection: "projects",
   locale: Locale,
   schema: S,
 ): Promise<Entry<z.output<S>>[]> {
@@ -59,19 +54,4 @@ export async function getProjects(locale: Locale): Promise<Entry<ProjectFrontmat
 
 export async function getProject(locale: Locale, slug: string) {
   return (await getProjects(locale)).find((p) => p.frontmatter.slug === slug) ?? null;
-}
-
-/** Rascunhos só aparecem em desenvolvimento. */
-export async function getPosts(
-  locale: Locale,
-  { includeDrafts = process.env.NODE_ENV === "development" } = {},
-): Promise<Entry<PostFrontmatter>[]> {
-  const all = await readCollection("blog", locale, postFrontmatterSchema);
-  return all
-    .filter((p) => includeDrafts || p.frontmatter.status === "published")
-    .sort((a, b) => b.frontmatter.date.localeCompare(a.frontmatter.date));
-}
-
-export async function getPost(locale: Locale, slug: string, opts?: { includeDrafts?: boolean }) {
-  return (await getPosts(locale, opts)).find((p) => p.frontmatter.slug === slug) ?? null;
 }

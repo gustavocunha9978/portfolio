@@ -42,15 +42,3 @@ export const projectFrontmatterSchema = z
     path: ["repoUrl"],
   });
 export type ProjectFrontmatter = z.infer<typeof projectFrontmatterSchema>;
-
-/** Frontmatter de content/blog/{slug}.{locale}.mdx */
-export const postFrontmatterSchema = z.object({
-  title: z.string().min(1),
-  slug,
-  summary: z.string().min(1).max(280),
-  date: z.iso.date(),
-  tags: z.array(z.string().min(1)).default([]),
-  status: z.enum(["draft", "published"]).default("draft"),
-  cover: z.string().startsWith("/").optional(),
-});
-export type PostFrontmatter = z.infer<typeof postFrontmatterSchema>;
