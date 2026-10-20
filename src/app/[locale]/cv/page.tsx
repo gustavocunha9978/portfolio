@@ -39,7 +39,8 @@ export default async function CvPage({ params }: LocaleParams) {
   const t = await getTranslations({ locale, namespace: "cv" });
   const te = await getTranslations({ locale, namespace: "experience" });
   const home = await getTranslations({ locale, namespace: "home" });
-  const featured = (await getProjects(locale)).map((p) => p.frontmatter).filter((p) => p.featured);
+  const projects = (await getProjects(locale)).map((p) => p.frontmatter);
+  const featured = siteConfig.cvProjects.flatMap((slug) => projects.filter((p) => p.slug === slug));
   const experience = visibleExperience(locale);
   const skillGroups = await resolveSkills(locale);
   const jobs = experience.filter((e) => e.kind !== "education");
@@ -97,8 +98,7 @@ export default async function CvPage({ params }: LocaleParams) {
           ))}
         </CvSection>
 
-        {/* Projetos ficam no site: no PDF, o CV cabe em 2 páginas. */}
-        <CvSection title={t("projects")} className="print:hidden">
+        <CvSection title={t("projects")}>
           {featured.map((p) => (
             <div key={p.slug} className="break-inside-avoid">
               <h3 className="font-semibold">

@@ -45,6 +45,9 @@ export const siteConfig = {
   /** Badge de status no hero e no header. */
   availableForWork: true,
 
+  /** Projetos em destaque no CV (slugs de content/projects), na ordem em que aparecem. */
+  cvProjects: ["personal-manager", "previsao-atoleiros"],
+
   cv: {
     pt: "/cv/gustavo-cunha-cv-pt.pdf",
     en: "/cv/gustavo-cunha-cv-en.pdf",
