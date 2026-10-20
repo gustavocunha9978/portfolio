@@ -50,7 +50,7 @@ export const skillGroups: SkillGroup[] = [
       {
         name: "REST APIs",
         level: "production",
-        where: ["personal-manager", "submita", "migracao-rpa-python"],
+        where: ["benfatto", "personal-manager", "submita", "migracao-rpa-python"],
       },
       { name: "WebSockets (Socket.io)", level: "production", where: ["personal-manager"] },
       {
@@ -60,6 +60,7 @@ export const skillGroups: SkillGroup[] = [
       },
       { name: "FastAPI", level: "production", where: ["contagem-pessoas-igreja"] },
       { name: "PHP", level: "production", where: ["maschio-soares-advogados", "sicredi"] },
+      { name: "Laravel", level: "frequent" },
       { name: "C# / .NET", level: "frequent", confirm: true },
     ],
   },
@@ -111,7 +112,7 @@ export const skillGroups: SkillGroup[] = [
       {
         name: "SQL",
         level: "production",
-        where: ["migracao-rpa-python", "contagem-pessoas-igreja", "sicredi"],
+        where: ["benfatto", "migracao-rpa-python", "contagem-pessoas-igreja", "sicredi"],
       },
       { name: "Pandas", level: "frequent", where: ["previsao-atoleiros"] },
       {
@@ -171,6 +172,8 @@ export const skillGroups: SkillGroup[] = [
       { name: "Railway", level: "production", where: ["personal-manager"] },
       { name: "Cloudflare Tunnel", level: "production", where: ["contagem-pessoas-igreja"] },
       { name: "RabbitMQ", level: "frequent", where: ["biopark"] },
+      { name: "Docker Swarm", level: "frequent" },
+      { name: "Zabbix", level: "frequent" },
       { name: "MinIO / S3", level: "production", where: ["submita", "biopark"] },
     ],
   },
@@ -200,8 +203,8 @@ export const skillGroups: SkillGroup[] = [
         level: "production",
         where: ["orcamento-compartilhado", "broadcast"],
       },
-      { name: "MySQL", level: "frequent" },
-      { name: "Oracle / PL-SQL", level: "frequent" },
+      { name: "MySQL", level: "production", where: ["biopark"] },
+      { name: "Oracle / PL-SQL", level: "production", where: ["benfatto"] },
     ],
   },
 ];
