@@ -1186,6 +1186,80 @@ covers["dashboard-bi"] = () => {
   return svg(browser(x, y, w, h, "app.powerbi.com", slicers + kpis + lineCard + barCard + matrix));
 };
 
+covers["portfolio"] = () => {
+  // O próprio site (caderno quadriculado) + painel do CI com as verificações passando.
+  const x = 120;
+  const y = 110;
+  const w = 900;
+  const h = 640;
+  const grid = [];
+  for (let gx = x + 20; gx < x + w; gx += 26)
+    grid.push(line(gx, y + 44, gx, y + h, { stroke: C.s3, strokeWidth: 1 }));
+  for (let gy = y + 60; gy < y + h; gy += 26)
+    grid.push(line(x, gy, x + w, gy, { stroke: C.s3, strokeWidth: 1 }));
+  const site = [
+    ...grid,
+    rect(x + 50, y + 90, 210, 30, { rx: 4, fill: "none", stroke: C.green2, strokeWidth: 2 }),
+    sk(x + 66, y + 101, 170, 8, C.green2),
+    sk(x + 50, y + 160, 120, 10, C.blue),
+    sk(x + 50, y + 190, 470, 54, C.ink0),
+    sk(x + 50, y + 262, 300, 14, C.ink2),
+    sk(x + 50, y + 300, 520, 10, C.ink3),
+    sk(x + 50, y + 322, 480, 10, C.ink3),
+    rect(x + 50, y + 370, 250, 70, { rx: 6, fill: C.s1, stroke: C.ink0, strokeWidth: 2 }),
+    rect(x + 320, y + 370, 250, 70, { rx: 6, fill: C.s1, stroke: C.ink0, strokeWidth: 2 }),
+    sk(x + 70, y + 396, 140, 12, C.ink1),
+    sk(x + 340, y + 396, 160, 12, C.ink1),
+    circle(x + 740, y + 260, 30, { fill: "none", stroke: C.blue, strokeWidth: 2.5 }),
+    ...[
+      [620, 160],
+      [820, 150],
+      [860, 300],
+      [640, 380],
+      [800, 420],
+    ].map(([nx, ny]) =>
+      g(
+        [
+          line(x + 740, y + 260, x + nx, y + ny, {
+            stroke: C.ink3,
+            strokeWidth: 1.5,
+            strokeDasharray: "3 6",
+          }),
+          rect(x + nx - 34, y + ny - 12, 68, 24, { rx: 3, fill: C.s1, stroke: C.ink2 }),
+          sk(x + nx - 22, y + ny - 3, 44, 6, C.ink2),
+        ].join(""),
+      ),
+    ),
+  ].join("");
+  const ci = [
+    rect(1060, 230, 420, 440, { rx: 16, fill: "#14171C" }),
+    text(1090, 275, "CI · main", { size: 18, font: MONO, fill: "#9AA3AF" }),
+    ...[
+      "lint",
+      "typecheck",
+      "unit tests",
+      "build",
+      "no placeholders",
+      "playwright",
+      "a11y (axe)",
+    ].map((label, i) =>
+      g(
+        [
+          circle(1100, 322 + i * 46, 11, { fill: C.green }),
+          pathEl(`M1094 ${322 + i * 46} l4 4 l8 -8`, {
+            fill: "none",
+            stroke: "#fff",
+            strokeWidth: 2.5,
+            strokeLinecap: "round",
+          }),
+          text(1124, 328 + i * 46, label, { size: 17, font: MONO, fill: "#E5E7EB" }),
+        ].join(""),
+      ),
+    ),
+  ].join("");
+  return svg(browser(x, y, w, h, "gustavocunha · portfolio", site) + ci);
+};
+
 // ---------- saída ----------
 const root = path.resolve(
   path.dirname(new URL(import.meta.url).pathname.replace(/^\/(\w:)/, "$1")),
