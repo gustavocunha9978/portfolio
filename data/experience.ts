@@ -211,13 +211,11 @@ export const experience: ExperienceItem[] = [
       pt: [
         "Dei suporte técnico a usuários e mantive hardware e software",
         "Administrei redes, backups e sistemas, e monitorei a infraestrutura da empresa",
-        "Desenvolvi um sistema de controle de ativos de TI com estoque, movimentações e notificações automáticas",
         "Comecei como aprendiz no monitoramento de câmeras e operações de tráfego (jan 2021 – out 2022)",
       ],
       en: [
         "Provided user support and maintained hardware and software",
         "Ran networks, backups and systems, and monitored the company's infrastructure",
-        "Built an IT asset management system with inventory, movement tracking and automatic notifications",
         "Started as an apprentice monitoring cameras and traffic operations (Jan 2021 – Oct 2022)",
       ],
     },
