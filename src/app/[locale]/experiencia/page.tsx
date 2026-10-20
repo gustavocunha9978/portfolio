@@ -48,15 +48,12 @@ export async function generateMetadata({ params }: LocaleParams): Promise<Metada
 export default async function ExperiencePage({ params }: LocaleParams) {
   const locale = await resolveLocale(params);
   const t = await getTranslations({ locale, namespace: "experience" });
+  const tl = await getTranslations({ locale, namespace: "labels" });
   const nav = await getTranslations({ locale, namespace: "nav" });
 
   return (
     <>
-      <PageHeader
-        path={locale === "pt" ? "/experiencia" : "/experience"}
-        title={t("title")}
-        intro={t("intro")}
-      >
+      <PageHeader path={tl("experience")} title={t("title")} intro={t("intro")}>
         <div className="mt-8 flex flex-wrap gap-3">
           <a href={siteConfig.cv[locale]} download className={buttonClass("primary")}>
             <Download className="size-4" aria-hidden="true" />

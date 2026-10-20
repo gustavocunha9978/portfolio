@@ -44,7 +44,7 @@ export function Mermaid({ chart }: { chart: string }) {
           theme: "base",
           fontFamily: "var(--font-geist-mono), ui-monospace, monospace",
           themeVariables: { ...palette[theme], fontSize: "14px" },
-          flowchart: { curve: "basis", htmlLabels: false },
+          flowchart: { curve: "basis", htmlLabels: false, useMaxWidth: false },
         });
         const { svg } = await mermaid.render(`mmd-${id}-${theme}`, chart);
         if (!cancelled && ref.current) ref.current.innerHTML = svg;
@@ -67,7 +67,7 @@ export function Mermaid({ chart }: { chart: string }) {
           ref={ref}
           role="img"
           aria-label={t("diagram")}
-          className="flex min-h-48 justify-center [&_svg]:h-auto [&_svg]:max-w-full"
+          className="flex min-h-48 justify-start lg:justify-center [&_svg]:h-auto [&_svg]:max-w-none"
         />
       )}
     </figure>

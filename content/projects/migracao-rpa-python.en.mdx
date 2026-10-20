@@ -37,7 +37,7 @@ The core requirement: **no business rule lost**. Every decision in the `.xaml` â
 exception handling â€” was mapped and reproduced, and behavior was compared against the original robot.
 
 ```mermaid
-flowchart LR
+flowchart TD
   X[UiPath .xaml workflows] -- rule mapping --> M[Rule matrix]
   M --> O[Python orchestrator]
   O --> D[DAOs]

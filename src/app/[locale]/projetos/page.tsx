@@ -16,6 +16,7 @@ export async function generateMetadata({ params }: LocaleParams): Promise<Metada
 export default async function ProjectsPage({ params }: LocaleParams) {
   const locale = await resolveLocale(params);
   const t = await getTranslations({ locale, namespace: "projects" });
+  const tl = await getTranslations({ locale, namespace: "labels" });
   const projects = (await getProjects(locale)).map((p) => p.frontmatter);
   const cards = Object.fromEntries(
     projects.map((p, i) => [
@@ -26,11 +27,7 @@ export default async function ProjectsPage({ params }: LocaleParams) {
 
   return (
     <>
-      <PageHeader
-        path={locale === "pt" ? "/projetos" : "/projects"}
-        title={t("title")}
-        intro={t("intro")}
-      />
+      <PageHeader path={tl("projects")} title={t("title")} intro={t("intro")} />
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16">
         <ProjectsExplorer projects={projects} cards={cards} />
       </div>

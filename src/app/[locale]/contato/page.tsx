@@ -19,6 +19,7 @@ export async function generateMetadata({ params }: LocaleParams): Promise<Metada
 export default async function ContactPage({ params }: LocaleParams) {
   const locale = await resolveLocale(params);
   const t = await getTranslations({ locale, namespace: "contact" });
+  const tl = await getTranslations({ locale, namespace: "labels" });
 
   const channels = [
     {
@@ -49,11 +50,7 @@ export default async function ContactPage({ params }: LocaleParams) {
 
   return (
     <>
-      <PageHeader
-        path={locale === "pt" ? "/contato" : "/contact"}
-        title={t("title")}
-        intro={t("intro")}
-      />
+      <PageHeader path={tl("contact")} title={t("title")} intro={t("intro")} />
 
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 sm:py-20 lg:grid-cols-[1.4fr_1fr]">
         <section

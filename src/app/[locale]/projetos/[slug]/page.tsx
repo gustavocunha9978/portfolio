@@ -75,7 +75,6 @@ export default async function CasePage({ params }: Props) {
       />
 
       <header className="relative isolate overflow-hidden border-b border-line">
-        <div className="absolute inset-0 -z-10 bg-grid opacity-40" aria-hidden="true" />
         <div className="mx-auto max-w-6xl px-4 pt-10 pb-12 sm:px-6 sm:pt-14">
           <Link
             href="/projetos"
@@ -93,22 +92,19 @@ export default async function CasePage({ params }: Props) {
               {t("readTime", { minutes: project.readingMinutes })}
             </span>
           </div>
-          <h1 className="mt-4 max-w-4xl text-3xl font-semibold tracking-tight text-balance sm:text-5xl">
+          <h1 className="mt-6 max-w-4xl text-4xl font-medium tracking-[-0.045em] text-balance sm:text-6xl">
             {fm.title}
           </h1>
           <p className="mt-5 max-w-3xl text-lg leading-relaxed text-pretty text-ink-1">
             {fm.summary}
           </p>
           {fm.metrics.length > 0 && (
-            <ul className="mt-8 flex flex-wrap gap-3">
+            <ul className="mt-10 grid border-t border-line sm:grid-cols-2 lg:grid-cols-4">
               {fm.metrics.map((m) => (
                 <li
                   key={m}
-                  className="rounded-lg border border-line bg-surface-1 px-3 py-2 font-mono text-sm"
+                  className="border-b border-line py-3 pr-4 font-display text-lg tracking-[-0.01em] lg:border-r lg:border-b-0 lg:px-4 lg:first:pl-0 lg:last:border-r-0"
                 >
-                  <span className="text-fg-brand" aria-hidden="true">
-                    ▲{" "}
-                  </span>
                   {m}
                 </li>
               ))}

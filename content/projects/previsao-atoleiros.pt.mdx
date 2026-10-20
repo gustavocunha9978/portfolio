@@ -44,7 +44,7 @@ Um modelo que cruza **como a estrada é** com **quanto vai chover**:
   com execução em _thread_ separada para não travar a tela
 
 ```mermaid
-flowchart LR
+flowchart TD
   U[Lat · Lon · Data] --> SAT[Google Static Maps]
   U --> W[OpenWeather]
   SAT --> CNN[CNN · TensorFlow]

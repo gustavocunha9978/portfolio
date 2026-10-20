@@ -18,12 +18,13 @@ export async function generateMetadata({ params }: LocaleParams): Promise<Metada
 export default async function AboutPage({ params }: LocaleParams) {
   const locale = await resolveLocale(params);
   const t = await getTranslations({ locale, namespace: "about" });
+  const tl = await getTranslations({ locale, namespace: "labels" });
   const story = t.raw("story") as string[];
   const how = t.raw("how") as { title: string; body: string }[];
 
   return (
     <>
-      <PageHeader path={locale === "pt" ? "/sobre" : "/about"} title={t("title")} />
+      <PageHeader path={tl("about")} title={t("title")} />
 
       <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-20">
         <div className="grid gap-12 lg:grid-cols-[320px_1fr]">

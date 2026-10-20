@@ -37,7 +37,7 @@ O requisito central: **zero perda de regra de negócio**. Cada decisão do `.xam
 tratamento de exceção — foi mapeada e reproduzida, e o comportamento comparado com o do robô original.
 
 ```mermaid
-flowchart LR
+flowchart TD
   X[Fluxos UiPath .xaml] -- mapeamento --> M[Matriz de regras]
   M --> O[Orquestrador Python]
   O --> D[DAOs]

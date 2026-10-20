@@ -48,7 +48,7 @@ Everything runs **on-premise**, on a computer at the church, as a `systemd` serv
 building and no monthly cloud bill.
 
 ```mermaid
-flowchart LR
+flowchart TD
   CAM[Camera] --> DET[YOLOv8n · detection]
   DET --> TRK[ByteTrack · tracking]
   TRK --> RULES[Counting rules]

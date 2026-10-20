@@ -17,15 +17,12 @@ export async function generateMetadata({ params }: LocaleParams): Promise<Metada
 export default async function MusicPage({ params }: LocaleParams) {
   const locale = await resolveLocale(params);
   const t = await getTranslations({ locale, namespace: "music" });
+  const tl = await getTranslations({ locale, namespace: "labels" });
   const showTodos = process.env.NODE_ENV !== "production";
 
   return (
     <>
-      <PageHeader
-        path={locale === "pt" ? "/musica" : "/music"}
-        title={t("title")}
-        intro={t("intro")}
-      >
+      <PageHeader path={tl("music")} title={t("title")} intro={t("intro")}>
         <ul className="mt-8 flex flex-wrap gap-2">
           {music.roles[locale].map((role) => (
             <li

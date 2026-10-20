@@ -44,7 +44,7 @@ A model that combines **what the road looks like** with **how much it will rain*
   inference on a separate thread so the UI never freezes
 
 ```mermaid
-flowchart LR
+flowchart TD
   U[Lat · Lon · Date] --> SAT[Google Static Maps]
   U --> W[OpenWeather]
   SAT --> CNN[CNN · TensorFlow]
