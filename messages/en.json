@@ -25,7 +25,7 @@
   },
   "home": {
     "role": "Fullstack Developer · Automation · Data",
-    "value": "I live in Toledo, in southern Brazil. By day I automate processes at Sicredi with Python and PHP. The rest of the time I <em>build systems</em> for gyms, law firms and churches, and some of them are already in production.",
+    "value": "I live in Toledo, in southern Brazil. By day I automate processes {employerAt} with Python and PHP. The rest of the time I <em>build systems</em> for gyms, law firms and churches, and some of them are already in production.",
     "paths": {
       "label": "Where to start",
       "recruiter": {
@@ -88,7 +88,7 @@
       "base": "Based in",
       "baseValue": "Toledo, PR, Brazil",
       "now": "Currently",
-      "nowValue": "RPA Developer at Sicredi",
+      "nowValue": "RPA Developer {employerAt}",
       "lang": "Languages",
       "langValue": "Portuguese · English"
     },
@@ -234,7 +234,7 @@
     "photoAlt": "Photo of Gustavo Cunha",
     "story": [
       "I'm a fullstack developer from Toledo, in western Paraná, Brazil, with a degree in Science and Technology. I like taking a concrete problem, from a gym, a law firm or my church, and turning it into a system people use every day.",
-      "Today I work as an RPA developer at Sicredi, automating processes with Python and PHP. On the side I run Personal Manager, a gym SaaS that's in production, and I build websites and computer vision projects.",
+      "Today I work as an RPA developer {employerAt}, automating processes with Python and PHP. On the side I run Personal Manager, a gym SaaS that's in production, and I build websites and computer vision projects.",
       "When I'm not coding, I'm behind a drum kit: I play at church and teach lessons. My faith and my family come before all of it, and they're the reason I take the work seriously."
     ],
     "howTitle": "How I work",
@@ -304,7 +304,7 @@
     "title": "Résumé",
     "print": "Print / save as PDF",
     "download": "Download PDF",
-    "summary": "Fullstack developer with systems in production: a multi-tenant SaaS with payments and mobile apps, process automation (RPA, Python, PHP) and computer vision. Currently an RPA developer at Sicredi.",
+    "summary": "Fullstack developer with systems in production: a multi-tenant SaaS with payments and mobile apps, process automation (RPA, Python, PHP) and computer vision. Currently an RPA developer {employerAt}.",
     "experience": "Experience",
     "education": "Education",
     "skills": "Skills",

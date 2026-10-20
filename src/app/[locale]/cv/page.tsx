@@ -4,6 +4,7 @@ import { getTranslations } from "next-intl/server";
 import { resolveLocale, type LocaleParams } from "@/i18n/server";
 import { getProjects } from "@/lib/content/loader";
 import { cvHref } from "@/lib/cv";
+import { employerAt } from "@/lib/employer";
 import { formatPeriod } from "@/lib/format";
 import { hasEmail } from "@/lib/links";
 import { pageMetadata } from "@/lib/metadata";
@@ -17,7 +18,12 @@ import { Todo } from "@/components/ui/todo";
 export async function generateMetadata({ params }: LocaleParams): Promise<Metadata> {
   const locale = await resolveLocale(params);
   const t = await getTranslations({ locale, namespace: "cv" });
-  return pageMetadata({ locale, href: "/cv", title: t("title"), description: t("summary") });
+  return pageMetadata({
+    locale,
+    href: "/cv",
+    title: t("title"),
+    description: t("summary", { employerAt: employerAt(locale) }),
+  });
 }
 
 /** Currículo imprimível. Mesma fonte de dados de /experiencia: data/experience.ts e data/skills.ts. */
@@ -27,7 +33,7 @@ export default async function CvPage({ params }: LocaleParams) {
   const te = await getTranslations({ locale, namespace: "experience" });
   const home = await getTranslations({ locale, namespace: "home" });
   const featured = (await getProjects(locale)).map((p) => p.frontmatter).filter((p) => p.featured);
-  const experience = visibleExperience();
+  const experience = visibleExperience(locale);
   const jobs = experience.filter((e) => e.kind !== "education");
   const education = experience.filter((e) => e.kind === "education");
 
@@ -52,7 +58,9 @@ export default async function CvPage({ params }: LocaleParams) {
             {siteConfig.social.linkedin.replace("https://www.", "")} ·{" "}
             {siteConfig.social.github.replace("https://", "")}
           </p>
-          <p className="mt-4 text-sm leading-relaxed text-ink-1">{t("summary")}</p>
+          <p className="mt-4 text-sm leading-relaxed text-ink-1">
+            {t("summary", { employerAt: employerAt(locale) })}
+          </p>
         </header>
 
         <CvSection title={t("experience")}>

@@ -62,7 +62,7 @@ describe("remarkTodo", () => {
 });
 
 describe("visibleExperience (produção)", () => {
-  const items = visibleExperience(false);
+  const items = visibleExperience("pt", false);
 
   it("nenhum texto TODO sobra", () => {
     expect(JSON.stringify(items)).not.toMatch(/TODO/);

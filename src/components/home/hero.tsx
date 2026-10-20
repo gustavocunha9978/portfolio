@@ -1,6 +1,7 @@
 import { ArrowRight } from "lucide-react";
-import { getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
+import { employerAt } from "@/lib/employer";
 import { siteConfig } from "@/site.config";
 import { Circled, HandArrow, Note } from "@/components/sketch/sketch";
 import { StatusBadge } from "@/components/ui/status-badge";
@@ -11,6 +12,7 @@ type Metric = { value: number; suffix?: string; label: string };
 
 export async function Hero({ metrics }: { metrics: Metric[] }) {
   const t = await getTranslations("home");
+  const locale = await getLocale();
 
   const paths = [
     {
@@ -37,6 +39,7 @@ export async function Hero({ metrics }: { metrics: Metric[] }) {
           <p className="mt-5 text-lg font-medium text-ink-1 sm:text-xl">{t("role")}</p>
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-pretty text-ink-1">
             {t.rich("value", {
+              employerAt: employerAt(locale),
               em: (chunks) => <mark className="bg-transparent mark text-ink-0">{chunks}</mark>,
             })}
           </p>

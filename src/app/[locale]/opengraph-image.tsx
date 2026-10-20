@@ -1,5 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import { isLocale, routing } from "@/i18n/routing";
+import { employerAt } from "@/lib/employer";
 import { ogSize, renderOg } from "@/lib/og";
 
 export const size = ogSize;
@@ -19,7 +20,7 @@ export default async function Image({ params }: { params: Promise<{ locale: stri
   return renderOg({
     kicker: t("available"),
     title: t("role"),
-    subtitle: t.markup("value", { em: (chunks) => chunks }),
+    subtitle: t.markup("value", { em: (chunks) => chunks, employerAt: employerAt(locale) }),
     meta: "Node.js · React · TypeScript · Python · PHP · PostgreSQL · Power BI · RPA",
   });
 }

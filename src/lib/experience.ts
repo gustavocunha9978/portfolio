@@ -1,4 +1,7 @@
 import { experience, type ExperienceItem } from "@/data/experience";
+import type { Locale } from "@/i18n/routing";
+import { siteConfig } from "@/site.config";
+import { employerName } from "./employer";
 import { isTodo, keepAll, SHOW_TODOS } from "./todo";
 
 /**
@@ -6,9 +9,13 @@ import { isTodo, keepAll, SHOW_TODOS } from "./todo";
  * Com TODOs ocultos (produção): item sem cargo e sem data some; campos e
  * conquistas ainda em TODO ficam vazios em vez de aparecer como placeholder.
  */
-export function visibleExperience(show = SHOW_TODOS): ExperienceItem[] {
-  if (show) return experience;
-  return experience
+export function visibleExperience(locale: Locale, show = SHOW_TODOS): ExperienceItem[] {
+  // Empresa atual pode ser anonimizada por siteConfig.employer.showEmployerName.
+  const items = experience.map((item) =>
+    item.org === siteConfig.employer.name ? { ...item, org: employerName(locale) } : item,
+  );
+  if (show) return items;
+  return items
     .filter((item) => !(isTodo(item.role.pt) && isTodo(item.start)))
     .map((item) => ({
       ...item,

@@ -72,7 +72,7 @@ export default async function ExperiencePage({ params }: LocaleParams) {
 
       <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-20">
         <ol className="relative ml-4 border-l border-line sm:ml-5">
-          {visibleExperience().map((item) => {
+          {visibleExperience(locale).map((item) => {
             const Icon = kindIcon[item.kind];
             const period = formatPeriod(item.start, item.end, locale, t("present"));
             return (

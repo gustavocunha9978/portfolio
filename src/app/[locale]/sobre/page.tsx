@@ -6,6 +6,7 @@ import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { resolveLocale, type LocaleParams } from "@/i18n/server";
+import { withEmployer } from "@/lib/employer";
 import { pageMetadata } from "@/lib/metadata";
 import { siteConfig } from "@/site.config";
 import { GithubIcon, LinkedinIcon } from "@/components/icons/brand";
@@ -14,7 +15,7 @@ import { PageHeader } from "@/components/ui/page-header";
 export async function generateMetadata({ params }: LocaleParams): Promise<Metadata> {
   const locale = await resolveLocale(params);
   const t = await getTranslations({ locale, namespace: "about" });
-  const story = t.raw("story") as string[];
+  const story = (t.raw("story") as string[]).map((s) => withEmployer(s, locale));
   return pageMetadata({ locale, href: "/sobre", title: t("title"), description: story[0] });
 }
 
@@ -27,7 +28,7 @@ export default async function AboutPage({ params }: LocaleParams) {
   const locale = await resolveLocale(params);
   const t = await getTranslations({ locale, namespace: "about" });
   const tl = await getTranslations({ locale, namespace: "labels" });
-  const story = t.raw("story") as string[];
+  const story = (t.raw("story") as string[]).map((s) => withEmployer(s, locale));
   const how = t.raw("how") as { title: string; body: string }[];
 
   return (

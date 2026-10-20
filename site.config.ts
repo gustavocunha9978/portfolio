@@ -21,6 +21,12 @@ export const siteConfig = {
   },
   repoUrl: "https://github.com/gustavocunha9978/portfolio",
 
+  /** Empresa atual. Com showEmployerName = false, o site troca o nome por "instituição financeira". */
+  employer: {
+    name: "Sicredi",
+    showEmployerName: true,
+  },
+
   /** Badge de status no hero e no header. */
   availableForWork: true,
 
