@@ -33,7 +33,8 @@ export function pageMetadata({
   const canonical = localizedPath(href, locale);
 
   return {
-    title,
+    // Sem título explícito, herda o padrão do layout (definir `title: undefined` apagaria o <title>).
+    ...(title ? { title } : {}),
     description,
     alternates: {
       canonical,
@@ -46,6 +47,15 @@ export function pageMetadata({
       url: canonical,
       title: title ?? siteConfig.name,
       description,
+      // O bloco openGraph da página substitui o do layout; sem isto a imagem padrão se perderia.
+      // Páginas com opengraph-image próprio (os cases) têm prioridade sobre este valor.
+      images: [{ url: `/${locale}/opengraph-image`, width: 1200, height: 630 }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: title ?? siteConfig.name,
+      description,
+      images: [`/${locale}/opengraph-image`],
     },
     robots: noIndex ? { index: false, follow: true } : undefined,
   };
