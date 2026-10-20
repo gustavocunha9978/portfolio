@@ -295,12 +295,13 @@
   },
   "music": {
     "title": "Music",
-    "intro": "Drums came before code. I play on my church's worship team and teach drum lessons. Here are a few videos and photos.",
+    "intro": "Drums came before code. I play on my church's worship team and teach drum lessons.",
     "videos": "Videos",
     "photos": "Photos",
     "videoTodo": "[TODO: YouTube video]",
     "photoTodo": "[TODO: photo playing]",
-    "play": "Play video: {title}"
+    "play": "Play video: {title}",
+    "introMedia": "Here are a few videos and photos."
   },
   "cv": {
     "title": "Résumé",

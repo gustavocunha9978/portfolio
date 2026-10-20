@@ -23,7 +23,16 @@ export default async function MusicPage({ params }: LocaleParams) {
 
   return (
     <>
-      <PageHeader path={tl("music")} title={t("title")} intro={t("intro")}>
+      <PageHeader
+        path={tl("music")}
+        title={t("title")}
+        intro={
+          // Só promete vídeos e fotos quando eles existem.
+          music.videos.length > 0 || music.photos.length > 0
+            ? `${t("intro")} ${t("introMedia")}`
+            : t("intro")
+        }
+      >
         <ul className="mt-8 flex flex-wrap gap-2">
           {music.roles[locale].map((role) => (
             <li

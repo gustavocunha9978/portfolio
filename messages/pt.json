@@ -295,12 +295,13 @@
   },
   "music": {
     "title": "Música",
-    "intro": "Antes do código veio a bateria. Toco no louvor da igreja e dou aula de bateria. Aqui ficam alguns vídeos e fotos.",
+    "intro": "Antes do código veio a bateria. Toco no louvor da igreja e dou aula de bateria.",
     "videos": "Vídeos",
     "photos": "Fotos",
     "videoTodo": "[TODO: vídeo do YouTube]",
     "photoTodo": "[TODO: foto tocando]",
-    "play": "Reproduzir vídeo: {title}"
+    "play": "Reproduzir vídeo: {title}",
+    "introMedia": "Aqui ficam alguns vídeos e fotos."
   },
   "cv": {
     "title": "Currículo",
