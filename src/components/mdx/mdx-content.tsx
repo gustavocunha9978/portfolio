@@ -2,6 +2,8 @@ import { compileMDX } from "next-mdx-remote/rsc";
 import rehypeSlug from "rehype-slug";
 import remarkGfm from "remark-gfm";
 import { remarkMermaid } from "@/lib/mdx/remark-mermaid";
+import { remarkTodo } from "@/lib/mdx/remark-todo";
+import { SHOW_TODOS } from "@/lib/todo";
 import { Mermaid } from "./mermaid";
 
 const components = {
@@ -19,7 +21,7 @@ export async function MdxContent({ source }: { source: string }) {
     components,
     options: {
       mdxOptions: {
-        remarkPlugins: [remarkGfm, remarkMermaid],
+        remarkPlugins: [remarkGfm, remarkMermaid, [remarkTodo, { show: SHOW_TODOS }]],
         rehypePlugins: [rehypeSlug],
       },
     },

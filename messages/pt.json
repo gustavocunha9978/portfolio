@@ -25,7 +25,7 @@
   },
   "home": {
     "role": "Desenvolvedor Fullstack · Automação · Dados",
-    "value": "Moro em Toledo, no Paraná. De dia automatizo processos no Sicredi com Python e PHP. No resto do tempo <em>construo sistemas</em> para academias, escritórios e igrejas, e alguns já estão em produção.",
+    "value": "Moro em Toledo, no Paraná. De dia automatizo processos {employerAt} com Python e PHP. No resto do tempo <em>construo sistemas</em> para academias, escritórios e igrejas, e alguns já estão em produção.",
     "paths": {
       "label": "Por onde começar",
       "recruiter": {
@@ -88,7 +88,7 @@
       "base": "Base",
       "baseValue": "Toledo, PR, Brasil",
       "now": "Atualmente",
-      "nowValue": "Desenvolvedor RPA no Sicredi",
+      "nowValue": "Desenvolvedor RPA {employerAt}",
       "lang": "Idiomas",
       "langValue": "Português · Inglês"
     },
@@ -166,8 +166,10 @@
     },
     "seeCase": "Ver case",
     "skillsTitle": "Habilidades",
-    "skillsIntro": "Sem barra de porcentagem: só o quanto eu realmente uso cada coisa.",
-    "printable": "Versão para impressão"
+    "skillsIntro": "Sem barra de porcentagem: só o quanto eu realmente uso cada coisa. Clique numa habilidade para ver onde usei.",
+    "printable": "Versão para impressão",
+    "whereUsed": "Onde usei",
+    "toConfirm": "a confirmar"
   },
   "services": {
     "title": "Serviços",
@@ -232,10 +234,9 @@
   "about": {
     "title": "Sobre",
     "photoAlt": "Foto de Gustavo Cunha",
-    "photoTodo": "[TODO: foto de perfil]",
     "story": [
       "Sou desenvolvedor fullstack, moro em Toledo, no oeste do Paraná, e me formei em Ciência e Tecnologia. Gosto de pegar um problema concreto, de uma academia, de um escritório ou da igreja, e transformar num sistema que as pessoas usam no dia a dia.",
-      "Hoje trabalho como desenvolvedor RPA no Sicredi, automatizando processos com Python e PHP. Por fora, cuido do Personal Manager, um SaaS para academias que está em produção, e faço sites e projetos de visão computacional.",
+      "Hoje trabalho como desenvolvedor RPA {employerAt}, automatizando processos com Python e PHP. Por fora, cuido do Personal Manager, um SaaS para academias que está em produção, e faço sites e projetos de visão computacional.",
       "Quando não estou programando, estou na bateria: toco na igreja e dou aula. Minha fé e minha família vêm antes de tudo isso, e é por elas que eu levo o trabalho a sério."
     ],
     "howTitle": "Como eu trabalho",
@@ -305,7 +306,7 @@
     "title": "Currículo",
     "print": "Imprimir / salvar PDF",
     "download": "Baixar PDF",
-    "summary": "Desenvolvedor fullstack com sistemas em produção: SaaS multi-tenant com pagamentos e apps mobile, automação de processos (RPA, Python, PHP) e visão computacional. Atualmente desenvolvedor RPA no Sicredi.",
+    "summary": "Desenvolvedor fullstack com sistemas em produção: SaaS multi-tenant com pagamentos e apps mobile, automação de processos (RPA, Python, PHP) e visão computacional. Atualmente desenvolvedor RPA {employerAt}.",
     "experience": "Experiência",
     "education": "Formação",
     "skills": "Habilidades",

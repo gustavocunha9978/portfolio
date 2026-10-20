@@ -11,13 +11,16 @@ import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { resolveLocale, type LocaleParams } from "@/i18n/server";
+import { cvHref } from "@/lib/cv";
 import { formatPeriod } from "@/lib/format";
+import { resolveSkills } from "@/lib/skills";
 import { pageMetadata } from "@/lib/metadata";
-import { siteConfig } from "@/site.config";
-import { experience, type ExperienceKind } from "@/data/experience";
-import { skillGroups, skillLevelLabel, type SkillLevel } from "@/data/skills";
+import type { ExperienceKind } from "@/data/experience";
+import { visibleExperience } from "@/lib/experience";
+import { skillLevelLabel, type SkillLevel } from "@/data/skills";
 import { buttonClass } from "@/components/ui/button";
 import { Chip } from "@/components/ui/chip";
+import { Todo } from "@/components/ui/todo";
 import { PageHeader } from "@/components/ui/page-header";
 import { cn } from "@/lib/cn";
 
@@ -50,15 +53,18 @@ export default async function ExperiencePage({ params }: LocaleParams) {
   const t = await getTranslations({ locale, namespace: "experience" });
   const tl = await getTranslations({ locale, namespace: "labels" });
   const nav = await getTranslations({ locale, namespace: "nav" });
+  const skillGroups = await resolveSkills(locale);
 
   return (
     <>
       <PageHeader path={tl("experience")} title={t("title")} intro={t("intro")}>
         <div className="mt-8 flex flex-wrap gap-3">
-          <a href={siteConfig.cv[locale]} download className={buttonClass("primary")}>
-            <Download className="size-4" aria-hidden="true" />
-            {nav("cv")}
-          </a>
+          {cvHref(locale) && (
+            <a href={cvHref(locale)!} download className={buttonClass("primary")}>
+              <Download className="size-4" aria-hidden="true" />
+              {nav("cv")}
+            </a>
+          )}
           <Link href="/cv" className={buttonClass("secondary")}>
             <Printer className="size-4" aria-hidden="true" />
             {t("printable")}
@@ -68,10 +74,15 @@ export default async function ExperiencePage({ params }: LocaleParams) {
 
       <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-20">
         <ol className="relative ml-4 border-l border-line sm:ml-5">
-          {experience.map((item) => {
+          {visibleExperience(locale).map((item) => {
             const Icon = kindIcon[item.kind];
+            const period = formatPeriod(item.start, item.end, locale, t("present"));
             return (
-              <li key={item.id} className="relative pb-12 pl-8 last:pb-0 sm:pl-12">
+              <li
+                key={item.id}
+                id={item.id}
+                className="relative scroll-mt-24 pb-12 pl-8 last:pb-0 sm:pl-12"
+              >
                 <span
                   className={cn(
                     "absolute top-0 -left-4 grid size-8 place-items-center rounded-full border bg-surface-0 sm:-left-5 sm:size-10",
@@ -85,13 +96,22 @@ export default async function ExperiencePage({ params }: LocaleParams) {
                 </span>
 
                 <div className="flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-xs text-ink-2">
-                  <span>{formatPeriod(item.start, item.end, locale, t("present"))}</span>
-                  <span aria-hidden="true">·</span>
+                  {period && (
+                    <>
+                      <span>
+                        <Todo>{period}</Todo>
+                      </span>
+                      <span aria-hidden="true">·</span>
+                    </>
+                  )}
                   <span>{t(`kind.${item.kind}`)}</span>
                 </div>
                 <h2 className="mt-2 text-xl font-semibold tracking-tight">
-                  {item.role[locale]} <span className="text-ink-2">·</span>{" "}
-                  <span className="text-gradient">{item.org}</span>
+                  <Todo>{item.role[locale]}</Todo>
+                  {item.role[locale] && item.org && <span className="text-ink-2"> · </span>}
+                  <span className="text-gradient">
+                    <Todo>{item.org}</Todo>
+                  </span>
                 </h2>
 
                 <ul className="mt-4 max-w-3xl space-y-2 text-ink-1">
@@ -100,7 +120,7 @@ export default async function ExperiencePage({ params }: LocaleParams) {
                       <span className="absolute left-0 font-mono text-fg-brand" aria-hidden="true">
                         ›
                       </span>
-                      {a}
+                      <Todo>{a}</Todo>
                     </li>
                   ))}
                 </ul>
@@ -108,7 +128,9 @@ export default async function ExperiencePage({ params }: LocaleParams) {
                 <ul className="mt-4 flex flex-wrap gap-1.5">
                   {item.stack.map((s) => (
                     <li key={s}>
-                      <Chip>{s}</Chip>
+                      <Chip>
+                        <Todo>{s}</Todo>
+                      </Chip>
                     </li>
                   ))}
                 </ul>
@@ -158,22 +180,48 @@ export default async function ExperiencePage({ params }: LocaleParams) {
               >
                 <h3 className="font-medium">{group.title[locale]}</h3>
                 <ul className="mt-4 flex flex-wrap gap-1.5">
-                  {group.skills.map((s) => (
-                    <li
-                      key={s.name}
-                      className={cn(
-                        "inline-flex items-center gap-1.5 rounded-md border px-2 py-1 font-mono text-[0.72rem]",
-                        levelStyle[s.level],
-                      )}
-                    >
-                      <span
-                        className={cn("size-1.5 rounded-full", levelDot[s.level])}
-                        aria-hidden="true"
-                      />
-                      {s.name}
-                      <span className="sr-only">({skillLevelLabel[s.level][locale]})</span>
-                    </li>
-                  ))}
+                  {group.skills.map((s) => {
+                    const chip = cn(
+                      "inline-flex items-center gap-1.5 rounded-md border px-2 py-1 font-mono text-[0.72rem]",
+                      levelStyle[s.level],
+                      s.confirm && "todo-mark",
+                    );
+                    const where = s.evidence.map((e) => e.label).join(", ");
+                    const inner = (
+                      <>
+                        <span
+                          className={cn("size-1.5 rounded-full", levelDot[s.level])}
+                          aria-hidden="true"
+                        />
+                        {s.name}
+                        {s.confirm && <span> ({t("toConfirm")})</span>}
+                        <span className="sr-only">
+                          ({skillLevelLabel[s.level][locale]}
+                          {where && `. ${t("whereUsed")}: ${where}`})
+                        </span>
+                      </>
+                    );
+                    const first = s.evidence[0];
+                    return (
+                      <li key={s.name}>
+                        {first ? (
+                          <Link
+                            href={
+                              first.kind === "project"
+                                ? { pathname: "/projetos/[slug]", params: { slug: first.slug } }
+                                : { pathname: "/experiencia", hash: first.id }
+                            }
+                            title={`${t("whereUsed")}: ${where}`}
+                            className={cn(chip, "transition-colors hover:border-fg-accent")}
+                          >
+                            {inner}
+                          </Link>
+                        ) : (
+                          <span className={chip}>{inner}</span>
+                        )}
+                      </li>
+                    );
+                  })}
                 </ul>
               </section>
             ))}

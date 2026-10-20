@@ -5,6 +5,12 @@ import { siteConfig } from "@/site.config";
 
 type Href = Parameters<typeof getPathname>[0]["href"];
 
+/** Título de compartilhamento quando a página não tem um próprio (ex.: a home). */
+const defaultShareTitle: Record<Locale, string> = {
+  pt: `${siteConfig.name} · Desenvolvedor Fullstack`,
+  en: `${siteConfig.name} · Fullstack Developer`,
+};
+
 /** URL relativa da rota no idioma pedido: "/projetos" → "/en/projects". */
 export function localizedPath(href: Href, locale: Locale) {
   return getPathname({ href, locale });
@@ -45,7 +51,7 @@ export function pageMetadata({
       siteName: siteConfig.name,
       locale: locale === "pt" ? "pt_BR" : "en_US",
       url: canonical,
-      title: title ?? siteConfig.name,
+      title: title ?? defaultShareTitle[locale],
       description,
       // O bloco openGraph da página substitui o do layout; sem isto a imagem padrão se perderia.
       // Páginas com opengraph-image próprio (os cases) têm prioridade sobre este valor.
@@ -53,7 +59,7 @@ export function pageMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title: title ?? siteConfig.name,
+      title: title ?? defaultShareTitle[locale],
       description,
       images: [`/${locale}/opengraph-image`],
     },

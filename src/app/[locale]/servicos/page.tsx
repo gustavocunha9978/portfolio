@@ -4,7 +4,7 @@ import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { resolveLocale, type LocaleParams } from "@/i18n/server";
 import { getProjects } from "@/lib/content/loader";
-import { whatsappUrl } from "@/lib/links";
+import { hasWhatsapp, whatsappUrl } from "@/lib/links";
 import { pageMetadata } from "@/lib/metadata";
 import { siteConfig } from "@/site.config";
 import { services } from "@/data/services";
@@ -36,9 +36,11 @@ export default async function ServicesPage({ params }: LocaleParams) {
             <Calendar className="size-4" aria-hidden="true" />
             {t("ctaButton")}
           </a>
-          <a href={whatsappUrl(locale)} className={buttonClass("secondary")}>
-            WhatsApp
-          </a>
+          {hasWhatsapp() && (
+            <a href={whatsappUrl(locale)} className={buttonClass("secondary")}>
+              WhatsApp
+            </a>
+          )}
         </div>
       </PageHeader>
 

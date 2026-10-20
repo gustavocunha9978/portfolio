@@ -14,6 +14,7 @@ import { MdxContent } from "@/components/mdx/mdx-content";
 import { DeployStatus } from "@/components/projects/deploy-status";
 import { buttonClass } from "@/components/ui/button";
 import { Chip } from "@/components/ui/chip";
+import { Todo } from "@/components/ui/todo";
 
 type Props = { params: Promise<{ locale: string; slug: string }> };
 
@@ -153,7 +154,11 @@ export default async function CasePage({ params }: Props) {
           <aside className="lg:sticky lg:top-24 lg:self-start">
             <dl className="divide-y divide-line rounded-2xl border border-line bg-surface-1 text-sm">
               <Fact label={t("role")}>{fm.role}</Fact>
-              <Fact label={t("period")}>{fm.period}</Fact>
+              {fm.period && (
+                <Fact label={t("period")}>
+                  <Todo>{fm.period}</Todo>
+                </Fact>
+              )}
               <Fact label={t("status")}>
                 <DeployStatus status={fm.status} />
               </Fact>

@@ -1091,6 +1091,101 @@ covers["broadcast"] = () => {
   return svg(browser(x, y, w, h, "teste-a716a.web.app", list + compose) + clock);
 };
 
+covers["dashboard-bi"] = () => {
+  // Relatório estilo Power BI: segmentações, cartões de KPI, linha, barras e matriz. Só skeleton.
+  const x = 150;
+  const y = 90;
+  const w = 1300;
+  const h = 720;
+  const ix = x + 24;
+  const iy = y + 64;
+  const slicers = [0, 1, 2]
+    .map((i) =>
+      g(
+        [
+          card(ix + i * 190, iy, 170, 44, { rx: 10, fill: C.s1 }),
+          sk(ix + 16 + i * 190, iy + 17, 90, 9, C.ink3),
+          pathEl(`M${ix + 146 + i * 190} ${iy + 19} l6 6 l6 -6`, {
+            fill: "none",
+            stroke: C.ink2,
+            strokeWidth: 2,
+          }),
+        ].join(""),
+      ),
+    )
+    .join("");
+  const kpiColors = [C.green, C.blue, C.amber, C.violet];
+  const kpis = kpiColors
+    .map((c, i) => {
+      const kx = ix + i * 316;
+      return g(
+        [
+          card(kx, iy + 66, 296, 112, { fill: C.s1 }),
+          rect(kx, iy + 66, 6, 112, { rx: 3, fill: c }),
+          sk(kx + 24, iy + 88, 110, 9, C.ink3),
+          sk(kx + 24, iy + 114, 150, 22, C.ink1),
+          sk(kx + 24, iy + 150, 70, 9, c),
+        ].join(""),
+      );
+    })
+    .join("");
+  const lineCard = g(
+    [
+      card(ix, iy + 198, 760, 300, { fill: C.s1 }),
+      sk(ix + 24, iy + 220, 180, 10, C.ink2),
+      areaChart(
+        ix + 24,
+        iy + 256,
+        712,
+        210,
+        [0.3, 0.42, 0.38, 0.55, 0.5, 0.64, 0.6, 0.72, 0.7, 0.84, 0.8, 0.9],
+      ),
+      areaChart(
+        ix + 24,
+        iy + 256,
+        712,
+        210,
+        [0.22, 0.28, 0.3, 0.36, 0.34, 0.42, 0.46, 0.5, 0.48, 0.56, 0.6, 0.62],
+        { stroke: C.blue, fill: "none" },
+      ),
+    ].join(""),
+  );
+  const barCard = g(
+    [
+      card(ix + 780, iy + 198, 472, 300, { fill: C.s1 }),
+      sk(ix + 804, iy + 220, 150, 10, C.ink2),
+      ...[0.92, 0.74, 0.61, 0.48, 0.36, 0.22].map((v, i) =>
+        g(
+          [
+            sk(ix + 804, iy + 262 + i * 36, 70, 9, C.ink3),
+            rect(ix + 890, iy + 256 + i * 36, 330 * v, 20, { rx: 4, fill: "url(#gradH)" }),
+          ].join(""),
+        ),
+      ),
+    ].join(""),
+  );
+  const r = rng(11);
+  const matrix = g(
+    [
+      card(ix, iy + 518, 1252, 120, { fill: C.s1 }),
+      ...[0, 1, 2].map((row) =>
+        [0, 1, 2, 3, 4, 5]
+          .map((col) =>
+            sk(
+              ix + 24 + col * 205,
+              iy + 540 + row * 30,
+              col === 0 ? 140 : 60 + Math.round(r() * 60),
+              9,
+              row === 0 ? C.ink2 : C.line2,
+            ),
+          )
+          .join(""),
+      ),
+    ].join(""),
+  );
+  return svg(browser(x, y, w, h, "app.powerbi.com", slicers + kpis + lineCard + barCard + matrix));
+};
+
 // ---------- saída ----------
 const root = path.resolve(
   path.dirname(new URL(import.meta.url).pathname.replace(/^\/(\w:)/, "$1")),

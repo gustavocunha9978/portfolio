@@ -50,3 +50,15 @@ describe("conteúdo real", () => {
     expect(missing.map((e) => e.projectSlug)).toEqual([]);
   });
 });
+
+describe("rascunhos e TODOs no conteúdo (produção)", () => {
+  it("rascunhos não saem em produção", async () => {
+    const prod = await getProjects("pt", { showTodos: false });
+    expect(prod.some((p) => p.frontmatter.draft)).toBe(false);
+  });
+
+  it("frontmatter sem TODO em produção", async () => {
+    const prod = await getProjects("en", { showTodos: false });
+    expect(JSON.stringify(prod.map((p) => p.frontmatter))).not.toMatch(/TODO/);
+  });
+});

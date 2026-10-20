@@ -36,6 +36,8 @@ export const projectFrontmatterSchema = z
     metrics: z.array(z.string().min(1)).default([]),
     featured: z.boolean().default(false),
     order: z.number().int().default(100),
+    /** Rascunho: aparece em `npm run dev`, nunca em produção. */
+    draft: z.boolean().default(false),
   })
   .refine((p) => !(p.visibility === "privado" && p.repoUrl), {
     message: "projeto privado não pode expor repoUrl",

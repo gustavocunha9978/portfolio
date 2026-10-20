@@ -360,3 +360,13 @@ label[for] {
     display: none;
   }
 }
+
+/* Placeholder TODO, visível só em desenvolvimento (ver src/lib/todo.ts). */
+.todo-mark {
+  background: #fde047;
+  color: #1c1917;
+  border-radius: 3px;
+  padding-inline: 0.25em;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.85em;
+}

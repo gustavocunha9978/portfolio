@@ -130,15 +130,18 @@ export const experience: ExperienceItem[] = [
         "[TODO] Desenvolvi APIs em Node.js e interfaces em React sobre PostgreSQL",
         "[TODO] Administrei servidores Linux com Docker e Traefik como proxy reverso",
         "[TODO] Integrei armazenamento de arquivos com MinIO/S3 e filas com RabbitMQ",
+        "[TODO] Construí dashboards em Power BI",
       ],
       en: [
         "[TODO] Built Node.js APIs and React interfaces on top of PostgreSQL",
         "[TODO] Ran Linux servers with Docker and Traefik as reverse proxy",
         "[TODO] Integrated file storage with MinIO/S3 and queues with RabbitMQ",
+        "[TODO] Built Power BI dashboards",
       ],
     },
     stack: [
       "Node.js",
+      "Power BI",
       "React",
       "PostgreSQL",
       "Docker",
