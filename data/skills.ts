@@ -72,7 +72,11 @@ export const skillGroups: SkillGroup[] = [
         level: "production",
         where: ["personal-manager", "contagem-pessoas-igreja", "orcamento-compartilhado"],
       },
-      { name: "Next.js", level: "production", where: ["maschio-soares-advogados", "submita"] },
+      {
+        name: "Next.js",
+        level: "production",
+        where: ["portfolio", "maschio-soares-advogados", "submita"],
+      },
       {
         name: "Tailwind CSS",
         level: "production",
@@ -152,14 +156,32 @@ export const skillGroups: SkillGroup[] = [
         level: "production",
         where: ["personal-manager", "submita", "escalas-life"],
       },
-      { name: "GitHub Actions (CI/CD)", level: "production", where: ["personal-manager"] },
+      {
+        name: "GitHub Actions (CI/CD)",
+        level: "production",
+        where: ["portfolio", "personal-manager"],
+      },
       { name: "Linux", level: "production", where: ["contagem-pessoas-igreja", "biopark"] },
       { name: "Traefik", level: "production", where: ["biopark"] },
-      { name: "Vercel", level: "production", where: ["maschio-soares-advogados", "escalas-life"] },
+      {
+        name: "Vercel",
+        level: "production",
+        where: ["portfolio", "maschio-soares-advogados", "escalas-life"],
+      },
       { name: "Railway", level: "production", where: ["personal-manager"] },
       { name: "Cloudflare Tunnel", level: "production", where: ["contagem-pessoas-igreja"] },
       { name: "RabbitMQ", level: "frequent", where: ["biopark"] },
       { name: "MinIO / S3", level: "production", where: ["submita", "biopark"] },
+    ],
+  },
+  {
+    id: "testes",
+    title: { pt: "Qualidade & Testes", en: "Quality & Testing" },
+    skills: [
+      { name: "Jest", level: "production", where: ["personal-manager"] },
+      { name: "Vitest", level: "production", where: ["portfolio"] },
+      { name: "Playwright", level: "production", where: ["portfolio"] },
+      { name: "a11y (WCAG)", level: "production", where: ["portfolio"] },
     ],
   },
   {
