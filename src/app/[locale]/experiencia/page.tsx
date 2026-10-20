@@ -11,13 +11,15 @@ import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { resolveLocale, type LocaleParams } from "@/i18n/server";
+import { cvHref } from "@/lib/cv";
 import { formatPeriod } from "@/lib/format";
 import { pageMetadata } from "@/lib/metadata";
-import { siteConfig } from "@/site.config";
-import { experience, type ExperienceKind } from "@/data/experience";
+import type { ExperienceKind } from "@/data/experience";
+import { visibleExperience } from "@/lib/experience";
 import { skillGroups, skillLevelLabel, type SkillLevel } from "@/data/skills";
 import { buttonClass } from "@/components/ui/button";
 import { Chip } from "@/components/ui/chip";
+import { Todo } from "@/components/ui/todo";
 import { PageHeader } from "@/components/ui/page-header";
 import { cn } from "@/lib/cn";
 
@@ -55,10 +57,12 @@ export default async function ExperiencePage({ params }: LocaleParams) {
     <>
       <PageHeader path={tl("experience")} title={t("title")} intro={t("intro")}>
         <div className="mt-8 flex flex-wrap gap-3">
-          <a href={siteConfig.cv[locale]} download className={buttonClass("primary")}>
-            <Download className="size-4" aria-hidden="true" />
-            {nav("cv")}
-          </a>
+          {cvHref(locale) && (
+            <a href={cvHref(locale)!} download className={buttonClass("primary")}>
+              <Download className="size-4" aria-hidden="true" />
+              {nav("cv")}
+            </a>
+          )}
           <Link href="/cv" className={buttonClass("secondary")}>
             <Printer className="size-4" aria-hidden="true" />
             {t("printable")}
@@ -68,8 +72,9 @@ export default async function ExperiencePage({ params }: LocaleParams) {
 
       <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-20">
         <ol className="relative ml-4 border-l border-line sm:ml-5">
-          {experience.map((item) => {
+          {visibleExperience().map((item) => {
             const Icon = kindIcon[item.kind];
+            const period = formatPeriod(item.start, item.end, locale, t("present"));
             return (
               <li key={item.id} className="relative pb-12 pl-8 last:pb-0 sm:pl-12">
                 <span
@@ -85,13 +90,22 @@ export default async function ExperiencePage({ params }: LocaleParams) {
                 </span>
 
                 <div className="flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-xs text-ink-2">
-                  <span>{formatPeriod(item.start, item.end, locale, t("present"))}</span>
-                  <span aria-hidden="true">·</span>
+                  {period && (
+                    <>
+                      <span>
+                        <Todo>{period}</Todo>
+                      </span>
+                      <span aria-hidden="true">·</span>
+                    </>
+                  )}
                   <span>{t(`kind.${item.kind}`)}</span>
                 </div>
                 <h2 className="mt-2 text-xl font-semibold tracking-tight">
-                  {item.role[locale]} <span className="text-ink-2">·</span>{" "}
-                  <span className="text-gradient">{item.org}</span>
+                  <Todo>{item.role[locale]}</Todo>
+                  {item.role[locale] && item.org && <span className="text-ink-2"> · </span>}
+                  <span className="text-gradient">
+                    <Todo>{item.org}</Todo>
+                  </span>
                 </h2>
 
                 <ul className="mt-4 max-w-3xl space-y-2 text-ink-1">
@@ -100,7 +114,7 @@ export default async function ExperiencePage({ params }: LocaleParams) {
                       <span className="absolute left-0 font-mono text-fg-brand" aria-hidden="true">
                         ›
                       </span>
-                      {a}
+                      <Todo>{a}</Todo>
                     </li>
                   ))}
                 </ul>
@@ -108,7 +122,9 @@ export default async function ExperiencePage({ params }: LocaleParams) {
                 <ul className="mt-4 flex flex-wrap gap-1.5">
                   {item.stack.map((s) => (
                     <li key={s}>
-                      <Chip>{s}</Chip>
+                      <Chip>
+                        <Todo>{s}</Todo>
+                      </Chip>
                     </li>
                   ))}
                 </ul>

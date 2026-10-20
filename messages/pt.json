@@ -232,7 +232,6 @@
   "about": {
     "title": "Sobre",
     "photoAlt": "Foto de Gustavo Cunha",
-    "photoTodo": "[TODO: foto de perfil]",
     "story": [
       "Sou desenvolvedor fullstack, moro em Toledo, no oeste do Paraná, e me formei em Ciência e Tecnologia. Gosto de pegar um problema concreto, de uma academia, de um escritório ou da igreja, e transformar num sistema que as pessoas usam no dia a dia.",
       "Hoje trabalho como desenvolvedor RPA no Sicredi, automatizando processos com Python e PHP. Por fora, cuido do Personal Manager, um SaaS para academias que está em produção, e faço sites e projetos de visão computacional.",

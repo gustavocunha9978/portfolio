@@ -1,3 +1,4 @@
+import { SHOW_TODOS } from "@/lib/todo";
 import { Drum } from "lucide-react";
 import type { Metadata } from "next";
 import Image from "next/image";
@@ -18,7 +19,7 @@ export default async function MusicPage({ params }: LocaleParams) {
   const locale = await resolveLocale(params);
   const t = await getTranslations({ locale, namespace: "music" });
   const tl = await getTranslations({ locale, namespace: "labels" });
-  const showTodos = process.env.NODE_ENV !== "production";
+  const showTodos = SHOW_TODOS;
 
   return (
     <>

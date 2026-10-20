@@ -17,15 +17,19 @@ export function formatMonth(value: string, locale: Locale) {
     .replace(" de ", " ");
 }
 
-/** Período de uma experiência. `end: null` = atual. Mesmo mês de início e fim = um mês só. */
+/**
+ * Período de uma experiência. `end: null` = atual. Mesmo mês de início e fim = um mês só.
+ * Datas vazias (TODO oculto em produção) são omitidas sem deixar traço solto.
+ */
 export function formatPeriod(
   start: string,
   end: string | null,
   locale: Locale,
   presentLabel: string,
 ) {
-  const from = formatMonth(start, locale);
-  if (end === null) return `${from} – ${presentLabel}`;
-  const to = formatMonth(end, locale);
-  return from === to ? from : `${from} – ${to}`;
+  const from = start ? formatMonth(start, locale) : "";
+  const to = end === null ? presentLabel : end ? formatMonth(end, locale) : "";
+  if (!from) return to;
+  if (!to || from === to) return from;
+  return `${from} – ${to}`;
 }

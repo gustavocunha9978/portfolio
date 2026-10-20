@@ -2,7 +2,7 @@ import { ArrowRight, Calendar } from "lucide-react";
 import { getLocale, getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { getProjects } from "@/lib/content/loader";
-import { whatsappUrl } from "@/lib/links";
+import { hasWhatsapp, whatsappUrl } from "@/lib/links";
 import { siteConfig } from "@/site.config";
 import { skillGroups } from "@/data/skills";
 import { Reveal } from "@/components/motion/reveal";
@@ -173,9 +173,11 @@ export async function HomeView() {
                     <Calendar className="size-4" aria-hidden="true" />
                     {t("contact.schedule")}
                   </a>
-                  <a href={whatsappUrl(locale)} className={buttonClass("secondary")}>
-                    {t("contact.whatsapp")}
-                  </a>
+                  {hasWhatsapp() && (
+                    <a href={whatsappUrl(locale)} className={buttonClass("secondary")}>
+                      {t("contact.whatsapp")}
+                    </a>
+                  )}
                   <Link href="/contato" className={buttonClass("ghost")}>
                     {t("contact.form")}
                     <ArrowRight className="size-4" aria-hidden="true" />

@@ -8,9 +8,10 @@ export const siteConfig = {
   location: "Toledo · PR · Brasil",
   url: (process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000").replace(/\/$/, ""),
 
-  email: "gustavocunhasoares@hotmail.com",
-  /** Só dígitos, com DDI e DDD. Ex.: 5545999999999 */
-  whatsapp: "5545998483474",
+  /** Pode ser sobrescrito por NEXT_PUBLIC_CONTACT_EMAIL. Vazio = canal some do site. */
+  email: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "gustavocunhasoares@hotmail.com",
+  /** Só dígitos, com DDI e DDD (ex.: 5545999999999). Pode vir de NEXT_PUBLIC_WHATSAPP. */
+  whatsapp: process.env.NEXT_PUBLIC_WHATSAPP ?? "5545998483474",
 
   calLink: "gustavo-cunha",
   social: {

@@ -2,7 +2,7 @@ import { Mail } from "lucide-react";
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { resolveLocale, type LocaleParams } from "@/i18n/server";
-import { mailtoUrl, whatsappUrl } from "@/lib/links";
+import { hasEmail, hasWhatsapp, mailtoUrl, whatsappUrl } from "@/lib/links";
 import { pageMetadata } from "@/lib/metadata";
 import { siteConfig } from "@/site.config";
 import { CalEmbed } from "@/components/contact/cal-embed";
@@ -22,13 +22,13 @@ export default async function ContactPage({ params }: LocaleParams) {
   const tl = await getTranslations({ locale, namespace: "labels" });
 
   const channels = [
-    {
+    hasWhatsapp() && {
       href: whatsappUrl(locale),
       label: t("whatsapp"),
       detail: "wa.me",
       icon: <WhatsappIcon className="size-5" />,
     },
-    {
+    hasEmail() && {
       href: mailtoUrl(),
       label: "E-mail",
       detail: siteConfig.email,
@@ -46,7 +46,7 @@ export default async function ContactPage({ params }: LocaleParams) {
       detail: "gustavocunha9978",
       icon: <GithubIcon className="size-5" />,
     },
-  ];
+  ].filter((c) => c !== false);
 
   return (
     <>

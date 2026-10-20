@@ -232,7 +232,6 @@
   "about": {
     "title": "About",
     "photoAlt": "Photo of Gustavo Cunha",
-    "photoTodo": "[TODO: profile photo]",
     "story": [
       "I'm a fullstack developer from Toledo, in western Paraná, Brazil, with a degree in Science and Technology. I like taking a concrete problem, from a gym, a law firm or my church, and turning it into a system people use every day.",
       "Today I work as an RPA developer at Sicredi, automating processes with Python and PHP. On the side I run Personal Manager, a gym SaaS that's in production, and I build websites and computer vision projects.",

@@ -5,6 +5,7 @@ import matter from "gray-matter";
 import readingTime from "reading-time";
 import type { z } from "zod";
 import type { Locale } from "@/i18n/routing";
+import { isTodo, keepAll, SHOW_TODOS } from "@/lib/todo";
 import { projectFrontmatterSchema, type ProjectFrontmatter } from "./schema";
 
 const CONTENT_DIR = path.join(process.cwd(), "content");
@@ -47,9 +48,20 @@ async function readCollection<S extends z.ZodType>(
   );
 }
 
-export async function getProjects(locale: Locale): Promise<Entry<ProjectFrontmatter>[]> {
+/** Em produção, campos de frontmatter ainda em TODO ficam vazios em vez de aparecer. */
+function hideTodos(fm: ProjectFrontmatter, show: boolean): ProjectFrontmatter {
+  if (show) return fm;
+  return { ...fm, period: isTodo(fm.period) ? "" : fm.period, metrics: keepAll(fm.metrics, false) };
+}
+
+export async function getProjects(
+  locale: Locale,
+  { showTodos = SHOW_TODOS }: { showTodos?: boolean } = {},
+): Promise<Entry<ProjectFrontmatter>[]> {
   const all = await readCollection("projects", locale, projectFrontmatterSchema);
-  return all.sort((a, b) => a.frontmatter.order - b.frontmatter.order);
+  return all
+    .map((e) => ({ ...e, frontmatter: hideTodos(e.frontmatter, showTodos) }))
+    .sort((a, b) => a.frontmatter.order - b.frontmatter.order);
 }
 
 export async function getProject(locale: Locale, slug: string) {
