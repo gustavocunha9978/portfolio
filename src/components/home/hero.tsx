@@ -2,6 +2,7 @@ import { ArrowRight } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { siteConfig } from "@/site.config";
+import { Circled, HandArrow, Note } from "@/components/sketch/sketch";
 import { StatusBadge } from "@/components/ui/status-badge";
 import { CountUp } from "./count-up";
 import { HeroNetwork } from "./hero-network";
@@ -19,82 +20,78 @@ export async function Hero({ metrics }: { metrics: Metric[] }) {
     },
     { href: "/servicos" as const, title: t("paths.client.title"), desc: t("paths.client.desc") },
   ];
-  const meta = [
-    { k: t("meta.base"), v: t("meta.baseValue") },
-    { k: t("meta.now"), v: t("meta.nowValue") },
-    { k: t("meta.lang"), v: t("meta.langValue") },
-  ];
 
   return (
-    <section aria-labelledby="hero-title">
-      <div className="mx-auto grid max-w-6xl gap-x-10 gap-y-12 px-4 pt-12 pb-14 *:min-w-0 sm:px-6 sm:pt-20 lg:grid-cols-12 lg:pb-20">
+    <section aria-labelledby="hero-title" className="overflow-x-clip">
+      <div className="mx-auto grid max-w-6xl gap-x-8 gap-y-10 px-4 pt-10 pb-14 *:min-w-0 sm:px-6 sm:pt-16 lg:grid-cols-12 lg:pb-20">
         <div className="lg:col-span-7">
           {siteConfig.availableForWork && <StatusBadge>{t("available")}</StatusBadge>}
 
+          <p className="mt-10 -rotate-2 hand text-2xl sm:text-3xl">{t("hello")}</p>
           <h1
             id="hero-title"
-            className="mt-8 text-[clamp(3.4rem,10.5vw,7.25rem)] leading-[0.9] font-medium tracking-[-0.055em]"
+            className="mt-1 text-[clamp(3.6rem,11vw,7.5rem)] leading-[0.92] font-medium tracking-[-0.04em]"
           >
-            Gustavo
-            <br />
-            Cunha<span className="text-fg-brand">.</span>
+            Gustavo Cunha
           </h1>
-          <p className="mt-6 font-display text-lg font-medium tracking-[-0.01em] text-ink-1 sm:text-xl">
-            {t("role")}
-          </p>
+          <p className="mt-5 text-lg font-medium text-ink-1 sm:text-xl">{t("role")}</p>
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-pretty text-ink-1">
             {t.rich("value", {
-              em: (chunks) => <em className="text-emph text-[1.12em] text-ink-0">{chunks}</em>,
+              em: (chunks) => <mark className="bg-transparent mark text-ink-0">{chunks}</mark>,
             })}
           </p>
 
-          <nav aria-label={t("paths.label")} className="mt-10 max-w-xl border-t border-line">
-            {paths.map((p) => (
-              <Link
-                key={p.href}
-                href={p.href}
-                className="group flex min-h-16 items-center justify-between gap-4 border-b border-line py-4 transition-colors hover:bg-surface-1"
-              >
-                <span>
-                  <span className="block font-display text-xl font-medium tracking-[-0.02em]">
-                    {p.title}
+          <div className="mt-10 max-w-xl">
+            <Note className="flex items-end gap-1">
+              {t("pathsNote")}
+              <HandArrow variant="down-right" className="w-9 translate-y-2" />
+            </Note>
+            <nav aria-label={t("paths.label")} className="mt-3 grid gap-3 sm:grid-cols-2">
+              {paths.map((p, i) => (
+                <Link
+                  key={p.href}
+                  href={p.href}
+                  className={`group flex min-h-20 items-center justify-between gap-3 rounded-md border-[1.5px] border-ink-0 bg-surface-1 px-4 py-3 shadow-paper transition-transform duration-150 hover:-translate-y-0.5 ${i ? "sm:rotate-[0.6deg]" : "sm:-rotate-[0.6deg]"}`}
+                >
+                  <span>
+                    <span className="block font-display text-xl font-medium">{p.title}</span>
+                    <span className="block text-sm text-ink-2">{p.desc}</span>
                   </span>
-                  <span className="block text-sm text-ink-2">{p.desc}</span>
-                </span>
-                <ArrowRight
-                  className="size-5 shrink-0 text-ink-2 transition-transform duration-200 group-hover:translate-x-1 group-hover:text-fg-brand"
-                  aria-hidden="true"
-                />
-              </Link>
-            ))}
-          </nav>
+                  <ArrowRight
+                    className="size-5 shrink-0 transition-transform group-hover:translate-x-1"
+                    aria-hidden="true"
+                  />
+                </Link>
+              ))}
+            </nav>
+          </div>
         </div>
 
-        <div className="lg:col-span-5 lg:pt-10">
-          <HeroNetwork label={t("network.label")} />
+        <div className="relative lg:col-span-5 lg:pt-6">
+          <Note className="absolute top-0 right-2 rotate-3 sm:right-8">
+            {t("networkNote")}
+            <HandArrow variant="down-left" className="ml-auto block w-12" />
+          </Note>
+          <div className="pt-14">
+            <HeroNetwork label={t("network.label")} me={t("me")} />
+          </div>
         </div>
       </div>
 
-      {/* Faixa de metadados, como a ficha técnica de uma publicação */}
-      <dl className="mx-auto grid max-w-6xl border-t border-line px-4 sm:grid-cols-3 sm:px-6">
-        {meta.map((m) => (
-          <div key={m.k} className="flex gap-3 border-b border-line py-4 sm:border-b-0 sm:py-5">
-            <dt className="w-24 shrink-0 pt-0.5 label-caps text-ink-2">{m.k}</dt>
-            <dd className="text-sm text-ink-0">{m.v}</dd>
-          </div>
-        ))}
-      </dl>
-
-      <div className="border-y border-line">
-        <dl className="mx-auto grid max-w-6xl grid-cols-2 lg:grid-cols-4">
+      {/* Números, circulados à caneta como num rascunho de reunião. */}
+      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        <dl className="grid grid-cols-2 gap-x-6 gap-y-10 border-y-[1.5px] border-dashed border-line-strong py-10 lg:grid-cols-4">
           {metrics.map((m, i) => (
-            <div
-              key={m.label}
-              className={`flex flex-col-reverse px-4 py-8 sm:px-6 ${i % 2 === 1 ? "border-l border-line" : ""} ${i >= 2 ? "border-t border-line lg:border-t-0" : ""} ${i === 2 ? "lg:border-l" : ""}`}
-            >
-              <dt className="mt-2 max-w-[16rem] text-sm text-ink-2">{m.label}</dt>
-              <dd className="font-display text-5xl font-medium tracking-[-0.05em] sm:text-6xl">
-                <CountUp value={m.value} suffix={m.suffix} />
+            <div key={m.label} className="flex flex-col-reverse">
+              <dt className="mt-3 max-w-[15rem] text-sm leading-snug text-ink-1">{m.label}</dt>
+              <dd className="font-display text-5xl font-medium tracking-[-0.03em] sm:text-6xl">
+                {i === 0 ? (
+                  <Circled>
+                    <CountUp value={m.value} suffix={m.suffix} />
+                  </Circled>
+                ) : (
+                  <CountUp value={m.value} suffix={m.suffix} />
+                )}
               </dd>
             </div>
           ))}

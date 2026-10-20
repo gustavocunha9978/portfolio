@@ -25,7 +25,7 @@
   },
   "home": {
     "role": "Desenvolvedor Fullstack · Automação · Dados",
-    "value": "Construo sistemas que <em>rodam em produção</em> — SaaS com pagamentos e app mobile, automações que substituem trabalho manual e visão computacional rodando local, sem custo de nuvem.",
+    "value": "Moro em Toledo, no Paraná. De dia automatizo processos no Sicredi com Python e PHP. No resto do tempo <em>construo sistemas</em> para academias, escritórios e igrejas, e alguns já estão em produção.",
     "paths": {
       "label": "Por onde começar",
       "recruiter": {
@@ -39,43 +39,46 @@
     },
     "metrics": {
       "label": "Em números",
-      "users": "usuários ativos num sistema meu em produção",
-      "production": "sistemas em produção",
-      "cases": "cases documentados",
-      "tests": "testes automatizados no maior projeto"
+      "users": "alunos usam um sistema que eu fiz",
+      "production": "sistemas meus rodando em produção",
+      "cases": "projetos contados em detalhe aqui",
+      "tests": "testes automatizados no maior deles"
     },
     "featured": {
-      "title": "Projetos em destaque",
-      "subtitle": "Problema, solução e resultado — o que foi para produção e por quê.",
+      "title": "Coisas que eu construí",
+      "subtitle": "Em cada uma eu conto o problema, o que fiz e o que mudou. Os números que aparecem são reais.",
       "all": "Ver todos os projetos",
-      "kicker": "Trabalhos selecionados",
-      "lead": "Projeto principal",
-      "index": "Outros projetos"
+      "kicker": "trabalhos",
+      "lead": "o principal",
+      "index": "também fiz",
+      "leadNote": "roda numa academia de verdade"
     },
     "vision": {
       "kicker": "visão computacional",
-      "title": "Contar pessoas parece fácil. Não contar duas vezes, não.",
-      "body": "Num projeto real, YOLOv8 detecta e ByteTrack acompanha cada pessoa entre os frames. A contagem só acontece quando a trajetória cruza a linha — com zona morta e cooldown para ninguém ser contado de novo.",
-      "cta": "Ler o case",
+      "title": "Contar pessoas é fácil. Difícil é não contar a mesma pessoa duas vezes.",
+      "body": "Na igreja, uma câmera conta quem entra. O YOLOv8 encontra as pessoas, o ByteTrack segue cada uma entre os quadros, e a contagem só acontece quando alguém cruza a linha de verdade. Parou na porta e voltou? Não conta de novo.",
+      "cta": "Ler como funciona",
       "counter": "entradas",
       "label": "Demonstração animada: caixas de detecção acompanham pessoas cruzando uma linha de contagem",
       "exits": "saídas",
       "camera": "CAM-01 · entrada",
       "deadZone": "zona morta",
-      "kickerIndex": "Visão computacional"
+      "kickerIndex": "um exemplo que eu gosto de mostrar",
+      "deadZoneNote": "zona morta: aqui ninguém é contado"
     },
     "stack": {
-      "title": "Stack que uso em produção",
+      "title": "O que eu uso no trabalho",
       "more": "Ver todas as habilidades",
-      "kicker": "Ferramentas"
+      "kicker": "ferramentas"
     },
     "contact": {
       "title": "Tem um projeto ou uma vaga?",
-      "body": "Me conta o contexto. Respondo em até um dia útil.",
-      "schedule": "Agendar uma conversa",
+      "body": "Me conta o contexto. Eu respondo em até um dia útil.",
+      "schedule": "Marcar uma conversa",
       "whatsapp": "Chamar no WhatsApp",
       "form": "Mandar mensagem",
-      "kicker": "Contato"
+      "kicker": "contato",
+      "note": "prometo responder"
     },
     "network": {
       "label": "Diagrama de tecnologias conectadas: backend, frontend, mobile, dados, IA e infraestrutura"
@@ -83,12 +86,16 @@
     "available": "Disponível para projetos",
     "meta": {
       "base": "Base",
-      "baseValue": "Toledo, PR — Brasil",
+      "baseValue": "Toledo, PR, Brasil",
       "now": "Atualmente",
       "nowValue": "Desenvolvedor RPA no Sicredi",
       "lang": "Idiomas",
       "langValue": "Português · Inglês"
-    }
+    },
+    "hello": "oi, eu sou o",
+    "me": "eu",
+    "networkNote": "o que eu uso de verdade",
+    "pathsNote": "por onde começar"
   },
   "project": {
     "status": {
@@ -113,7 +120,7 @@
     "built": "Feito com Next.js",
     "source": "código no GitHub",
     "rights": "Todos os direitos reservados.",
-    "lead": "Vamos conversar"
+    "lead": "me escreve"
   },
   "theme": {
     "light": "Tema claro",
@@ -121,7 +128,7 @@
   },
   "projects": {
     "title": "Projetos",
-    "intro": "Sistemas em produção, automações e experimentos que viraram produto. Cada case mostra o problema, a solução e o resultado — sem número inventado.",
+    "intro": "Sistemas em produção, automações e alguns experimentos que viraram produto. Em cada um eu conto o problema, o que fiz e o que mudou. Os números que aparecem são reais.",
     "filterCategory": "Categoria",
     "filterTech": "Tecnologia",
     "all": "Todos",
@@ -196,11 +203,11 @@
     "faq": [
       {
         "q": "Quanto custa um sistema?",
-        "a": "Depende do escopo. Depois da primeira conversa eu envio uma proposta fechada, com prazo e valor definidos."
+        "a": "Depende do escopo. Depois da primeira conversa eu mando uma proposta fechada, com prazo e valor definidos."
       },
       {
         "q": "Preciso ter tudo definido antes de falar com você?",
-        "a": "Não. Basta saber o problema que você quer resolver — o escopo a gente desenha junto."
+        "a": "Não. Basta saber o problema que você quer resolver; o escopo a gente desenha junto."
       },
       {
         "q": "O código e os dados ficam com quem?",
@@ -208,11 +215,11 @@
       },
       {
         "q": "Você dá suporte depois da entrega?",
-        "a": "Sim. Ajustes e evolução podem ser combinados por demanda ou por um plano mensal."
+        "a": "Sim. Ajustes e melhorias podem ser combinados por demanda ou por um plano mensal."
       },
       {
         "q": "Trabalha com empresas de outras cidades?",
-        "a": "Sim. Todo o processo funciona remoto, com reuniões por vídeo."
+        "a": "Sim. Dá para fazer tudo a distância, com reuniões por vídeo."
       }
     ],
     "ctaTitle": "Vamos tirar sua ideia do papel?",
@@ -227,9 +234,9 @@
     "photoAlt": "Foto de Gustavo Cunha",
     "photoTodo": "[TODO: foto de perfil]",
     "story": [
-      "Sou desenvolvedor fullstack em Toledo, no oeste do Paraná, formado em Ciência e Tecnologia. Comecei pela curiosidade de entender como as coisas funcionam e fiquei pelo prazer de ver um sistema resolvendo um problema de verdade.",
-      "Hoje trabalho como desenvolvedor RPA no Sicredi, automatizando processos com Python e PHP. Em paralelo, construo sistemas para clientes: um SaaS de gestão para academias que está em produção, sites institucionais e projetos de visão computacional.",
-      "Fora do código, sou baterista, dou aulas de bateria e toco na igreja. A fé e a família são o que me move — e é delas que vem a vontade de fazer um trabalho bem feito, mesmo quando ninguém está olhando."
+      "Sou desenvolvedor fullstack, moro em Toledo, no oeste do Paraná, e me formei em Ciência e Tecnologia. Gosto de pegar um problema concreto, de uma academia, de um escritório ou da igreja, e transformar num sistema que as pessoas usam no dia a dia.",
+      "Hoje trabalho como desenvolvedor RPA no Sicredi, automatizando processos com Python e PHP. Por fora, cuido do Personal Manager, um SaaS para academias que está em produção, e faço sites e projetos de visão computacional.",
+      "Quando não estou programando, estou na bateria: toco na igreja e dou aula. Minha fé e minha família vêm antes de tudo isso, e é por elas que eu levo o trabalho a sério."
     ],
     "howTitle": "Como eu trabalho",
     "how": [
@@ -287,7 +294,7 @@
   },
   "music": {
     "title": "Música",
-    "intro": "Antes do código, veio a bateria. Toco há anos, dou aulas e sirvo no louvor da igreja. Ritmo, disciplina e trabalho em equipe — as mesmas coisas que levo para os projetos.",
+    "intro": "Antes do código veio a bateria. Toco no louvor da igreja e dou aula de bateria. Aqui ficam alguns vídeos e fotos.",
     "videos": "Vídeos",
     "photos": "Fotos",
     "videoTodo": "[TODO: vídeo do YouTube]",
@@ -306,7 +313,7 @@
   },
   "notFound": {
     "title": "Deploy falhou",
-    "body": "A página que você procurou não existe — ou foi movida e alguém esqueceu de atualizar o link.",
+    "body": "Essa página não existe. Talvez tenha mudado de lugar e alguém esqueceu de atualizar o link.",
     "home": "Voltar ao início",
     "projects": "Ver projetos",
     "log": [
@@ -317,12 +324,12 @@
     ]
   },
   "labels": {
-    "projects": "Índice de trabalhos",
-    "experience": "Trajetória",
-    "services": "Para empresas",
-    "about": "Perfil",
-    "contact": "Fale comigo",
-    "music": "Fora do código",
-    "cv": "Currículo"
+    "projects": "o que eu construí",
+    "experience": "onde eu trabalhei",
+    "services": "pra sua empresa",
+    "about": "um pouco sobre mim",
+    "contact": "bora conversar",
+    "music": "fora do código",
+    "cv": "versão pra imprimir"
   }
 }

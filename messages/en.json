@@ -25,7 +25,7 @@
   },
   "home": {
     "role": "Fullstack Developer · Automation · Data",
-    "value": "I build systems that <em>run in production</em> — SaaS with payments and mobile apps, automations that replace manual work, and computer vision running on-premise with zero cloud cost.",
+    "value": "I live in Toledo, in southern Brazil. By day I automate processes at Sicredi with Python and PHP. The rest of the time I <em>build systems</em> for gyms, law firms and churches, and some of them are already in production.",
     "paths": {
       "label": "Where to start",
       "recruiter": {
@@ -39,35 +39,37 @@
     },
     "metrics": {
       "label": "By the numbers",
-      "users": "active users on a system of mine in production",
-      "production": "systems in production",
-      "cases": "documented case studies",
-      "tests": "automated tests in the largest project"
+      "users": "gym members use a system I built",
+      "production": "of my systems running in production",
+      "cases": "projects written up in detail here",
+      "tests": "automated tests in the biggest one"
     },
     "featured": {
-      "title": "Featured projects",
-      "subtitle": "Problem, solution and result — what shipped and why.",
+      "title": "Things I've built",
+      "subtitle": "For each one I tell the problem, what I did and what changed. The numbers you see are real.",
       "all": "See all projects",
-      "kicker": "Selected work",
-      "lead": "Lead project",
-      "index": "More projects"
+      "kicker": "work",
+      "lead": "the main one",
+      "index": "also built",
+      "leadNote": "runs at a real gym"
     },
     "vision": {
       "kicker": "computer vision",
-      "title": "Counting people sounds easy. Not counting them twice doesn't.",
-      "body": "In a real project, YOLOv8 detects and ByteTrack follows each person across frames. A count only happens when the trajectory crosses the line — with a dead zone and cooldown so nobody is counted again.",
-      "cta": "Read the case study",
+      "title": "Counting people is easy. Not counting the same person twice is the hard part.",
+      "body": "At church, a camera counts who walks in. YOLOv8 finds the people, ByteTrack follows each one across frames, and a count only happens when someone actually crosses the line. Stopped at the door and stepped back? Not counted again.",
+      "cta": "Read how it works",
       "counter": "entries",
       "label": "Animated demo: detection boxes follow people crossing a counting line",
       "exits": "exits",
       "camera": "CAM-01 · entrance",
       "deadZone": "dead zone",
-      "kickerIndex": "Computer vision"
+      "kickerIndex": "an example I like to show",
+      "deadZoneNote": "dead zone: nobody gets counted here"
     },
     "stack": {
-      "title": "Stack I use in production",
+      "title": "What I use at work",
       "more": "See all skills",
-      "kicker": "Toolbox"
+      "kicker": "toolbox"
     },
     "contact": {
       "title": "Got a project or a role?",
@@ -75,7 +77,8 @@
       "schedule": "Book a call",
       "whatsapp": "Message on WhatsApp",
       "form": "Send a message",
-      "kicker": "Contact"
+      "kicker": "contact",
+      "note": "I always reply"
     },
     "network": {
       "label": "Diagram of connected technologies: backend, frontend, mobile, data, AI and infrastructure"
@@ -83,12 +86,16 @@
     "available": "Open to work",
     "meta": {
       "base": "Based in",
-      "baseValue": "Toledo, PR — Brazil",
+      "baseValue": "Toledo, PR, Brazil",
       "now": "Currently",
       "nowValue": "RPA Developer at Sicredi",
       "lang": "Languages",
       "langValue": "Portuguese · English"
-    }
+    },
+    "hello": "hi, I'm",
+    "me": "me",
+    "networkNote": "what I actually use",
+    "pathsNote": "where to start"
   },
   "project": {
     "status": {
@@ -113,7 +120,7 @@
     "built": "Built with Next.js",
     "source": "source on GitHub",
     "rights": "All rights reserved.",
-    "lead": "Let's talk"
+    "lead": "write to me"
   },
   "theme": {
     "light": "Light theme",
@@ -121,7 +128,7 @@
   },
   "projects": {
     "title": "Projects",
-    "intro": "Production systems, automations and experiments that became products. Each case study shows the problem, the solution and the result — no made-up numbers.",
+    "intro": "Production systems, automations and a few experiments that became products. Each one tells the problem, what I did and what changed. The numbers you see are real.",
     "filterCategory": "Category",
     "filterTech": "Technology",
     "all": "All",
@@ -159,7 +166,7 @@
     },
     "seeCase": "View case study",
     "skillsTitle": "Skills",
-    "skillsIntro": "No percentage bars — just how much I actually use each thing.",
+    "skillsIntro": "No percentage bars. Just how much I actually use each one.",
     "printable": "Print-friendly version"
   },
   "services": {
@@ -196,11 +203,11 @@
     "faq": [
       {
         "q": "How much does a system cost?",
-        "a": "It depends on scope. After our first call I send a fixed proposal with a defined timeline and price."
+        "a": "It depends on scope. After our first call I send a fixed proposal with a set timeline and price."
       },
       {
         "q": "Do I need everything figured out before we talk?",
-        "a": "No. You only need to know the problem you want to solve — we design the scope together."
+        "a": "No. You just need to know the problem you want to solve; we'll design the scope together."
       },
       {
         "q": "Who owns the code and the data?",
@@ -208,11 +215,11 @@
       },
       {
         "q": "Do you offer support after delivery?",
-        "a": "Yes. Adjustments and new features can be on demand or through a monthly plan."
+        "a": "Yes. Fixes and improvements can be on demand or through a monthly plan."
       },
       {
         "q": "Do you work with clients outside Brazil?",
-        "a": "Yes. The whole process works remotely, with video calls, in English or Portuguese."
+        "a": "Yes. Everything works remotely, with video calls, in English or Portuguese."
       }
     ],
     "ctaTitle": "Ready to get your idea off the ground?",
@@ -227,9 +234,9 @@
     "photoAlt": "Photo of Gustavo Cunha",
     "photoTodo": "[TODO: profile photo]",
     "story": [
-      "I'm a fullstack developer from Toledo, in southern Brazil, with a degree in Science and Technology. I got into this out of curiosity about how things work and stayed for the satisfaction of seeing a system solve a real problem.",
-      "Today I work as an RPA developer at Sicredi, automating processes with Python and PHP. On the side, I build systems for clients: a gym management SaaS running in production, business websites and computer vision projects.",
-      "Away from code, I'm a drummer, I teach drums and I play at church. Faith and family are what drive me — and they're where my wish to do good work comes from, even when nobody's watching."
+      "I'm a fullstack developer from Toledo, in western Paraná, Brazil, with a degree in Science and Technology. I like taking a concrete problem, from a gym, a law firm or my church, and turning it into a system people use every day.",
+      "Today I work as an RPA developer at Sicredi, automating processes with Python and PHP. On the side I run Personal Manager, a gym SaaS that's in production, and I build websites and computer vision projects.",
+      "When I'm not coding, I'm behind a drum kit: I play at church and teach lessons. My faith and my family come before all of it, and they're the reason I take the work seriously."
     ],
     "howTitle": "How I work",
     "how": [
@@ -287,7 +294,7 @@
   },
   "music": {
     "title": "Music",
-    "intro": "Before code, there were drums. I've played for years, I teach, and I serve on the church worship team. Rhythm, discipline and teamwork — the same things I bring to projects.",
+    "intro": "Drums came before code. I play on my church's worship team and teach drum lessons. Here are a few videos and photos.",
     "videos": "Videos",
     "photos": "Photos",
     "videoTodo": "[TODO: YouTube video]",
@@ -306,7 +313,7 @@
   },
   "notFound": {
     "title": "Deploy failed",
-    "body": "The page you were looking for doesn't exist — or it moved and someone forgot to update the link.",
+    "body": "This page doesn't exist. Maybe it moved and someone forgot to update the link.",
     "home": "Back to home",
     "projects": "See projects",
     "log": [
@@ -317,12 +324,12 @@
     ]
   },
   "labels": {
-    "projects": "Index of work",
-    "experience": "Track record",
-    "services": "For businesses",
-    "about": "Profile",
-    "contact": "Get in touch",
-    "music": "Off the clock",
-    "cv": "Résumé"
+    "projects": "things I've built",
+    "experience": "where I've worked",
+    "services": "for your business",
+    "about": "a bit about me",
+    "contact": "let's talk",
+    "music": "off the clock",
+    "cv": "print version"
   }
 }
