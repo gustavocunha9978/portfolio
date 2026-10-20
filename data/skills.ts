@@ -102,7 +102,7 @@ export const skillGroups: SkillGroup[] = [
     title: { pt: "Dados & BI", en: "Data & BI" },
     highlight: true,
     skills: [
-      { name: "Power BI", level: "production", where: ["dashboard-bi"] },
+      { name: "Power BI", level: "production", where: ["biopark", "dashboard-bi"] },
       { name: "DAX", level: "frequent", where: ["dashboard-bi"] },
       {
         name: "SQL",
@@ -130,7 +130,7 @@ export const skillGroups: SkillGroup[] = [
       },
       { name: "Gemini API", level: "production", where: ["personal-manager", "submita"] },
       { name: "TensorFlow / Keras", level: "frequent", where: ["previsao-atoleiros"] },
-      { name: "OpenAI API", level: "frequent", confirm: true },
+      { name: "OpenAI API", level: "frequent" },
     ],
   },
   {
@@ -139,8 +139,8 @@ export const skillGroups: SkillGroup[] = [
     skills: [
       { name: "Python (RPA)", level: "production", where: ["migracao-rpa-python", "sicredi"] },
       { name: "UiPath", level: "production", where: ["migracao-rpa-python", "sicredi"] },
-      { name: "Selenium", level: "frequent", confirm: true },
-      { name: "Web Scraping", level: "frequent", confirm: true },
+      { name: "Selenium", level: "frequent" },
+      { name: "Web Scraping", level: "frequent" },
     ],
   },
   {
@@ -178,8 +178,8 @@ export const skillGroups: SkillGroup[] = [
         level: "production",
         where: ["orcamento-compartilhado", "broadcast"],
       },
-      { name: "MySQL", level: "frequent", confirm: true },
-      { name: "Oracle / PL-SQL", level: "frequent", confirm: true },
+      { name: "MySQL", level: "frequent" },
+      { name: "Oracle / PL-SQL", level: "frequent" },
     ],
   },
 ];
