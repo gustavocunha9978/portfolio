@@ -24,9 +24,8 @@
     "available": "disponível para projetos"
   },
   "home": {
-    "eyebrow": "toledo-pr · brasil",
     "role": "Desenvolvedor Fullstack · Automação · Dados",
-    "value": "Construo sistemas que rodam em produção: SaaS com pagamentos e app mobile, automação que substitui trabalho manual e visão computacional rodando local, sem custo de nuvem.",
+    "value": "Construo sistemas que <em>rodam em produção</em> — SaaS com pagamentos e app mobile, automações que substituem trabalho manual e visão computacional rodando local, sem custo de nuvem.",
     "paths": {
       "label": "Por onde começar",
       "recruiter": {
@@ -48,7 +47,10 @@
     "featured": {
       "title": "Projetos em destaque",
       "subtitle": "Problema, solução e resultado — o que foi para produção e por quê.",
-      "all": "Ver todos os projetos"
+      "all": "Ver todos os projetos",
+      "kicker": "Trabalhos selecionados",
+      "lead": "Projeto principal",
+      "index": "Outros projetos"
     },
     "vision": {
       "kicker": "visão computacional",
@@ -59,35 +61,33 @@
       "label": "Demonstração animada: caixas de detecção acompanham pessoas cruzando uma linha de contagem",
       "exits": "saídas",
       "camera": "CAM-01 · entrada",
-      "deadZone": "zona morta"
+      "deadZone": "zona morta",
+      "kickerIndex": "Visão computacional"
     },
     "stack": {
       "title": "Stack que uso em produção",
-      "more": "Ver todas as habilidades"
+      "more": "Ver todas as habilidades",
+      "kicker": "Ferramentas"
     },
     "contact": {
       "title": "Tem um projeto ou uma vaga?",
       "body": "Me conta o contexto. Respondo em até um dia útil.",
       "schedule": "Agendar uma conversa",
       "whatsapp": "Chamar no WhatsApp",
-      "form": "Mandar mensagem"
+      "form": "Mandar mensagem",
+      "kicker": "Contato"
     },
     "network": {
       "label": "Diagrama de tecnologias conectadas: backend, frontend, mobile, dados, IA e infraestrutura"
     },
-    "console": {
-      "title": "status · produção",
-      "label": "Painel ilustrativo com o status dos sistemas e um log de eventos",
-      "services": "serviços",
-      "log": "log",
-      "lines": [
-        "$ git push origin main",
-        "[ci] lint ✓  typecheck ✓  194 testes ✓",
-        "[deploy] personal-manager/api → railway ✓",
-        "[vision] track #42 cruzou a linha · entrada +1",
-        "[rpa] processo de crédito · regras 1:1 ✓",
-        "[web] maschio-soares → produção ✓"
-      ]
+    "available": "Disponível para projetos",
+    "meta": {
+      "base": "Base",
+      "baseValue": "Toledo, PR — Brasil",
+      "now": "Atualmente",
+      "nowValue": "Desenvolvedor RPA no Sicredi",
+      "lang": "Idiomas",
+      "langValue": "Português · Inglês"
     }
   },
   "project": {
@@ -106,13 +106,14 @@
       "dados-bi": "Dados / BI",
       "web": "Web"
     },
-    "readCase": "Ver case"
+    "readCase": "Ler o case"
   },
   "footer": {
     "tagline": "Sistemas que rodam em produção.",
     "built": "Feito com Next.js",
     "source": "código no GitHub",
-    "rights": "Todos os direitos reservados."
+    "rights": "Todos os direitos reservados.",
+    "lead": "Vamos conversar"
   },
   "theme": {
     "light": "Tema claro",
@@ -216,7 +217,10 @@
     ],
     "ctaTitle": "Vamos tirar sua ideia do papel?",
     "ctaBody": "Agende uma conversa de 30 minutos, sem compromisso.",
-    "ctaButton": "Agendar conversa"
+    "ctaButton": "Agendar conversa",
+    "processKicker": "Processo",
+    "faqKicker": "Dúvidas",
+    "ctaAlt": "Mandar mensagem"
   },
   "about": {
     "title": "Sobre",
@@ -311,5 +315,14 @@
       "[error] 404: route not found",
       "[rollback] redirecting to a page that exists ✓"
     ]
+  },
+  "labels": {
+    "projects": "Índice de trabalhos",
+    "experience": "Trajetória",
+    "services": "Para empresas",
+    "about": "Perfil",
+    "contact": "Fale comigo",
+    "music": "Fora do código",
+    "cv": "Currículo"
   }
 }

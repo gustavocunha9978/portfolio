@@ -39,16 +39,20 @@ export function ProjectsExplorer({ projects, cards }: Props) {
 
   const chip = (active: boolean) =>
     cn(
-      "min-h-11 rounded-full border px-3.5 py-1.5 font-mono text-xs transition-colors sm:min-h-9",
+      "label-caps min-h-11 px-0.5 transition-colors sm:min-h-9",
       active
-        ? "border-transparent bg-ink-0 text-surface-0"
-        : "border-line text-ink-1 hover:border-line-strong hover:text-ink-0",
+        ? "text-ink-0 underline decoration-fg-brand decoration-2 underline-offset-[7px]"
+        : "text-ink-2 hover:text-ink-0",
     );
 
   return (
     <div>
-      <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
-        <div role="group" aria-label={t("filterCategory")} className="flex flex-wrap gap-2">
+      <div className="flex flex-col gap-4 border-b border-line pb-4 lg:flex-row lg:items-center lg:justify-between">
+        <div
+          role="group"
+          aria-label={t("filterCategory")}
+          className="flex flex-wrap gap-x-6 gap-y-1"
+        >
           <button
             type="button"
             aria-pressed={!category}
@@ -75,7 +79,7 @@ export function ProjectsExplorer({ projects, cards }: Props) {
           <select
             value={tech}
             onChange={(e) => setTech(e.target.value)}
-            className="rounded-lg border border-line bg-surface-1 px-3 py-2 text-sm text-ink-0"
+            className="min-h-11 border border-line-strong bg-surface-0 px-3 py-2 text-sm text-ink-0"
           >
             <option value="">{t("anyTech")}</option>
             {techs.map((s) => (
@@ -92,7 +96,7 @@ export function ProjectsExplorer({ projects, cards }: Props) {
       </p>
 
       {filtered.length > 0 ? (
-        <ul className="mt-4 grid gap-6 md:grid-cols-2">
+        <ul className="mt-8 grid gap-x-10 gap-y-16 md:grid-cols-2">
           {filtered.map((p) => (
             <li key={p.slug} className="flex">
               {cards[p.slug]}

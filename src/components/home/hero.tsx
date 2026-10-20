@@ -1,120 +1,105 @@
-import { ArrowRight, Briefcase, Wrench } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
-import type { ProjectFrontmatter } from "@/lib/content/schema";
 import { siteConfig } from "@/site.config";
 import { StatusBadge } from "@/components/ui/status-badge";
-import { HeroConsole, type ConsoleService } from "./hero-console";
+import { CountUp } from "./count-up";
 import { HeroNetwork } from "./hero-network";
 
-export type HeroVariant = "network" | "console";
+type Metric = { value: number; suffix?: string; label: string };
 
-type Props = { variant: HeroVariant; projects: ProjectFrontmatter[] };
-
-export async function Hero({ variant, projects }: Props) {
+export async function Hero({ metrics }: { metrics: Metric[] }) {
   const t = await getTranslations("home");
-  const ts = await getTranslations("status");
-  const tp = await getTranslations("project");
 
-  const tone = { produção: "ok", concluído: "info", "em andamento": "warn" } as const;
-  const services: ConsoleService[] = projects.slice(0, 5).map((p) => ({
-    name: p.slug,
-    status: tp(`status.${p.status}`),
-    detail: p.metrics[0] ?? p.stack.slice(0, 2).join(" · "),
-    tone: tone[p.status],
-  }));
+  const paths = [
+    {
+      href: "/experiencia" as const,
+      title: t("paths.recruiter.title"),
+      desc: t("paths.recruiter.desc"),
+    },
+    { href: "/servicos" as const, title: t("paths.client.title"), desc: t("paths.client.desc") },
+  ];
+  const meta = [
+    { k: t("meta.base"), v: t("meta.baseValue") },
+    { k: t("meta.now"), v: t("meta.nowValue") },
+    { k: t("meta.lang"), v: t("meta.langValue") },
+  ];
 
   return (
-    <section aria-labelledby="hero-title" className="relative isolate overflow-hidden">
-      <div
-        className="absolute inset-0 -z-10 bg-grid opacity-60 motion-safe:animate-grid-pan"
-        aria-hidden="true"
-      />
-      <div
-        className="absolute top-[-20%] left-1/2 -z-10 h-[520px] w-[820px] -translate-x-1/2 rounded-full bg-[radial-gradient(closest-side,var(--glow),transparent)]"
-        aria-hidden="true"
-      />
+    <section aria-labelledby="hero-title">
+      <div className="mx-auto grid max-w-6xl gap-x-10 gap-y-12 px-4 pt-12 pb-14 *:min-w-0 sm:px-6 sm:pt-20 lg:grid-cols-12 lg:pb-20">
+        <div className="lg:col-span-7">
+          {siteConfig.availableForWork && <StatusBadge>{t("available")}</StatusBadge>}
 
-      <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 pt-14 pb-16 *:min-w-0 sm:px-6 sm:pt-20 lg:grid-cols-[1.05fr_1fr] lg:pb-24">
-        <div>
-          {siteConfig.availableForWork && <StatusBadge>{ts("available")}</StatusBadge>}
-
-          <p className="mt-8 font-mono text-xs tracking-wider text-ink-2 uppercase">
-            ~/{t("eyebrow")}
-          </p>
           <h1
             id="hero-title"
-            className="mt-3 text-4xl font-semibold tracking-tight text-balance sm:text-5xl lg:text-6xl"
+            className="mt-8 text-[clamp(3.4rem,10.5vw,7.25rem)] leading-[0.9] font-medium tracking-[-0.055em]"
           >
-            {siteConfig.name}
+            Gustavo
+            <br />
+            Cunha<span className="text-fg-brand">.</span>
           </h1>
-          <p className="mt-4 text-lg font-medium text-balance sm:text-xl">
-            <span className="text-gradient">{t("role")}</span>
+          <p className="mt-6 font-display text-lg font-medium tracking-[-0.01em] text-ink-1 sm:text-xl">
+            {t("role")}
           </p>
-          <p className="mt-5 max-w-xl leading-relaxed text-pretty text-ink-1">{t("value")}</p>
+          <p className="mt-6 max-w-xl text-lg leading-relaxed text-pretty text-ink-1">
+            {t.rich("value", {
+              em: (chunks) => <em className="text-emph text-[1.12em] text-ink-0">{chunks}</em>,
+            })}
+          </p>
 
-          <nav aria-label={t("paths.label")} className="mt-9 grid gap-3 sm:grid-cols-2">
-            <PathCard
-              href="/experiencia"
-              icon={<Briefcase className="size-4" aria-hidden="true" />}
-              title={t("paths.recruiter.title")}
-              desc={t("paths.recruiter.desc")}
-            />
-            <PathCard
-              href="/servicos"
-              icon={<Wrench className="size-4" aria-hidden="true" />}
-              title={t("paths.client.title")}
-              desc={t("paths.client.desc")}
-            />
+          <nav aria-label={t("paths.label")} className="mt-10 max-w-xl border-t border-line">
+            {paths.map((p) => (
+              <Link
+                key={p.href}
+                href={p.href}
+                className="group flex min-h-16 items-center justify-between gap-4 border-b border-line py-4 transition-colors hover:bg-surface-1"
+              >
+                <span>
+                  <span className="block font-display text-xl font-medium tracking-[-0.02em]">
+                    {p.title}
+                  </span>
+                  <span className="block text-sm text-ink-2">{p.desc}</span>
+                </span>
+                <ArrowRight
+                  className="size-5 shrink-0 text-ink-2 transition-transform duration-200 group-hover:translate-x-1 group-hover:text-fg-brand"
+                  aria-hidden="true"
+                />
+              </Link>
+            ))}
           </nav>
         </div>
 
-        <div className="relative">
-          {variant === "network" ? (
-            <HeroNetwork label={t("network.label")} />
-          ) : (
-            <HeroConsole
-              title={t("console.title")}
-              label={t("console.label")}
-              servicesLabel={t("console.services")}
-              logLabel={t("console.log")}
-              services={services}
-              lines={t.raw("console.lines") as string[]}
-            />
-          )}
+        <div className="lg:col-span-5 lg:pt-10">
+          <HeroNetwork label={t("network.label")} />
         </div>
       </div>
-    </section>
-  );
-}
 
-function PathCard({
-  href,
-  icon,
-  title,
-  desc,
-}: {
-  href: "/experiencia" | "/servicos";
-  icon: React.ReactNode;
-  title: string;
-  desc: string;
-}) {
-  return (
-    <Link
-      href={href}
-      className="group flex items-center gap-3 rounded-xl border border-line bg-surface-1/80 p-4 backdrop-blur transition-colors hover:border-gradient"
-    >
-      <span className="grid size-9 shrink-0 place-items-center rounded-lg bg-surface-2 text-fg-brand">
-        {icon}
-      </span>
-      <span className="min-w-0 flex-1">
-        <span className="block font-medium">{title}</span>
-        <span className="block text-sm text-ink-2">{desc}</span>
-      </span>
-      <ArrowRight
-        className="size-4 text-ink-2 transition-transform group-hover:translate-x-0.5 group-hover:text-ink-0"
-        aria-hidden="true"
-      />
-    </Link>
+      {/* Faixa de metadados, como a ficha técnica de uma publicação */}
+      <dl className="mx-auto grid max-w-6xl border-t border-line px-4 sm:grid-cols-3 sm:px-6">
+        {meta.map((m) => (
+          <div key={m.k} className="flex gap-3 border-b border-line py-4 sm:border-b-0 sm:py-5">
+            <dt className="w-24 shrink-0 pt-0.5 label-caps text-ink-2">{m.k}</dt>
+            <dd className="text-sm text-ink-0">{m.v}</dd>
+          </div>
+        ))}
+      </dl>
+
+      <div className="border-y border-line">
+        <dl className="mx-auto grid max-w-6xl grid-cols-2 lg:grid-cols-4">
+          {metrics.map((m, i) => (
+            <div
+              key={m.label}
+              className={`flex flex-col-reverse px-4 py-8 sm:px-6 ${i % 2 === 1 ? "border-l border-line" : ""} ${i >= 2 ? "border-t border-line lg:border-t-0" : ""} ${i === 2 ? "lg:border-l" : ""}`}
+            >
+              <dt className="mt-2 max-w-[16rem] text-sm text-ink-2">{m.label}</dt>
+              <dd className="font-display text-5xl font-medium tracking-[-0.05em] sm:text-6xl">
+                <CountUp value={m.value} suffix={m.suffix} />
+              </dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </section>
   );
 }

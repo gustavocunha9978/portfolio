@@ -24,9 +24,8 @@
     "available": "open to work"
   },
   "home": {
-    "eyebrow": "toledo-pr · brazil",
     "role": "Fullstack Developer · Automation · Data",
-    "value": "I build systems that run in production: SaaS with payments and mobile apps, automation that replaces manual work, and computer vision running on-premise with zero cloud cost.",
+    "value": "I build systems that <em>run in production</em> — SaaS with payments and mobile apps, automations that replace manual work, and computer vision running on-premise with zero cloud cost.",
     "paths": {
       "label": "Where to start",
       "recruiter": {
@@ -48,7 +47,10 @@
     "featured": {
       "title": "Featured projects",
       "subtitle": "Problem, solution and result — what shipped and why.",
-      "all": "See all projects"
+      "all": "See all projects",
+      "kicker": "Selected work",
+      "lead": "Lead project",
+      "index": "More projects"
     },
     "vision": {
       "kicker": "computer vision",
@@ -59,35 +61,33 @@
       "label": "Animated demo: detection boxes follow people crossing a counting line",
       "exits": "exits",
       "camera": "CAM-01 · entrance",
-      "deadZone": "dead zone"
+      "deadZone": "dead zone",
+      "kickerIndex": "Computer vision"
     },
     "stack": {
       "title": "Stack I use in production",
-      "more": "See all skills"
+      "more": "See all skills",
+      "kicker": "Toolbox"
     },
     "contact": {
       "title": "Got a project or a role?",
       "body": "Tell me the context. I reply within one business day.",
       "schedule": "Book a call",
       "whatsapp": "Message on WhatsApp",
-      "form": "Send a message"
+      "form": "Send a message",
+      "kicker": "Contact"
     },
     "network": {
       "label": "Diagram of connected technologies: backend, frontend, mobile, data, AI and infrastructure"
     },
-    "console": {
-      "title": "status · production",
-      "label": "Illustrative panel showing system status and an event log",
-      "services": "services",
-      "log": "log",
-      "lines": [
-        "$ git push origin main",
-        "[ci] lint ✓  typecheck ✓  194 tests ✓",
-        "[deploy] personal-manager/api → railway ✓",
-        "[vision] track #42 crossed the line · entry +1",
-        "[rpa] credit process · rules 1:1 ✓",
-        "[web] maschio-soares → production ✓"
-      ]
+    "available": "Open to work",
+    "meta": {
+      "base": "Based in",
+      "baseValue": "Toledo, PR — Brazil",
+      "now": "Currently",
+      "nowValue": "RPA Developer at Sicredi",
+      "lang": "Languages",
+      "langValue": "Portuguese · English"
     }
   },
   "project": {
@@ -106,13 +106,14 @@
       "dados-bi": "Data / BI",
       "web": "Web"
     },
-    "readCase": "View case"
+    "readCase": "Read the case study"
   },
   "footer": {
     "tagline": "Systems that run in production.",
     "built": "Built with Next.js",
     "source": "source on GitHub",
-    "rights": "All rights reserved."
+    "rights": "All rights reserved.",
+    "lead": "Let's talk"
   },
   "theme": {
     "light": "Light theme",
@@ -216,7 +217,10 @@
     ],
     "ctaTitle": "Ready to get your idea off the ground?",
     "ctaBody": "Book a free 30-minute call.",
-    "ctaButton": "Book a call"
+    "ctaButton": "Book a call",
+    "processKicker": "Process",
+    "faqKicker": "Questions",
+    "ctaAlt": "Send a message"
   },
   "about": {
     "title": "About",
@@ -311,5 +315,14 @@
       "[error] 404: route not found",
       "[rollback] redirecting to a page that exists ✓"
     ]
+  },
+  "labels": {
+    "projects": "Index of work",
+    "experience": "Track record",
+    "services": "For businesses",
+    "about": "Profile",
+    "contact": "Get in touch",
+    "music": "Off the clock",
+    "cv": "Résumé"
   }
 }
