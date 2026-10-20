@@ -32,11 +32,7 @@ export function LocaleSwitcher() {
   }
 
   return (
-    <div
-      role="group"
-      aria-label={t("language")}
-      className="flex rounded-lg border border-line p-0.5 font-mono text-xs"
-    >
+    <div role="group" aria-label={t("language")} className="flex items-center label-caps">
       {locales.map((locale) => (
         <button
           key={locale}
@@ -47,8 +43,10 @@ export function LocaleSwitcher() {
           disabled={pending}
           onClick={() => locale !== current && switchTo(locale)}
           className={cn(
-            "min-h-10 min-w-10 rounded-md px-2 py-1 transition-colors sm:min-h-0 sm:min-w-0",
-            locale === current ? "bg-surface-2 text-ink-0" : "text-ink-2 hover:text-ink-0",
+            "min-h-11 min-w-11 px-1.5 transition-colors sm:min-h-9 sm:min-w-8",
+            locale === current
+              ? "text-ink-0 underline decoration-fg-brand decoration-2 underline-offset-[6px]"
+              : "text-ink-2 hover:text-ink-0",
           )}
         >
           {labels[locale].short}

@@ -1,70 +1,96 @@
+import { ArrowUpRight } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
+import { mailtoUrl } from "@/lib/links";
 import { mainNav } from "@/lib/nav";
 import { siteConfig } from "@/site.config";
-import { GithubIcon, LinkedinIcon } from "@/components/icons/brand";
 
 export async function Footer() {
   const t = await getTranslations("footer");
   const nav = await getTranslations("nav");
 
+  const social = [
+    { label: "GitHub", href: siteConfig.social.github },
+    { label: "LinkedIn", href: siteConfig.social.linkedin },
+    { label: "Cal.com", href: siteConfig.social.cal },
+  ];
+
   return (
     <footer className="border-t border-line print:hidden">
-      <div className="mx-auto grid max-w-6xl gap-8 px-4 py-12 sm:grid-cols-[1.5fr_1fr_auto] sm:px-6">
-        <div>
-          <p className="font-mono text-sm text-ink-0">gustavo.cunha</p>
-          <p className="mt-2 text-sm text-ink-2">{t("tagline")}</p>
-          <p className="mt-1 text-sm text-ink-2">{siteConfig.location}</p>
-        </div>
-        <nav aria-label={nav("primary")}>
-          <ul className="grid grid-cols-2 gap-x-6 gap-y-2 text-sm">
-            {mainNav.map(({ key, href }) => (
-              <li key={key}>
-                <Link href={href} className="text-ink-1 hover:text-ink-0">
-                  {nav(key)}
+      <div className="mx-auto max-w-6xl px-4 pt-16 pb-10 sm:px-6 sm:pt-24">
+        <p className="label-caps text-ink-2">{t("lead")}</p>
+        <a
+          href={mailtoUrl()}
+          className="group mt-4 inline-flex max-w-full items-start gap-2 font-display text-[clamp(1.9rem,6.5vw,4.75rem)] leading-[1.02] font-medium tracking-[-0.045em] break-all"
+        >
+          <span className="underline decoration-line-strong decoration-1 underline-offset-[0.14em] transition-colors group-hover:decoration-fg-brand">
+            {siteConfig.email}
+          </span>
+          <ArrowUpRight
+            className="mt-[0.15em] size-[0.6em] shrink-0 text-fg-brand transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
+            aria-hidden="true"
+          />
+        </a>
+
+        <div className="mt-16 grid gap-10 border-t border-line pt-10 sm:grid-cols-12">
+          <div className="sm:col-span-4">
+            <p className="font-display font-semibold">
+              Gustavo Cunha<span className="text-fg-brand">.</span>
+            </p>
+            <p className="mt-2 text-sm text-ink-2">{t("tagline")}</p>
+            <p className="mt-1 text-sm text-ink-2">{siteConfig.location}</p>
+          </div>
+          <nav aria-label={nav("primary")} className="sm:col-span-4">
+            <ul className="grid grid-cols-2 gap-x-6 gap-y-2.5 text-sm">
+              {mainNav.map(({ key, href }) => (
+                <li key={key}>
+                  <Link href={href} className="text-ink-1 hover:text-ink-0">
+                    {nav(key)}
+                  </Link>
+                </li>
+              ))}
+              <li>
+                <Link href="/musica" className="text-ink-1 hover:text-ink-0">
+                  {nav("music")}
                 </Link>
               </li>
+              <li>
+                <Link href="/cv" className="text-ink-1 hover:text-ink-0">
+                  CV
+                </Link>
+              </li>
+            </ul>
+          </nav>
+          <ul className="space-y-2.5 text-sm sm:col-span-4 sm:text-right">
+            {social.map((s) => (
+              <li key={s.label}>
+                <a
+                  href={s.href}
+                  rel="me noopener noreferrer"
+                  target="_blank"
+                  className="inline-flex items-center gap-1 text-ink-1 hover:text-ink-0"
+                >
+                  {s.label}
+                  <ArrowUpRight className="size-3.5" aria-hidden="true" />
+                </a>
+              </li>
             ))}
-            <li>
-              <Link href="/musica" className="text-ink-1 hover:text-ink-0">
-                {nav("music")}
-              </Link>
-            </li>
-            <li>
-              <Link href="/cv" className="text-ink-1 hover:text-ink-0">
-                CV
-              </Link>
-            </li>
           </ul>
-        </nav>
-        <div className="flex items-start gap-3">
-          <a
-            href={siteConfig.social.github}
-            aria-label="GitHub"
-            rel="me"
-            className="text-ink-1 hover:text-ink-0"
-          >
-            <GithubIcon className="size-5" />
-          </a>
-          <a
-            href={siteConfig.social.linkedin}
-            aria-label="LinkedIn"
-            rel="me"
-            className="text-ink-1 hover:text-ink-0"
-          >
-            <LinkedinIcon className="size-5" />
-          </a>
         </div>
-      </div>
-      <div className="border-t border-line">
-        <p className="mx-auto max-w-6xl px-4 py-5 font-mono text-xs text-ink-2 sm:px-6">
-          © {new Date().getFullYear()} {siteConfig.fullName} · {t("built")} ·{" "}
-          <a
-            href={siteConfig.repoUrl}
-            className="underline decoration-line-strong underline-offset-4 hover:text-ink-0"
-          >
-            {t("source")}
-          </a>
+
+        <p className="mt-12 flex flex-wrap justify-between gap-2 font-mono text-xs text-ink-2">
+          <span>
+            © {new Date().getFullYear()} {siteConfig.fullName}
+          </span>
+          <span>
+            {t("built")} ·{" "}
+            <a
+              href={siteConfig.repoUrl}
+              className="underline decoration-line-strong underline-offset-4 hover:text-ink-0"
+            >
+              {t("source")}
+            </a>
+          </span>
         </p>
       </div>
     </footer>

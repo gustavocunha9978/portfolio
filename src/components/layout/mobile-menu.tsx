@@ -29,7 +29,7 @@ export function MobileMenu({ children }: { children?: React.ReactNode }) {
         aria-controls={panelId}
         aria-label={open ? t("close") : t("menu")}
         onClick={() => setOpen((v) => !v)}
-        className="inline-flex size-11 items-center justify-center rounded-lg border border-line text-ink-1 sm:size-9"
+        className="inline-flex size-11 items-center justify-center border border-line text-ink-1"
       >
         {open ? (
           <X className="size-4" aria-hidden="true" />
@@ -40,14 +40,12 @@ export function MobileMenu({ children }: { children?: React.ReactNode }) {
       {open && (
         <div
           id={panelId}
-          className="fixed inset-x-0 top-16 bottom-0 z-40 overflow-y-auto border-t border-line bg-surface-0/95 px-4 py-6 backdrop-blur"
+          className="fixed inset-x-0 top-16 bottom-0 z-40 overflow-y-auto bg-surface-0 px-4 py-4"
         >
           <nav aria-label={t("primary")}>
-            <NavLinks className="flex flex-col gap-1 text-base" onNavigate={() => setOpen(false)} />
+            <NavLinks large className="flex flex-col" onNavigate={() => setOpen(false)} />
           </nav>
-          <div className="mt-6 flex flex-wrap items-center gap-3 border-t border-line pt-6">
-            {children}
-          </div>
+          <div className="mt-8 flex flex-wrap items-center gap-3">{children}</div>
         </div>
       )}
     </div>

@@ -5,8 +5,9 @@
 @custom-variant light (&:where(.light, .light *));
 
 /*
- * Tokens de marca. Nomes próprios (brand-*, accent-*, surface-*, ink-*, fg-*) para nunca
- * colidir com a paleta padrão do Tailwind — emerald, blue etc. continuam intactos.
+ * Direção visual: editorial / grade suíça. Cantos retos, filetes de 1px, cor chapada e
+ * pontual (verde = ênfase, azul = link). Nomes próprios (brand-*, ink-*, fg-*) para nunca
+ * colidir com a paleta padrão do Tailwind.
  */
 @theme {
   --color-brand-300: #6ee7b7;
@@ -21,20 +22,32 @@
   --color-accent-600: #1d4ed8;
   --color-accent-700: #1e40af;
 
-  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-geist-mono), ui-monospace, "SFMono-Regular", monospace;
+  --font-sans: var(--font-plex), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-grotesk), var(--font-plex), ui-sans-serif, sans-serif;
+  --font-serif: var(--font-newsreader), Georgia, serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, "SFMono-Regular", monospace;
 
-  --animate-pulse-dot: pulse-dot 2s ease-out infinite;
-  --animate-float: float 7s ease-in-out infinite;
-  --animate-grid-pan: grid-pan 24s linear infinite;
+  /* Cantos retos no site inteiro: os utilitários rounded-* passam a ser quase nulos. */
+  --radius-xs: 0px;
+  --radius-sm: 1px;
+  --radius-md: 2px;
+  --radius-lg: 2px;
+  --radius-xl: 2px;
+  --radius-2xl: 3px;
+  --radius-3xl: 3px;
+
+  --tracking-display: -0.035em;
+
+  --animate-pulse-dot: pulse-dot 2.4s ease-out infinite;
+  --animate-float: float 8s ease-in-out infinite;
 
   @keyframes pulse-dot {
-    0% {
-      box-shadow: 0 0 0 0 color-mix(in oklab, var(--fg-brand) 55%, transparent);
-    }
-    70%,
+    0%,
     100% {
-      box-shadow: 0 0 0 8px transparent;
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.35;
     }
   }
   @keyframes float {
@@ -43,12 +56,7 @@
       transform: translateY(0);
     }
     50% {
-      transform: translateY(-6px);
-    }
-  }
-  @keyframes grid-pan {
-    to {
-      background-position: 48px 48px;
+      transform: translateY(-4px);
     }
   }
 }
@@ -60,37 +68,33 @@
 :root,
 .dark {
   --surface-0: #0b1220;
-  --surface-1: #101a2c;
-  --surface-2: #16233a;
-  --line: #22324d;
-  --line-strong: #2e4366;
-  --ink-0: #e8eef7;
-  --ink-1: #b6c2d4;
-  --ink-2: #8796ad;
+  --surface-1: #0f182a;
+  --surface-2: #152137;
+  --line: #213049;
+  --line-strong: #3a4d6e;
+  --ink-0: #edf2f9;
+  --ink-1: #b9c4d5;
+  --ink-2: #8a99b0;
   --fg-brand: #34d399;
   --fg-accent: #38bdf8;
   --fg-warn: #fbbf24;
-  --grad-from: #34d399;
-  --grad-to: #38bdf8;
-  --glow: color-mix(in oklab, #10b981 22%, transparent);
+  --on-brand: #04130d;
   color-scheme: dark;
 }
 
 .light {
   --surface-0: #f7fafc;
   --surface-1: #ffffff;
-  --surface-2: #edf2f7;
-  --line: #d6dee8;
-  --line-strong: #b9c6d6;
+  --surface-2: #eef2f6;
+  --line: #d3dbe5;
+  --line-strong: #8d9bb0;
   --ink-0: #0b1220;
   --ink-1: #334155;
   --ink-2: #526077;
   --fg-brand: #047857;
   --fg-accent: #1d4ed8;
   --fg-warn: #b45309;
-  --grad-from: #047857;
-  --grad-to: #1d4ed8;
-  --glow: color-mix(in oklab, #10b981 14%, transparent);
+  --on-brand: #ffffff;
   color-scheme: light;
 }
 
@@ -106,11 +110,22 @@
   --color-fg-brand: var(--fg-brand);
   --color-fg-accent: var(--fg-accent);
   --color-fg-warn: var(--fg-warn);
+  --color-on-brand: var(--on-brand);
 }
 
 body {
   background: var(--surface-0);
   color: var(--ink-0);
+  font-feature-settings:
+    "ss02",
+    "tnum" 0;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
 }
 
 /* Tailwind v4 removeu o cursor pointer padrão dos botões. */
@@ -123,37 +138,48 @@ label[for] {
 }
 
 ::selection {
-  background: color-mix(in oklab, var(--fg-brand) 30%, transparent);
+  background: var(--fg-brand);
+  color: var(--on-brand);
 }
 
 :focus-visible {
   outline: 2px solid var(--fg-accent);
   outline-offset: 3px;
-  border-radius: 4px;
 }
 
+/* Ênfase editorial: serifa itálica no meio da fonte grotesca. */
+@utility text-emph {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+/* Marcador de destaque em bloco (substitui o antigo texto em gradiente). */
 @utility text-gradient {
-  background: linear-gradient(90deg, var(--grad-from), var(--grad-to));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--fg-brand);
 }
 
-/* Borda com gradiente verde→azul (usada em elementos ativos/hover). */
+/* Borda de destaque: sólida e reta. */
 @utility border-gradient {
-  border: 1px solid transparent;
-  background:
-    linear-gradient(var(--surface-1), var(--surface-1)) padding-box,
-    linear-gradient(120deg, var(--grad-from), var(--grad-to)) border-box;
+  border: 1px solid var(--ink-0);
+  background: var(--surface-1);
 }
 
-/* Malha sutil de fundo, que some nas bordas. */
+/* Grade de 12 colunas visível, como numa página diagramada. */
 @utility bg-grid {
-  background-image:
-    linear-gradient(to right, var(--line) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--line) 1px, transparent 1px);
-  background-size: 48px 48px;
-  mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, black 30%, transparent 75%);
+  background-image: linear-gradient(to right, var(--line) 1px, transparent 1px);
+  background-size: calc((min(100vw, 72rem) - 2rem) / 6) 100%;
+  background-position: center top;
+  opacity: 0.5;
+}
+
+/* Rótulo pequeno em caixa alta (substitui os "~/caminhos" em mono). */
+@utility label-caps {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
 }
 
 /* Texto longo dos cases (MDX). Sem plugin de typography: só o que o conteúdo usa. */
@@ -174,11 +200,9 @@ label[for] {
     line-height: 1.25;
     scroll-margin-top: 6rem;
   }
-  & h2::before {
-    content: "## ";
-    color: var(--fg-brand);
-    font-family: var(--font-mono);
-    font-size: 0.8em;
+  & h2 {
+    padding-top: 1.1rem;
+    border-top: 1px solid var(--line);
   }
   & > h2:first-child {
     margin-top: 0;

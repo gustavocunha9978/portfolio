@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { IBM_Plex_Sans, JetBrains_Mono, Newsreader, Space_Grotesk } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getTranslations } from "next-intl/server";
 import { ThemeProvider } from "next-themes";
@@ -12,10 +12,25 @@ import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
 import "../globals.css";
 
-const geistSans = Geist({ subsets: ["latin"], variable: "--font-geist-sans", display: "swap" });
-const geistMono = Geist_Mono({
+// Grotesca para títulos, Plex para texto, serifa itálica para ênfase, mono para rótulos.
+const grotesk = Space_Grotesk({ subsets: ["latin"], variable: "--font-grotesk", display: "swap" });
+const plex = IBM_Plex_Sans({
   subsets: ["latin"],
-  variable: "--font-geist-mono",
+  weight: ["400", "500", "600"],
+  variable: "--font-plex",
+  display: "swap",
+});
+const newsreader = Newsreader({
+  subsets: ["latin"],
+  style: ["italic"],
+  weight: ["400"],
+  variable: "--font-newsreader",
+  display: "swap",
+});
+const jetbrains = JetBrains_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-jetbrains",
   display: "swap",
 });
 
@@ -49,7 +64,7 @@ export default async function LocaleLayout({ children, params }: Props) {
   return (
     <html
       lang={locale === "pt" ? "pt-BR" : "en"}
-      className={`${geistSans.variable} ${geistMono.variable}`}
+      className={`${grotesk.variable} ${plex.variable} ${newsreader.variable} ${jetbrains.variable}`}
       suppressHydrationWarning
     >
       <body className="min-h-dvh font-sans antialiased">
