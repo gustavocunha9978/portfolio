@@ -6,7 +6,17 @@ export const siteConfig = {
   name: "Gustavo Cunha",
   fullName: "Gustavo Cunha Soares dos Santos",
   location: "Toledo · PR · Brasil",
-  url: (process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000").replace(/\/$/, ""),
+  /**
+   * URL pública: NEXT_PUBLIC_SITE_URL; senão o domínio de produção da Vercel
+   * (que já vira o domínio próprio quando ele for configurado); senão localhost.
+   * Controla canonical, hreflang, sitemap, robots e Open Graph.
+   */
+  url: (
+    process.env.NEXT_PUBLIC_SITE_URL ??
+    (process.env.VERCEL_PROJECT_PRODUCTION_URL
+      ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+      : "http://localhost:3000")
+  ).replace(/\/$/, ""),
 
   /** Pode ser sobrescrito por NEXT_PUBLIC_CONTACT_EMAIL. Vazio = canal some do site. */
   email: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "gustavocunhasoares@hotmail.com",
