@@ -34,7 +34,7 @@ export const siteConfig = {
   /** Empresa atual. Com showEmployerName = false, o site troca o nome por "instituição financeira". */
   employer: {
     name: "Sicredi",
-    showEmployerName: true,
+    showEmployerName: false,
   },
 
   /** Badge de status no hero e no header. */
