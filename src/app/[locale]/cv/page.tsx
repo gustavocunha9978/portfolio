@@ -26,6 +26,13 @@ export async function generateMetadata({ params }: LocaleParams): Promise<Metada
   });
 }
 
+/**
+ * Quantas conquistas cada item mostra no CV: emprego mostra as 3 primeiras
+ * (as mais fortes vêm primeiro em data/experience.ts); freelance e hackathon, 1.
+ * A página /experiencia continua mostrando todas.
+ */
+const cvBullets = (kind: string) => (kind === "work" ? 3 : 1);
+
 /** Currículo imprimível. Mesma fonte de dados de /experiencia: data/experience.ts e data/skills.ts. */
 export default async function CvPage({ params }: LocaleParams) {
   const locale = await resolveLocale(params);
@@ -51,7 +58,7 @@ export default async function CvPage({ params }: LocaleParams) {
       </div>
 
       <article className="rounded-2xl border border-line bg-surface-1 p-8 sm:p-12 print:rounded-none print:border-0 print:p-0">
-        <header className="border-b border-line pb-6">
+        <header className="border-b border-line pb-6 print:pb-4">
           <h1 className="text-3xl font-semibold tracking-tight">{siteConfig.fullName}</h1>
           <p className="mt-1 text-lg text-fg-brand">{home("role")}</p>
           <p className="mt-3 font-mono text-xs text-ink-2">
@@ -78,8 +85,8 @@ export default async function CvPage({ params }: LocaleParams) {
                   <Todo>{formatPeriod(item.start, item.end, locale, te("present"))}</Todo>
                 </span>
               </div>
-              <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-ink-1 marker:text-ink-2">
-                {item.achievements[locale].map((a) => (
+              <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-ink-1 marker:text-ink-2 print:mt-1 print:space-y-0.5">
+                {item.achievements[locale].slice(0, cvBullets(item.kind)).map((a) => (
                   <li key={a}>
                     <Todo>{a}</Todo>
                   </li>
@@ -90,7 +97,8 @@ export default async function CvPage({ params }: LocaleParams) {
           ))}
         </CvSection>
 
-        <CvSection title={t("projects")}>
+        {/* Projetos ficam no site: no PDF, o CV cabe em 2 páginas. */}
+        <CvSection title={t("projects")} className="print:hidden">
           {featured.map((p) => (
             <div key={p.slug} className="break-inside-avoid">
               <h3 className="font-semibold">
@@ -148,11 +156,21 @@ export default async function CvPage({ params }: LocaleParams) {
   );
 }
 
-function CvSection({ title, children }: { title: string; children: React.ReactNode }) {
+function CvSection({
+  title,
+  children,
+  className,
+}: {
+  title: string;
+  children: React.ReactNode;
+  className?: string;
+}) {
   return (
-    <section className="mt-8">
-      <h2 className="mb-4 font-mono text-xs tracking-widest text-fg-brand uppercase">{title}</h2>
-      <div className="space-y-5">{children}</div>
+    <section className={`mt-8 print:mt-5 ${className ?? ""}`}>
+      <h2 className="mb-4 font-mono text-xs tracking-widest text-fg-brand uppercase print:mb-2">
+        {title}
+      </h2>
+      <div className="space-y-5 print:space-y-3">{children}</div>
     </section>
   );
 }

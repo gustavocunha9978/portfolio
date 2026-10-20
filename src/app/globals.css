@@ -343,7 +343,7 @@ label[for] {
     background: #fff;
   }
   @page {
-    margin: 14mm;
+    margin: 12mm 14mm;
   }
 }
 
