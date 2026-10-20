@@ -28,7 +28,7 @@ export const experience: ExperienceItem[] = [
     kind: "work",
     org: "Sicredi",
     role: { pt: "Desenvolvedor RPA", en: "RPA Developer" },
-    start: "TODO",
+    start: "2026-07",
     end: null,
     // O case "migracao-rpa-python" é anônimo de propósito: não linkar este item a ele.
     achievements: {
@@ -124,7 +124,7 @@ export const experience: ExperienceItem[] = [
     org: "Benfatto",
     role: { pt: "Desenvolvedor Backend", en: "Backend Developer" },
     start: "2025-05",
-    end: "TODO", // mês de saída (antes de entrar na empresa atual)
+    end: "2026-05",
     achievements: {
       pt: [
         "Desenvolvi e evoluí módulos de um ERP corporativo de logística, rastreamento de cargas e operações aduaneiras",
