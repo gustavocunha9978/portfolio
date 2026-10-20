@@ -31,18 +31,15 @@ export function NavLinks({
               className={cn(
                 "transition-colors",
                 large
-                  ? "flex items-baseline gap-4 border-b border-line py-4 font-display text-3xl tracking-[-0.03em]"
-                  : "relative py-2 text-sm",
+                  ? "flex items-baseline gap-4 border-b-[1.5px] border-dashed border-line-strong py-4 font-display text-3xl"
+                  : "relative py-2 text-[0.95rem]",
                 active ? "text-ink-0" : "text-ink-1 hover:text-ink-0",
                 !large &&
-                  "after:absolute after:inset-x-0 after:-bottom-px after:h-px after:bg-fg-brand after:transition-transform after:duration-200",
-                !large &&
-                  (active ? "after:scale-x-100" : "after:scale-x-0 hover:after:scale-x-100"),
+                  active &&
+                  "underline decoration-fg-accent decoration-wavy decoration-[1.5px] underline-offset-[7px]",
               )}
             >
-              {large && (
-                <span className="label-caps text-fg-brand">{String(i + 1).padStart(2, "0")}</span>
-              )}
+              {large && <span className="hand text-lg">{String(i + 1).padStart(2, "0")}</span>}
               {t(key)}
             </Link>
           </li>

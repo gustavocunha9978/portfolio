@@ -16,23 +16,21 @@ export async function Footer() {
   ];
 
   return (
-    <footer className="border-t border-line print:hidden">
+    <footer className="border-t-[1.5px] border-ink-0 print:hidden">
       <div className="mx-auto max-w-6xl px-4 pt-16 pb-10 sm:px-6 sm:pt-24">
-        <p className="label-caps text-ink-2">{t("lead")}</p>
+        <p className="hand text-2xl">{t("lead")}</p>
         <a
           href={mailtoUrl()}
-          className="group mt-4 inline-flex max-w-full items-start gap-2 font-display text-[clamp(1.9rem,6.5vw,4.75rem)] leading-[1.02] font-medium tracking-[-0.045em] break-all"
+          className="group mt-4 inline-flex max-w-full items-start gap-2 font-display text-[clamp(1.9rem,6.5vw,4.75rem)] leading-[1.05] font-medium tracking-[-0.03em] break-all"
         >
-          <span className="underline decoration-line-strong decoration-1 underline-offset-[0.14em] transition-colors group-hover:decoration-fg-brand">
-            {siteConfig.email}
-          </span>
+          <span className="bg-transparent mark">{siteConfig.email}</span>
           <ArrowUpRight
-            className="mt-[0.15em] size-[0.6em] shrink-0 text-fg-brand transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
+            className="mt-[0.15em] size-[0.6em] shrink-0 text-fg-accent transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
             aria-hidden="true"
           />
         </a>
 
-        <div className="mt-16 grid gap-10 border-t border-line pt-10 sm:grid-cols-12">
+        <div className="mt-16 grid gap-10 border-t-[1.5px] border-dashed border-line-strong pt-10 sm:grid-cols-12">
           <div className="sm:col-span-4">
             <p className="font-display font-semibold">
               Gustavo Cunha<span className="text-fg-brand">.</span>

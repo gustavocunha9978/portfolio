@@ -6,22 +6,22 @@ import { useEffect, useId, useRef, useState } from "react";
 
 const palette = {
   dark: {
-    background: "#101a2c",
-    primaryColor: "#16233a",
-    primaryBorderColor: "#2e4366",
-    primaryTextColor: "#e8eef7",
-    lineColor: "#34d399",
-    secondaryColor: "#16233a",
-    tertiaryColor: "#101a2c",
+    background: "#1b1e23",
+    primaryColor: "#23272e",
+    primaryBorderColor: "#ede8dd",
+    primaryTextColor: "#ede8dd",
+    lineColor: "#8ab0ff",
+    secondaryColor: "#23272e",
+    tertiaryColor: "#1b1e23",
   },
   light: {
-    background: "#ffffff",
-    primaryColor: "#edf2f7",
-    primaryBorderColor: "#b9c6d6",
-    primaryTextColor: "#0b1220",
-    lineColor: "#047857",
-    secondaryColor: "#edf2f7",
-    tertiaryColor: "#ffffff",
+    background: "#fbf9f4",
+    primaryColor: "#fbf9f4",
+    primaryBorderColor: "#1b1a17",
+    primaryTextColor: "#1b1a17",
+    lineColor: "#1f4fbf",
+    secondaryColor: "#ebe6da",
+    tertiaryColor: "#fbf9f4",
   },
 };
 
@@ -62,7 +62,7 @@ export function Mermaid({ chart }: { chart: string }) {
           startOnLoad: false,
           securityLevel: "strict",
           theme: "base",
-          fontFamily: "var(--font-geist-mono), ui-monospace, monospace",
+          fontFamily: "var(--font-plex), sans-serif",
           themeVariables: { ...palette[theme], fontSize: "14px" },
           flowchart: { curve: "basis", htmlLabels: false, useMaxWidth: false },
         });

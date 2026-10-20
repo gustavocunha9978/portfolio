@@ -1,21 +1,15 @@
 import { useTranslations } from "next-intl";
 import type { ProjectStatus } from "@/lib/content/schema";
-import { cn } from "@/lib/cn";
+import { Stamp } from "@/components/sketch/sketch";
 
-const styles: Record<ProjectStatus, { dot: string; text: string }> = {
-  produção: { dot: "bg-fg-brand", text: "text-fg-brand" },
-  concluído: { dot: "bg-fg-accent", text: "text-fg-accent" },
-  "em andamento": { dot: "bg-fg-warn", text: "text-fg-warn" },
-};
+const tone = { produção: "brand", concluído: "accent", "em andamento": "warn" } as const;
 
-/** Status do projeto: quadradinho de cor + rótulo em caixa alta. */
+/** Status do projeto como carimbo batido na folha. */
 export function DeployStatus({ status, className }: { status: ProjectStatus; className?: string }) {
   const t = useTranslations("project.status");
-  const s = styles[status];
   return (
-    <span className={cn("inline-flex items-center gap-2 label-caps", s.text, className)}>
-      <span className={cn("size-1.5", s.dot)} aria-hidden="true" />
+    <Stamp tone={tone[status]} className={className}>
       {t(status)}
-    </span>
+    </Stamp>
   );
 }

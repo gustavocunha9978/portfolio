@@ -13,18 +13,16 @@ export function NotFoundView() {
 
   return (
     <section className="relative isolate overflow-hidden">
-      <div className="absolute inset-0 -z-10 bg-grid opacity-50" aria-hidden="true" />
       <div className="mx-auto max-w-3xl px-4 py-20 sm:px-6 sm:py-28">
-        <p className="inline-flex items-center gap-2 rounded-full border border-red-400/40 px-3 py-1 font-mono text-xs text-red-500 light:text-red-700">
-          <span className="size-2 rounded-full bg-red-500" aria-hidden="true" />
-          status 404
+        <p className="inline-flex -rotate-3 items-center rounded-sm border-2 border-current px-2.5 py-1 text-sm font-semibold tracking-[0.12em] text-red-700 uppercase dark:text-red-400">
+          404
         </p>
-        <h1 className="mt-6 text-4xl font-semibold tracking-tight sm:text-6xl">{t("title")}</h1>
+        <h1 className="mt-6 text-5xl font-medium tracking-[-0.03em] sm:text-7xl">{t("title")}</h1>
         <p className="mt-4 max-w-xl text-lg text-ink-1">{t("body")}</p>
 
         <pre
           aria-hidden="true"
-          className="mt-10 overflow-x-auto rounded-2xl border border-line bg-surface-1 p-5 font-mono text-sm leading-7"
+          className="mt-10 -rotate-[0.6deg] overflow-x-auto rounded-md border-[1.5px] border-ink-0 bg-surface-1 p-5 font-mono text-sm leading-7 shadow-paper"
         >
           {lines.map((line) => (
             <span
@@ -32,7 +30,7 @@ export function NotFoundView() {
               className={
                 "block " +
                 (line.includes("404")
-                  ? "text-red-500 light:text-red-700"
+                  ? "text-red-700 dark:text-red-400"
                   : line.includes("✓")
                     ? "text-fg-brand"
                     : "text-ink-1")

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { IBM_Plex_Sans, JetBrains_Mono, Newsreader, Space_Grotesk } from "next/font/google";
+import { Fraunces, IBM_Plex_Sans, Kalam } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations } from "next-intl/server";
 import { ThemeProvider } from "next-themes";
@@ -12,11 +12,12 @@ import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
 import "../globals.css";
 
-// Grotesca para títulos, Plex para texto, serifa itálica para ênfase, mono para rótulos.
-const grotesk = Space_Grotesk({
+// Fraunces (serifa com personalidade) nos títulos, Plex no texto, Kalam nas anotações à caneta.
+const fraunces = Fraunces({
   subsets: ["latin"],
-  variable: "--font-grotesk",
-  display: "optional",
+  axes: ["SOFT", "opsz"],
+  variable: "--font-fraunces",
+  display: "swap",
 });
 const plex = IBM_Plex_Sans({
   subsets: ["latin"],
@@ -24,20 +25,11 @@ const plex = IBM_Plex_Sans({
   variable: "--font-plex",
   display: "optional",
 });
-const newsreader = Newsreader({
+const kalam = Kalam({
   subsets: ["latin"],
-  style: ["italic"],
-  weight: ["400"],
-  variable: "--font-newsreader",
-  display: "optional",
-  preload: false, // só aparece em ênfases: não disputa banda com as fontes principais
-});
-const jetbrains = JetBrains_Mono({
-  subsets: ["latin"],
-  weight: ["400"],
-  variable: "--font-jetbrains",
-  display: "optional",
-  preload: false,
+  weight: ["400", "700"],
+  variable: "--font-kalam",
+  display: "swap",
 });
 
 const clientNamespaces = [
@@ -85,7 +77,7 @@ export default async function LocaleLayout({ children, params }: Props) {
   return (
     <html
       lang={locale === "pt" ? "pt-BR" : "en"}
-      className={`${grotesk.variable} ${plex.variable} ${newsreader.variable} ${jetbrains.variable}`}
+      className={`${fraunces.variable} ${plex.variable} ${kalam.variable}`}
       suppressHydrationWarning
     >
       <body className="min-h-dvh font-sans antialiased">

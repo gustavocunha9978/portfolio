@@ -1,9 +1,11 @@
 import { cn } from "@/lib/cn";
+import { HandArrow } from "@/components/sketch/sketch";
 
 type Props = {
   id?: string;
-  /** Número da seção, ex.: "01". */
+  /** Mantido por compatibilidade; o caderno não numera as seções. */
   index?: string;
+  /** Anotação à caneta acima do título. */
   kicker?: string;
   title?: string;
   subtitle?: string;
@@ -11,36 +13,34 @@ type Props = {
   children: React.ReactNode;
 };
 
-/**
- * Seção com cabeçalho editorial: à esquerda o número e o rótulo, à direita o título.
- * Abre com um filete de largura total, como a divisão de uma página impressa.
- */
-export function Section({ id, index, kicker, title, subtitle, className, children }: Props) {
+/** Seção do caderno: anotação à caneta com seta, título em serifa, texto curto. */
+export function Section({ id, kicker, title, subtitle, className, children }: Props) {
   const headingId = id ? `${id}-title` : undefined;
   return (
     <section
       id={id}
       aria-labelledby={title ? headingId : undefined}
-      className={cn("scroll-mt-20 border-t border-line py-16 sm:py-24", className)}
+      className={cn("scroll-mt-20 py-16 sm:py-24", className)}
     >
       {(kicker || title) && (
-        <header className="mb-12 grid gap-4 md:grid-cols-12">
-          <p className="label-caps text-ink-2 md:col-span-3 md:pt-3">
-            {index && <span className="text-fg-brand">{index}</span>}
-            {index && kicker && <span aria-hidden="true"> — </span>}
-            {kicker}
-          </p>
-          <div className="md:col-span-9">
-            {title && (
-              <h2
-                id={headingId}
-                className="max-w-3xl text-3xl font-medium tracking-[-0.03em] text-balance sm:text-5xl"
-              >
-                {title}
-              </h2>
-            )}
-            {subtitle && <p className="mt-4 max-w-xl text-ink-1">{subtitle}</p>}
-          </div>
+        <header className="mb-12 max-w-3xl">
+          {kicker && (
+            <p className="flex items-end gap-2 hand text-xl">
+              {kicker}
+              <HandArrow variant="down-right" className="w-10 translate-y-3" />
+            </p>
+          )}
+          {title && (
+            <h2
+              id={headingId}
+              className="mt-3 text-4xl font-medium tracking-[-0.025em] text-balance sm:text-5xl"
+            >
+              {title}
+            </h2>
+          )}
+          {subtitle && (
+            <p className="mt-4 max-w-xl text-lg leading-relaxed text-ink-1">{subtitle}</p>
+          )}
         </header>
       )}
       {children}

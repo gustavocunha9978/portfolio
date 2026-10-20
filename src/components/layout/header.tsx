@@ -14,7 +14,7 @@ export async function Header() {
   const cvHref = siteConfig.cv[locale];
 
   return (
-    <header className="sticky top-0 z-50 border-b border-line bg-surface-0/95 backdrop-blur-sm print:hidden">
+    <header className="sticky top-0 z-50 border-b-[1.5px] border-ink-0 bg-surface-0 print:hidden">
       <a
         href="#conteudo"
         className="sr-only focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-50 focus:bg-ink-0 focus:px-3 focus:py-2 focus:text-surface-0"
@@ -24,7 +24,7 @@ export async function Header() {
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-6 px-4 sm:px-6">
         <Link
           href="/"
-          className="font-display text-[1.05rem] font-semibold tracking-[-0.02em] whitespace-nowrap"
+          className="font-display text-xl font-semibold tracking-[-0.01em] whitespace-nowrap"
           aria-label={`${siteConfig.name} — ${t("home")}`}
         >
           Gustavo Cunha
