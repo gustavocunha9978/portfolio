@@ -60,6 +60,7 @@ export async function getProjects(
 ): Promise<Entry<ProjectFrontmatter>[]> {
   const all = await readCollection("projects", locale, projectFrontmatterSchema);
   return all
+    .filter((e) => showTodos || !e.frontmatter.draft)
     .map((e) => ({ ...e, frontmatter: hideTodos(e.frontmatter, showTodos) }))
     .sort((a, b) => a.frontmatter.order - b.frontmatter.order);
 }

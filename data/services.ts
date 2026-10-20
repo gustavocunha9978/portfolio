@@ -125,6 +125,8 @@ export const services: Service[] = [
       ],
     },
     timeline: { pt: "1 a 3 semanas", en: "1–3 weeks" },
+    // Rascunho: o link só aparece quando o case deixar de ser draft.
+    relatedProject: "dashboard-bi",
   },
   {
     id: "ia",
