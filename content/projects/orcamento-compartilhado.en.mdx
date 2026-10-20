@@ -1,7 +1,7 @@
 ---
 title: Shared household budget
 slug: orcamento-compartilhado
-summary: A couple's budgeting app that replaced a manual spreadsheet — simultaneous multi-device editing with real-time Firestore.
+summary: A couple's budgeting app that replaced a manual spreadsheet, with simultaneous multi-device editing on real-time Firestore.
 category: [fullstack]
 stack: [React, TypeScript, Vite, Firebase Auth, Firestore, Firebase Hosting, Recharts, jsPDF]
 role: Developer
@@ -23,7 +23,7 @@ overwrote the other, and neither had the month's picture on their phone.
 ## Solution
 
 A **React + TypeScript** web app with **Firebase Auth** and **Firestore**. Every screen subscribes to its data
-with `onSnapshot`, so a change on one phone shows up on the other instantly — no refresh button and no
+with `onSnapshot`, so a change on one phone shows up on the other instantly, with no refresh button and no
 version conflicts.
 
 - Income per person (salary, bonuses, returns, reimbursements) and fixed and variable expenses

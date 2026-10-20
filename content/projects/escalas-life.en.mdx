@@ -1,11 +1,11 @@
 ---
 title: Escalas Life
 slug: escalas-life
-summary: Volunteer scheduling for church ministries — multi-environment, role-based permissions, unavailability tracking and a monthly auto-scheduler that respects each volunteer's constraints.
+summary: Volunteer scheduling for church ministries, with multiple environments, role-based permissions, unavailability tracking and a monthly auto-scheduler that respects each volunteer's constraints.
 category: [fullstack]
 stack: [TypeScript, Node.js, React, Vite, PostgreSQL, Supabase, Docker, Vercel]
 role: Fullstack Developer
-period: Aug — Oct 2026
+period: Aug–Oct 2026
 status: produção
 visibility: privado
 cover: /images/projects/escalas-life/cover.svg
@@ -24,13 +24,13 @@ service, and volunteers who never made it into the rotation.
 ## Solution
 
 A web app with **separate environments** (each youth ministry with its own visual identity), **role-based
-permissions** and every critical rule validated **on the server** — not only in the UI: environment and
+permissions** and every critical rule validated **on the server**, not only in the UI: environment and
 ministry membership, compatible role, unavailability and schedule conflicts.
 
 My contributions:
 
 - **Monthly auto-scheduler**: builds a ministry's schedule for every service in the month, respecting
-  unavailability and per-person constraints, with rotation scoring and deterministic tie-breaking — the
+  unavailability and per-person constraints, with rotation scoring and deterministic tie-breaking. The
   preview and the saved schedule are always identical
 - Full CRUD and **password recovery**
 - **Service order** view for the leadership team
@@ -50,7 +50,7 @@ My contributions:
 
 ### A predictable auto-scheduler
 
-A randomized generator produces a preview that differs from the saved schedule — and leaders stop trusting
+A randomized generator produces a preview that differs from the saved schedule, and leaders stop trusting
 it. Scoring uses explicit weights (rotation, pairs who serve together) and **deterministic tie-breaking**,
 covered by tests.
 

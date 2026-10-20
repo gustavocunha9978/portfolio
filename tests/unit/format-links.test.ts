@@ -14,8 +14,8 @@ describe("formatMonth / formatPeriod", () => {
   });
 
   it("período atual, intervalo e mês único", () => {
-    expect(formatPeriod("2026-07", null, "pt", "atual")).toBe("jul 2026 — atual");
-    expect(formatPeriod("2024-01", "2025-03", "en", "present")).toBe("Jan 2024 — Mar 2025");
+    expect(formatPeriod("2026-07", null, "pt", "atual")).toBe("jul 2026 – atual");
+    expect(formatPeriod("2024-01", "2025-03", "en", "present")).toBe("Jan 2024 – Mar 2025");
     expect(formatPeriod("2025-05", "2025-05", "pt", "atual")).toBe("mai 2025");
   });
 });

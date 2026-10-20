@@ -38,13 +38,13 @@ and left no history.
 
 A camera at the entrance feeds a Python pipeline that detects people with **YOLOv8n** and follows them
 across frames with **ByteTrack**. Each person becomes a _track_ with an identity; counting happens when a
-track crosses the entry or exit line — not when someone shows up in a frame.
+track crosses the entry or exit line, not when someone shows up in a frame.
 
 Events go to **PostgreSQL** through a **FastAPI** service, and a **React + Vite + Recharts** dashboard
 shows live occupancy and per-service history.
 
 Everything runs **on-premise**, on a computer at the church, as a `systemd` service. For remote viewing, a
-**Cloudflare Tunnel** exposes only the read-only dashboard — no open router ports, no footage leaving the
+**Cloudflare Tunnel** exposes only the read-only dashboard. No open router ports, no footage leaving the
 building and no monthly cloud bill.
 
 ```mermaid
@@ -67,7 +67,7 @@ flowchart TD
 
 ## Impact
 
-[TODO: a decision leadership made based on the data — e.g. schedule change, greeting team size]
+[TODO: a decision leadership made based on the data, e.g. schedule change, greeting team size]
 
 ## Technical challenges
 
@@ -75,7 +75,7 @@ flowchart TD
 
 They're different metrics, and mixing them up produces wrong numbers. **Occupancy** is continuous: entries
 minus exits, reset every night so errors don't pile up across days. **Attendance** is a _snapshot_ taken
-during the service — how many people were there at that moment. The system computes both separately.
+during the service: how many people were there at that moment. The system computes both separately.
 
 ### Never counting the same person twice
 
@@ -90,7 +90,7 @@ mechanisms work together:
 ### A known undercount, measured and logged
 
 Babies held in arms aren't detected as separate people. Instead of "fixing" the number with a magic
-multiplier, the undercount was **measured and documented** — anyone reading the dashboard knows exactly
+multiplier, the undercount was **measured and documented**. Anyone reading the dashboard knows exactly
 what the bias is.
 
 ## Lessons learned

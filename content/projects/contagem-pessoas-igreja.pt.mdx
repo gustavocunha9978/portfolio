@@ -38,13 +38,13 @@ voluntário e não gerava histórico.
 
 Uma câmera na entrada alimenta um pipeline em Python que detecta pessoas com **YOLOv8n** e as acompanha
 entre frames com **ByteTrack**. Cada pessoa vira um _track_ com identidade; a contagem acontece quando
-o track cruza a linha de entrada ou saída — não quando aparece num frame.
+o track cruza a linha de entrada ou saída, e não quando aparece num frame.
 
 Os eventos vão para **PostgreSQL** por uma API **FastAPI**, e um dashboard em **React + Vite + Recharts**
 mostra ocupação ao vivo e histórico por culto.
 
 Tudo roda **localmente**, num computador da própria igreja, como serviço `systemd`. Para ver o
-dashboard de fora, um **Cloudflare Tunnel** expõe só a interface de leitura — nenhuma porta aberta no
+dashboard de fora, um **Cloudflare Tunnel** expõe só a interface de leitura. Nenhuma porta aberta no
 roteador, nenhuma imagem sai do prédio e nenhum custo mensal de nuvem.
 
 ```mermaid
@@ -67,7 +67,7 @@ flowchart TD
 
 ## Impacto
 
-[TODO: decisão que a liderança tomou com base nos dados — ex.: ajuste de horário, equipe de recepção]
+[TODO: decisão que a liderança tomou com base nos dados, ex.: ajuste de horário, equipe de recepção]
 
 ## Desafios técnicos
 
@@ -75,7 +75,7 @@ flowchart TD
 
 São duas métricas diferentes, e confundir as duas gera número errado. **Ocupação** é contínua:
 entradas menos saídas, com reset noturno para não acumular erro de um dia para o outro. **Frequência**
-é um _snapshot_ tirado durante o culto — quantas pessoas estavam presentes naquele momento. O sistema
+é um _snapshot_ tirado durante o culto: quantas pessoas estavam presentes naquele momento. O sistema
 calcula as duas separadamente.
 
 ### Não contar a mesma pessoa duas vezes
@@ -91,7 +91,7 @@ mecanismos trabalham juntos:
 ### Subcontagem conhecida, medida e registrada
 
 Bebês no colo não são detectados como pessoas separadas. Em vez de "corrigir" o número com um fator
-mágico, a subcontagem foi **medida e documentada** — quem lê o dashboard sabe exatamente qual é o viés.
+mágico, a subcontagem foi **medida e documentada**. Quem lê o dashboard sabe exatamente qual é o viés.
 
 ## Aprendizados
 

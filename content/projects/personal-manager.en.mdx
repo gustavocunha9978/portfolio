@@ -1,7 +1,7 @@
 ---
 title: Personal Manager
 slug: personal-manager
-summary: Multi-tenant SaaS for gyms and personal trainers — API, web dashboard, two mobile apps and a front-desk PWA. Running in production at a gym with 100+ active members.
+summary: "Multi-tenant SaaS for gyms and personal trainers: API, web dashboard, two mobile apps and a front-desk PWA. Running in production at a gym with 100+ active members."
 category: [fullstack, mobile, ia-visao]
 stack:
   [
@@ -22,7 +22,7 @@ stack:
     C#,
   ]
 role: Fullstack Developer
-period: 2026 — present
+period: 2026–present
 status: produção
 visibility: privado
 liveUrl: https://personalmanager.com.br
@@ -56,7 +56,7 @@ subscriptions), plus manual cash entries, with signature-verified webhooks.
 
 **AI (Gemini)** builds meal plans through chat and suggests workout splits using only exercises
 that match the equipment the gym actually owns. Nothing is published without the trainer's
-approval — the AI suggests, the professional decides.
+approval. The AI suggests, the professional decides.
 
 ```mermaid
 flowchart LR
@@ -85,7 +85,7 @@ flowchart LR
 
 The gym owner now sees late payments and churn on a dashboard instead of finding out at month end,
 and the front desk no longer depends on someone checking names on a spreadsheet. [TODO: impact
-metric confirmed with the client — e.g. lower late-payment rate or hours saved per week]
+metric confirmed with the client, e.g. lower late-payment rate or hours saved per week]
 
 ## Technical challenges
 
@@ -106,7 +106,7 @@ refresh tokens with a unique `jti` and automatic rotation.
 
 The turnstile SDK only ships as a 32-bit Windows DLL. Instead of coupling the backend to it, the answer was a
 C# program that runs on the front-desk PC, talks to the turnstile over TCP and calls the same validation
-endpoint the QR code uses — a single source of truth for access rules.
+endpoint the QR code uses. A single source of truth for access rules.
 
 ## Lessons learned
 

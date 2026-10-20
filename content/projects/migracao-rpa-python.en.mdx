@@ -33,8 +33,8 @@ Migrate the robots to **object-oriented Python** with a layered architecture:
 - A **legacy-system automation layer** wrapping screens and actions
 - **Orchestration** reproducing the original workflow's sequence and decisions
 
-The core requirement: **no business rule lost**. Every decision in the `.xaml` — condition, branch,
-exception handling — was mapped and reproduced, and behavior was compared against the original robot.
+The core requirement: **no business rule lost**. Every decision in the `.xaml` (condition, branch,
+exception handling) was mapped and reproduced, and behavior was compared against the original robot.
 
 ```mermaid
 flowchart TD
@@ -50,7 +50,7 @@ flowchart TD
 
 - Workflows versioned in Git, reviewable as code and testable
 - Behavior equivalent to the original robot, with no business rule lost
-- [TODO: measurable result — processes migrated, runtime, failure rate]
+- [TODO: measurable result: processes migrated, runtime, failure rate]
 
 ## Impact
 
@@ -62,7 +62,7 @@ Maintenance no longer depends on a license or on knowledge held by a single pers
 ### Business rules hidden in a visual flow
 
 In `.xaml`, rules hide in properties, nested conditions and implicit error handling. The work started with
-an **exhaustive mapping** of those decisions before writing any Python — the migration was treated as a
+an **exhaustive mapping** of those decisions before writing any Python. The migration was treated as a
 specification, not a translation.
 
 ### Automating a legacy system

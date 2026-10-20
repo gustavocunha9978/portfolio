@@ -1,7 +1,7 @@
 ---
 title: Previsão de atoleiros em estradas rurais
 slug: previsao-atoleiros
-summary: TCC em Ciência e Tecnologia — rede neural convolucional sobre imagens de satélite combinada com previsão de chuva para estimar o risco de atoleiro em estradas de terra.
+summary: "TCC em Ciência e Tecnologia: uma rede neural convolucional sobre imagens de satélite combinada com previsão de chuva para estimar o risco de atoleiro em estradas de terra."
 category: [ia-visao, dados-bi]
 stack:
   [
@@ -16,7 +16,7 @@ stack:
     Tkinter,
   ]
 role: Autor do TCC
-period: mar — out 2025
+period: mar–out 2025
 status: concluído
 visibility: privado
 cover: /images/projects/previsao-atoleiros/cover.svg
@@ -29,14 +29,14 @@ order: 6
 ## Problema
 
 No oeste do Paraná, boa parte do escoamento da produção agrícola passa por estradas de terra. Depois de
-chuva forte, trechos viram atoleiro — caminhão parado, carga atrasada, máquina danificada. Não existe
+chuva forte, trechos viram atoleiro: caminhão parado, carga atrasada, máquina danificada. Não existe
 um jeito simples de saber, antes de sair, quais trechos estão em risco.
 
 ## Solução
 
 Um modelo que cruza **como a estrada é** com **quanto vai chover**:
 
-- **Imagens de satélite** baixadas pela Google Static Maps API a partir de coordenadas — perto de
+- **Imagens de satélite** baixadas pela Google Static Maps API a partir de coordenadas, perto de
   5.000 recortes da região de Toledo-PR
 - Uma **CNN em TensorFlow/Keras** treinada para classificar a condição do trecho a partir da imagem
 - **Previsão de chuva** da OpenWeather para a coordenada e a data, transformada num fator de desgaste
@@ -58,7 +58,7 @@ flowchart TD
 
 - Pipeline completo: coleta de imagens, treino, inferência e interface
 - Base própria de imagens de satélite da região
-- [TODO: métrica do modelo — acurácia / F1 no conjunto de teste]
+- [TODO: métrica do modelo: acurácia / F1 no conjunto de teste]
 
 ## Impacto
 
@@ -78,5 +78,5 @@ fator de desgaste calculado a partir da precipitação prevista.
 
 ## Aprendizados
 
-- Em problema real, o trabalho de dados vem antes — e dura mais — que o do modelo.
+- Em problema real, o trabalho de dados vem antes do modelo, e dura mais.
 - Uma interface simples transforma um script de pesquisa em algo que outra pessoa consegue usar.

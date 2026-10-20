@@ -33,8 +33,8 @@ Migrar os robôs para **Python orientado a objetos**, com uma arquitetura em cam
 - **Camada de automação** do sistema legado, encapsulando telas e ações
 - **Orquestração** que reproduz a sequência e as decisões do fluxo original
 
-O requisito central: **zero perda de regra de negócio**. Cada decisão do `.xaml` — condição, desvio,
-tratamento de exceção — foi mapeada e reproduzida, e o comportamento comparado com o do robô original.
+O requisito central: **zero perda de regra de negócio**. Cada decisão do `.xaml` (condição, desvio,
+tratamento de exceção) foi mapeada e reproduzida, e o comportamento comparado com o do robô original.
 
 ```mermaid
 flowchart TD
@@ -50,7 +50,7 @@ flowchart TD
 
 - Fluxos versionados em Git, revisáveis como código e testáveis
 - Comportamento equivalente ao robô original, sem perda de regra de negócio
-- [TODO: resultado mensurável — nº de processos migrados, tempo de execução, falhas]
+- [TODO: resultado mensurável: nº de processos migrados, tempo de execução, falhas]
 
 ## Impacto
 
@@ -63,7 +63,7 @@ A manutenção deixa de depender de licença e de conhecimento concentrado numa 
 
 Em `.xaml`, regras ficam espalhadas em propriedades, condições aninhadas e tratamentos de erro
 implícitos. O trabalho começou com um **mapeamento exaustivo** dessas decisões antes de escrever qualquer
-linha de Python — a migração foi tratada como especificação, não como tradução.
+linha de Python. A migração foi tratada como especificação, não como tradução.
 
 ### Automação de sistema legado
 

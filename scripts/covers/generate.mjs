@@ -13,23 +13,24 @@ import path from "node:path";
 const W = 1600;
 const H = 900;
 const C = {
-  bg: "#0B1220",
-  s1: "#101A2C",
-  s2: "#16233A",
-  s3: "#1C2B46",
-  line: "#22324D",
-  line2: "#2E4366",
-  ink0: "#E8EEF7",
-  ink1: "#B6C2D4",
-  ink2: "#8796AD",
-  ink3: "#4A5B78",
-  green: "#34D399",
-  green2: "#10B981",
-  blue: "#38BDF8",
-  blue2: "#2563EB",
-  amber: "#FBBF24",
-  red: "#F87171",
-  violet: "#A78BFA",
+  // Paleta clara: os prints parecem telas de apps em modo claro, impressas e coladas no caderno.
+  bg: "#FBF9F4",
+  s1: "#FFFFFF",
+  s2: "#F2EFE7",
+  s3: "#E8E3D7",
+  line: "#E1DACB",
+  line2: "#C9C1AF",
+  ink0: "#1B1A17",
+  ink1: "#403C35",
+  ink2: "#645E52",
+  ink3: "#B3AB98",
+  green: "#22A06B",
+  green2: "#0F7A4E",
+  blue: "#2B5FD9",
+  blue2: "#1F4FBF",
+  amber: "#D9901A",
+  red: "#D9534F",
+  violet: "#7C5CC4",
 };
 const SANS = "ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif";
 const MONO = "ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace";
@@ -383,7 +384,7 @@ covers["contagem-pessoas-igreja"] = () => {
       font: MONO,
     }),
     circle(x + 34, y + 36, 8, { fill: C.red }),
-    text(x + 52, y + 42, "CAM-01 · REC", { size: 16, font: MONO, fill: C.ink1 }),
+    text(x + 52, y + 42, "CAM-01 · REC", { size: 16, font: MONO, fill: "#E8EEF7" }),
     ...[
       [x + 14, y + 74, 1, 1],
       [x + w - 14, y + 74, -1, 1],
@@ -584,7 +585,7 @@ covers["migracao-rpa-python"] = () => {
     560,
     680,
     "orquestrador.py",
-    rect(ex, ey + 44, 560, 636, { fill: "#0C1424" }) + lines,
+    rect(ex, ey + 44, 560, 636, { fill: C.s1 }) + lines,
   );
 
   return svg(left + arrow + editor);

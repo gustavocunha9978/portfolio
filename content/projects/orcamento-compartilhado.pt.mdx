@@ -1,7 +1,7 @@
 ---
 title: Orçamento compartilhado
 slug: orcamento-compartilhado
-summary: App de orçamento para casal que substituiu uma planilha manual — edição simultânea em vários dispositivos com Firestore em tempo real.
+summary: App de orçamento para casal que substituiu uma planilha manual, com edição simultânea em vários dispositivos usando Firestore em tempo real.
 category: [fullstack]
 stack: [React, TypeScript, Vite, Firebase Auth, Firestore, Firebase Hosting, Recharts, jsPDF]
 role: Desenvolvedor
@@ -23,7 +23,7 @@ um sobrescrevia o outro, e ninguém tinha a visão do mês no celular.
 ## Solução
 
 Um app web em **React + TypeScript** com **Firebase Auth** e **Firestore**. Cada tela assina os dados
-com `onSnapshot`, então uma alteração feita num celular aparece no outro na hora — sem botão de
+com `onSnapshot`, então uma alteração feita num celular aparece no outro na hora, sem botão de
 "atualizar" e sem conflito de versão.
 
 - Receitas por pessoa (salário, 13º, rendimentos, reembolsos) e despesas fixas e variáveis

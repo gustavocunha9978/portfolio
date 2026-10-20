@@ -25,7 +25,7 @@ export function formatPeriod(
   presentLabel: string,
 ) {
   const from = formatMonth(start, locale);
-  if (end === null) return `${from} — ${presentLabel}`;
+  if (end === null) return `${from} – ${presentLabel}`;
   const to = formatMonth(end, locale);
-  return from === to ? from : `${from} — ${to}`;
+  return from === to ? from : `${from} – ${to}`;
 }

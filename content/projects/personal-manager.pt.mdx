@@ -1,7 +1,7 @@
 ---
 title: Personal Manager
 slug: personal-manager
-summary: SaaS multi-tenant para academias e personal trainers — API, painel web, dois apps mobile e PWA de recepção. Em produção numa academia com 100+ alunos ativos.
+summary: "SaaS multi-tenant para academias e personal trainers: API, painel web, dois apps mobile e PWA de recepção. Em produção numa academia com 100+ alunos ativos."
 category: [fullstack, mobile, ia-visao]
 stack:
   [
@@ -22,7 +22,7 @@ stack:
     C#,
   ]
 role: Desenvolvedor Fullstack
-period: 2026 — atual
+period: 2026–atual
 status: produção
 visibility: privado
 liveUrl: https://personalmanager.com.br
@@ -63,7 +63,7 @@ com registro manual de pagamento em dinheiro e webhook verificado por assinatura
 
 A **IA (Gemini)** monta dieta por chat e sugere divisão de treino usando apenas os exercícios
 compatíveis com o equipamento que a academia realmente tem. Nada é publicado sem a aprovação do
-personal — a IA sugere, o profissional decide.
+personal. A IA sugere, o profissional decide.
 
 ```mermaid
 flowchart LR
@@ -92,7 +92,7 @@ flowchart LR
 
 O dono da academia passou a ver inadimplência e churn num painel em vez de descobrir no fim do mês,
 e a recepção deixou de depender de alguém conferindo nome em planilha. [TODO: métrica de impacto
-confirmada com o cliente — ex.: redução de inadimplência ou tempo economizado por semana]
+confirmada com o cliente, ex.: redução de inadimplência ou tempo economizado por semana]
 
 ## Desafios técnicos
 
@@ -114,7 +114,7 @@ persistido com `jti` e rotação automática.
 
 O SDK da catraca só existe como DLL Windows 32-bit. Em vez de acoplar o backend a isso, a solução foi um
 programa em C# que roda no PC da recepção, conversa com a catraca por TCP e chama o mesmo endpoint de
-validação que o QR Code usa — uma única fonte de regra de acesso.
+validação que o QR Code usa. Uma única fonte de regra de acesso.
 
 ## Aprendizados
 
