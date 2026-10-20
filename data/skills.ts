@@ -97,7 +97,7 @@ export const skillGroups: SkillGroup[] = [
     id: "automacao",
     title: { pt: "Automação & RPA", en: "Automation & RPA" },
     skills: [
-      { name: "Python (automação)", level: "production", where: ["migracao-rpa-python", "sicredi"] },
+      { name: "Python (RPA)", level: "production", where: ["migracao-rpa-python", "sicredi"] },
       { name: "UiPath", level: "production", where: ["migracao-rpa-python", "sicredi"] },
       { name: "Selenium", level: "frequent", confirm: true },
       { name: "Web Scraping", level: "frequent", confirm: true },
