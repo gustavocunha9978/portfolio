@@ -311,7 +311,8 @@
     "experience": "Experience",
     "education": "Education",
     "skills": "Skills",
-    "projects": "Featured projects"
+    "projects": "Featured projects",
+    "languages": "Languages"
   },
   "notFound": {
     "title": "Deploy failed",

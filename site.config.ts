@@ -37,6 +37,11 @@ export const siteConfig = {
     showEmployerName: false,
   },
 
+  languages: {
+    pt: "Português (nativo) · Inglês (intermediário)",
+    en: "Portuguese (native) · English (intermediate)",
+  },
+
   /** Badge de status no hero e no header. */
   availableForWork: true,
 

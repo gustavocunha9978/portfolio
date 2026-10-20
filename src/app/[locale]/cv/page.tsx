@@ -59,6 +59,9 @@ export default async function CvPage({ params }: LocaleParams) {
             {siteConfig.social.linkedin.replace("https://www.", "")} ·{" "}
             {siteConfig.social.github.replace("https://", "")}
           </p>
+          <p className="mt-2 font-mono text-xs text-ink-2">
+            {t("languages")}: {siteConfig.languages[locale]}
+          </p>
           <p className="mt-4 text-sm leading-relaxed text-ink-1">
             {t("summary", { employerAt: employerAt(locale) })}
           </p>

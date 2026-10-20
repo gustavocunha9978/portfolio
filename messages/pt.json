@@ -311,7 +311,8 @@
     "experience": "Experiência",
     "education": "Formação",
     "skills": "Habilidades",
-    "projects": "Projetos em destaque"
+    "projects": "Projetos em destaque",
+    "languages": "Idiomas"
   },
   "notFound": {
     "title": "Deploy falhou",
