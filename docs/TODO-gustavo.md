@@ -23,12 +23,9 @@ Biopark e Benfatto estão **ocultos** no site até terem cargo e data.
 
 ## 3. Habilidades (`data/skills.ts`)
 
-- [ ] **Power BI**: onde você usou de verdade? Hoje só o case de BI (rascunho) comprova, então
-      em produção ele aparece como "uso com frequência". Adicione o id da experiência em `where`
-      (ex.: `"benfatto"`) ou publique o case de BI
-- [ ] **Traefik**: só a Biopark comprova, e ela está oculta. Mesmo caso acima
-- [ ] Confirme o nível destes e apague o `confirm: true` (até lá não aparecem em produção):
-      C# / .NET, Oracle / PL-SQL, MySQL, OpenAI API, Selenium, Web Scraping
+- [ ] **Power BI e Traefik** já apontam para a Biopark, mas só contam como "uso em produção"
+      depois que a Biopark tiver cargo e data (item 2). Até lá aparecem como "uso com frequência"
+- [ ] **C# / .NET**: confirme o nível e apague o `confirm: true` (até lá não aparece em produção)
 
 ## 4. Números dos cases (`content/projects/*.mdx`)
 
@@ -56,6 +53,4 @@ Os trechos `[TODO]` somem em produção; se a seção inteira ficar vazia, o tí
 
 ## 8. Decisões
 
-- [ ] Confirmar com o Sicredi se pode citar o nome da empresa. Se não, em `site.config.ts`
-      mude `employer.showEmployerName` para `false`: o site passa a dizer "instituição financeira"
 - [ ] Revisar os textos em inglês com alguém fluente
