@@ -25,7 +25,10 @@ export function Reveal({
 
   useIsoLayoutEffect(() => {
     const el = ref.current;
-    if (!el || reduced || el.getBoundingClientRect().top <= window.innerHeight) return;
+    // Lê a preferência direto: na hidratação o hook ainda devolve o valor do servidor (false).
+    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (!el || reduced || prefersReduced || el.getBoundingClientRect().top <= window.innerHeight)
+      return;
 
     el.style.opacity = "0";
     const io = new IntersectionObserver(
@@ -49,7 +52,11 @@ export function Reveal({
       { rootMargin: "0px 0px -60px 0px" },
     );
     io.observe(el);
-    return () => io.disconnect();
+    return () => {
+      io.disconnect();
+      // Nunca deixar conteúdo preso invisível se o efeito for desfeito antes de revelar.
+      el.style.opacity = "";
+    };
   }, [reduced, delay]);
 
   return (
