@@ -5,9 +5,9 @@ Em ordem de impacto. Tudo que está pendente aparece **destacado em amarelo** qu
 
 ## 1. Arquivos que faltam (maior impacto)
 
-- [ ] **CV em PDF**: `public/cv/gustavo-cunha-cv-pt.pdf` e `gustavo-cunha-cv-en.pdf`.
-      Enquanto não existirem, o botão "Baixar CV" fica escondido. Atalho: abra `/pt/cv` e
-      `/en/cv` no navegador e use "Imprimir → Salvar como PDF"
+> O PDF do CV já está no site. Sempre que mudar experiência ou habilidades, rode
+> `npm run build && npm run cv:pdf` e faça commit dos dois PDFs.
+
 - [ ] **Foto de perfil**: `public/images/profile.webp` (800×1000). Hoje aparece o monograma "GC"
 - [ ] **Prints dos projetos**: ver `docs/prints-necessarios.md`. Comece pelo Personal Manager
 
