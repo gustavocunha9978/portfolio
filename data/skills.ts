@@ -36,12 +36,28 @@ export const skillGroups: SkillGroup[] = [
     id: "backend",
     title: { pt: "Backend", en: "Backend" },
     skills: [
-      { name: "Node.js", level: "production", where: ["personal-manager", "submita", "escalas-life"] },
-      { name: "TypeScript", level: "production", where: ["personal-manager", "submita", "maschio-soares-advogados"] },
+      {
+        name: "Node.js",
+        level: "production",
+        where: ["personal-manager", "submita", "escalas-life"],
+      },
+      {
+        name: "TypeScript",
+        level: "production",
+        where: ["personal-manager", "submita", "maschio-soares-advogados"],
+      },
       { name: "Express", level: "production", where: ["personal-manager", "submita"] },
-      { name: "REST APIs", level: "production", where: ["personal-manager", "submita", "migracao-rpa-python"] },
+      {
+        name: "REST APIs",
+        level: "production",
+        where: ["personal-manager", "submita", "migracao-rpa-python"],
+      },
       { name: "WebSockets (Socket.io)", level: "production", where: ["personal-manager"] },
-      { name: "Python", level: "production", where: ["contagem-pessoas-igreja", "migracao-rpa-python", "sicredi"] },
+      {
+        name: "Python",
+        level: "production",
+        where: ["contagem-pessoas-igreja", "migracao-rpa-python", "sicredi"],
+      },
       { name: "FastAPI", level: "production", where: ["contagem-pessoas-igreja"] },
       { name: "PHP", level: "production", where: ["maschio-soares-advogados", "sicredi"] },
       { name: "C# / .NET", level: "frequent", confirm: true },
@@ -51,10 +67,22 @@ export const skillGroups: SkillGroup[] = [
     id: "frontend",
     title: { pt: "Frontend", en: "Frontend" },
     skills: [
-      { name: "React", level: "production", where: ["personal-manager", "contagem-pessoas-igreja", "orcamento-compartilhado"] },
+      {
+        name: "React",
+        level: "production",
+        where: ["personal-manager", "contagem-pessoas-igreja", "orcamento-compartilhado"],
+      },
       { name: "Next.js", level: "production", where: ["maschio-soares-advogados", "submita"] },
-      { name: "Tailwind CSS", level: "production", where: ["maschio-soares-advogados", "broadcast"] },
-      { name: "Vite", level: "production", where: ["contagem-pessoas-igreja", "orcamento-compartilhado", "escalas-life"] },
+      {
+        name: "Tailwind CSS",
+        level: "production",
+        where: ["maschio-soares-advogados", "broadcast"],
+      },
+      {
+        name: "Vite",
+        level: "production",
+        where: ["contagem-pessoas-igreja", "orcamento-compartilhado", "escalas-life"],
+      },
       { name: "WordPress (temas)", level: "production", where: ["maschio-soares-advogados"] },
       { name: "Vue", level: "learning" },
     ],
@@ -76,9 +104,17 @@ export const skillGroups: SkillGroup[] = [
     skills: [
       { name: "Power BI", level: "production", where: ["dashboard-bi"] },
       { name: "DAX", level: "frequent", where: ["dashboard-bi"] },
-      { name: "SQL", level: "production", where: ["migracao-rpa-python", "contagem-pessoas-igreja", "sicredi"] },
+      {
+        name: "SQL",
+        level: "production",
+        where: ["migracao-rpa-python", "contagem-pessoas-igreja", "sicredi"],
+      },
       { name: "Pandas", level: "frequent", where: ["previsao-atoleiros"] },
-      { name: "Recharts", level: "production", where: ["contagem-pessoas-igreja", "orcamento-compartilhado"] },
+      {
+        name: "Recharts",
+        level: "production",
+        where: ["contagem-pessoas-igreja", "orcamento-compartilhado"],
+      },
     ],
   },
   {
@@ -87,7 +123,11 @@ export const skillGroups: SkillGroup[] = [
     skills: [
       { name: "YOLOv8", level: "production", where: ["contagem-pessoas-igreja"] },
       { name: "ByteTrack", level: "production", where: ["contagem-pessoas-igreja"] },
-      { name: "OpenCV", level: "frequent", where: ["contagem-pessoas-igreja", "previsao-atoleiros"] },
+      {
+        name: "OpenCV",
+        level: "frequent",
+        where: ["contagem-pessoas-igreja", "previsao-atoleiros"],
+      },
       { name: "Gemini API", level: "production", where: ["personal-manager", "submita"] },
       { name: "TensorFlow / Keras", level: "frequent", where: ["previsao-atoleiros"] },
       { name: "OpenAI API", level: "frequent", confirm: true },
@@ -107,7 +147,11 @@ export const skillGroups: SkillGroup[] = [
     id: "devops",
     title: { pt: "DevOps & Infra", en: "DevOps & Infra" },
     skills: [
-      { name: "Docker", level: "production", where: ["personal-manager", "submita", "escalas-life"] },
+      {
+        name: "Docker",
+        level: "production",
+        where: ["personal-manager", "submita", "escalas-life"],
+      },
       { name: "GitHub Actions (CI/CD)", level: "production", where: ["personal-manager"] },
       { name: "Linux", level: "production", where: ["contagem-pessoas-igreja", "biopark"] },
       { name: "Traefik", level: "production", where: ["biopark"] },
@@ -122,10 +166,18 @@ export const skillGroups: SkillGroup[] = [
     id: "db",
     title: { pt: "Bancos de dados", en: "Databases" },
     skills: [
-      { name: "PostgreSQL", level: "production", where: ["personal-manager", "contagem-pessoas-igreja", "escalas-life"] },
+      {
+        name: "PostgreSQL",
+        level: "production",
+        where: ["personal-manager", "contagem-pessoas-igreja", "escalas-life"],
+      },
       { name: "Prisma", level: "production", where: ["personal-manager", "submita"] },
       { name: "Redis", level: "production", where: ["personal-manager"] },
-      { name: "Firebase Firestore", level: "production", where: ["orcamento-compartilhado", "broadcast"] },
+      {
+        name: "Firebase Firestore",
+        level: "production",
+        where: ["orcamento-compartilhado", "broadcast"],
+      },
       { name: "MySQL", level: "frequent", confirm: true },
       { name: "Oracle / PL-SQL", level: "frequent", confirm: true },
     ],
