@@ -32,3 +32,4 @@ sheet.tmp.html
 
 # skill de UI/UX do Claude Code (ferramenta local de desenvolvimento)
 .claude/skills/
+*.tmp.sh
