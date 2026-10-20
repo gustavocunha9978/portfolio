@@ -39,7 +39,6 @@ export function LocaleSwitcher() {
           type="button"
           lang={locale === "pt" ? "pt-BR" : "en"}
           aria-pressed={locale === current}
-          aria-label={labels[locale].long}
           disabled={pending}
           onClick={() => locale !== current && switchTo(locale)}
           className={cn(
@@ -49,7 +48,9 @@ export function LocaleSwitcher() {
               : "text-ink-2 hover:text-ink-0",
           )}
         >
+          {/* Nome acessível "PT · Português": contém o texto visível (WCAG 2.5.3). */}
           {labels[locale].short}
+          <span className="sr-only"> · {labels[locale].long}</span>
         </button>
       ))}
     </div>

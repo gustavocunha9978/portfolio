@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { IBM_Plex_Sans, JetBrains_Mono, Newsreader, Space_Grotesk } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
-import { getTranslations } from "next-intl/server";
+import { getMessages, getTranslations } from "next-intl/server";
 import { ThemeProvider } from "next-themes";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -13,26 +13,42 @@ import { Header } from "@/components/layout/header";
 import "../globals.css";
 
 // Grotesca para títulos, Plex para texto, serifa itálica para ênfase, mono para rótulos.
-const grotesk = Space_Grotesk({ subsets: ["latin"], variable: "--font-grotesk", display: "swap" });
+const grotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-grotesk",
+  display: "optional",
+});
 const plex = IBM_Plex_Sans({
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  weight: ["400", "500"],
   variable: "--font-plex",
-  display: "swap",
+  display: "optional",
 });
 const newsreader = Newsreader({
   subsets: ["latin"],
   style: ["italic"],
   weight: ["400"],
   variable: "--font-newsreader",
-  display: "swap",
+  display: "optional",
+  preload: false, // só aparece em ênfases: não disputa banda com as fontes principais
 });
 const jetbrains = JetBrains_Mono({
   subsets: ["latin"],
-  weight: ["400", "500"],
+  weight: ["400"],
   variable: "--font-jetbrains",
-  display: "swap",
+  display: "optional",
+  preload: false,
 });
+
+const clientNamespaces = [
+  "nav",
+  "theme",
+  "projects",
+  "project",
+  "case",
+  "contact",
+  "notFound",
+] as const;
 
 type Props = {
   children: React.ReactNode;
@@ -60,6 +76,11 @@ export async function generateMetadata({ params }: Omit<Props, "children">): Pro
 
 export default async function LocaleLayout({ children, params }: Props) {
   const locale = await resolveLocale(params);
+  // Só as traduções que componentes de cliente usam vão para o navegador.
+  const messages = await getMessages();
+  const clientMessages = Object.fromEntries(
+    clientNamespaces.map((ns) => [ns, messages[ns]]),
+  ) as Partial<typeof messages>;
 
   return (
     <html
@@ -74,7 +95,7 @@ export default async function LocaleLayout({ children, params }: Props) {
           enableSystem
           disableTransitionOnChange
         >
-          <NextIntlClientProvider>
+          <NextIntlClientProvider messages={clientMessages}>
             <Header />
             <main id="conteudo" tabIndex={-1} className="outline-none">
               {children}
@@ -82,8 +103,13 @@ export default async function LocaleLayout({ children, params }: Props) {
             <Footer />
           </NextIntlClientProvider>
         </ThemeProvider>
-        <Analytics />
-        <SpeedInsights />
+        {/* Os scripts só existem na Vercel; fora dela dariam 404 no console. */}
+        {process.env.VERCEL && (
+          <>
+            <Analytics />
+            <SpeedInsights />
+          </>
+        )}
       </body>
     </html>
   );

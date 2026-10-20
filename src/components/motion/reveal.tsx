@@ -1,13 +1,13 @@
 "use client";
 
-import { useAnimate, useInView, useReducedMotion } from "framer-motion";
 import { useEffect, useLayoutEffect, useRef } from "react";
+import { useReducedMotion } from "@/lib/use-reduced-motion";
 
 // useLayoutEffect avisa no servidor; no servidor não precisamos dele.
 const useIsoLayoutEffect = typeof window === "undefined" ? useEffect : useLayoutEffect;
 
 /**
- * Revela o conteúdo ao entrar na tela.
+ * Revela o conteúdo ao entrar na tela (IntersectionObserver + Web Animations API, sem lib).
  * O HTML do servidor sai sempre visível (sem JS, crawlers e impressão veem tudo);
  * só no cliente, e só o que está abaixo da dobra, é escondido antes de animar.
  */
@@ -21,31 +21,39 @@ export function Reveal({
   className?: string;
 }) {
   const reduced = useReducedMotion();
-  const [scope, animate] = useAnimate<HTMLDivElement>();
-  const inView = useInView(scope, { once: true, margin: "0px 0px -60px 0px" });
-  const hidden = useRef(false);
+  const ref = useRef<HTMLDivElement>(null);
 
   useIsoLayoutEffect(() => {
-    const el = scope.current;
-    if (!el || reduced) return;
-    if (el.getBoundingClientRect().top > window.innerHeight) {
-      hidden.current = true;
-      el.style.opacity = "0";
-      el.style.transform = "translateY(16px)";
-    }
-  }, [reduced]);
+    const el = ref.current;
+    if (!el || reduced || el.getBoundingClientRect().top <= window.innerHeight) return;
 
-  useEffect(() => {
-    if (!inView || !hidden.current || !scope.current) return;
-    animate(
-      scope.current,
-      { opacity: 1, transform: "translateY(0px)" },
-      { duration: 0.5, delay, ease: [0.22, 1, 0.36, 1] },
+    el.style.opacity = "0";
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry?.isIntersecting) return;
+        io.disconnect();
+        el.style.opacity = "";
+        el.animate(
+          [
+            { opacity: 0, transform: "translateY(16px)" },
+            { opacity: 1, transform: "translateY(0)" },
+          ],
+          {
+            duration: 500,
+            delay: delay * 1000,
+            easing: "cubic-bezier(0.22, 1, 0.36, 1)",
+            fill: "backwards",
+          },
+        );
+      },
+      { rootMargin: "0px 0px -60px 0px" },
     );
-  }, [inView, delay, animate, scope]);
+    io.observe(el);
+    return () => io.disconnect();
+  }, [reduced, delay]);
 
   return (
-    <div ref={scope} className={className}>
+    <div ref={ref} className={className}>
       {children}
     </div>
   );

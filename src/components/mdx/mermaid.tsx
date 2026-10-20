@@ -33,7 +33,27 @@ export function Mermaid({ chart }: { chart: string }) {
   const ref = useRef<HTMLDivElement>(null);
   const [failed, setFailed] = useState(false);
 
+  const [visible, setVisible] = useState(false);
+
+  // A lib do Mermaid é pesada: só baixa e renderiza quando o diagrama chega perto da tela.
   useEffect(() => {
+    const el = ref.current;
+    if (!el || visible) return;
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry?.isIntersecting) {
+          setVisible(true);
+          io.disconnect();
+        }
+      },
+      { rootMargin: "300px 0px" },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, [visible]);
+
+  useEffect(() => {
+    if (!visible) return;
     let cancelled = false;
     const theme = resolvedTheme === "light" ? "light" : "dark";
     import("mermaid")
@@ -53,7 +73,7 @@ export function Mermaid({ chart }: { chart: string }) {
     return () => {
       cancelled = true;
     };
-  }, [chart, resolvedTheme, id]);
+  }, [chart, resolvedTheme, id, visible]);
 
   return (
     <figure className="not-prose my-8 overflow-x-auto rounded-2xl border border-line bg-surface-1 p-4 sm:p-6">

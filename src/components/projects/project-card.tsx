@@ -39,7 +39,7 @@ export function ProjectCard({ project, priority, className }: Props) {
           <DeployStatus status={project.status} />
         </div>
 
-        <h3 className="mt-4 flex items-start justify-between gap-4 text-2xl font-medium tracking-[-0.03em]">
+        <h2 className="mt-4 flex items-start justify-between gap-4 text-2xl font-medium tracking-[-0.03em]">
           <Link
             href={{ pathname: "/projetos/[slug]", params: { slug: project.slug } }}
             className="group-hover:text-fg-brand after:absolute after:inset-0 focus-visible:outline-none"
@@ -50,7 +50,7 @@ export function ProjectCard({ project, priority, className }: Props) {
             className="mt-1 size-5 shrink-0 text-ink-2 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-fg-brand"
             aria-hidden="true"
           />
-        </h3>
+        </h2>
         <p className="mt-2 text-sm leading-relaxed text-ink-1">{project.summary}</p>
 
         <div className="mt-auto pt-5">

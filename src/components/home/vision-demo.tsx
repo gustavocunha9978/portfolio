@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { useReducedMotion } from "framer-motion";
+import { useReducedMotion } from "@/lib/use-reduced-motion";
 
 /**
  * Referência ao projeto de contagem de pessoas: pessoas cruzam uma linha, caixas de
