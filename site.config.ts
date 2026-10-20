@@ -8,10 +8,9 @@ export const siteConfig = {
   location: "Toledo · PR · Brasil",
   url: (process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000").replace(/\/$/, ""),
 
-  // TODO(gustavo): preencher o WhatsApp
   email: "gustavocunhasoares@hotmail.com",
   /** Só dígitos, com DDI e DDD. Ex.: 5545999999999 */
-  whatsapp: "5500000000000",
+  whatsapp: "5545998483474",
 
   calLink: "gustavo-cunha",
   social: {
