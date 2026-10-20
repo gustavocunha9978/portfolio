@@ -23,7 +23,7 @@ export async function Footer() {
             <p className="hand text-2xl">{t("lead")}</p>
             <a
               href={mailtoUrl()}
-              className="group mt-4 inline-flex max-w-full items-start gap-2 font-display text-[clamp(1.9rem,6.5vw,4.75rem)] leading-[1.05] font-medium tracking-[-0.03em] break-all"
+              className="group mt-4 inline-flex max-w-full items-start gap-2 font-display text-[clamp(1.15rem,4.2vw,2.25rem)] leading-tight font-medium tracking-[-0.02em] [overflow-wrap:anywhere]"
             >
               <span className="bg-transparent mark">{siteConfig.email}</span>
               <ArrowUpRight
