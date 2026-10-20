@@ -17,6 +17,7 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "test": "vitest run tests/unit",
+    "cv:pdf": "node scripts/cv/generate-pdf.mjs",
     "test:build": "REQUIRE_BUILD=1 vitest run tests/build",
     "test:watch": "vitest",
     "test:e2e": "playwright test",
