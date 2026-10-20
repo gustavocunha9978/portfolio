@@ -68,8 +68,8 @@ const sk = (x, y, w, h = 10, fill = C.line2) => rect(x, y, w, h, { rx: h / 2, fi
 
 function defs() {
   return `<defs>
-  <linearGradient id="grad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${C.green}"/><stop offset="1" stop-color="${C.blue}"/></linearGradient>
-  <linearGradient id="gradH" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="${C.green}"/><stop offset="1" stop-color="${C.blue}"/></linearGradient>
+  <linearGradient id="grad"><stop offset="0" stop-color="${C.green}"/><stop offset="1" stop-color="${C.green}"/></linearGradient>
+  <linearGradient id="gradH"><stop offset="0" stop-color="${C.green}"/><stop offset="1" stop-color="${C.green}"/></linearGradient>
   <linearGradient id="fadeDown" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${C.green}" stop-opacity="0.35"/><stop offset="1" stop-color="${C.green}" stop-opacity="0"/></linearGradient>
   <linearGradient id="fadeDownBlue" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${C.blue}" stop-opacity="0.35"/><stop offset="1" stop-color="${C.blue}" stop-opacity="0"/></linearGradient>
   <radialGradient id="glowG"><stop offset="0" stop-color="${C.green2}" stop-opacity="0.28"/><stop offset="1" stop-color="${C.green2}" stop-opacity="0"/></radialGradient>
@@ -82,9 +82,7 @@ function defs() {
 function background() {
   return [
     rect(0, 0, W, H, { fill: C.bg }),
-    rect(0, 0, W, H, { fill: "url(#grid)", opacity: 0.55 }),
-    circle(260, 120, 520, { fill: "url(#glowG)" }),
-    circle(1380, 820, 560, { fill: "url(#glowB)" }),
+    rect(0, 0, W, H, { fill: "url(#grid)", opacity: 0.35 }),
   ].join("");
 }
 
@@ -95,7 +93,7 @@ function browser(x, y, w, h, url, inner = "", { light = false } = {}) {
   const stroke = light ? "#D8D0C2" : C.line2;
   return g(
     [
-      rect(x, y, w, h, { rx: 18, fill: body, stroke, filter: "url(#shadow)" }),
+      rect(x, y, w, h, { rx: 18, fill: body, stroke }),
       pathEl(`M${x} ${y + 18}a18 18 0 0 1 18 -18h${w - 36}a18 18 0 0 1 18 18v26h-${w}z`, {
         fill: bar,
       }),
@@ -122,7 +120,7 @@ function phone(x, y, w, h, inner = "") {
         fill: "#05090F",
         stroke: C.line2,
         strokeWidth: 2,
-        filter: "url(#shadow)",
+        stroke: C.line2,
       }),
       rect(x + 10, y + 10, w - 20, h - 20, { rx: 32, fill: C.s1 }),
       rect(x + w / 2 - 44, y + 20, 88, 22, { rx: 11, fill: "#05090F" }),
@@ -366,7 +364,7 @@ covers["contagem-pessoas-igreja"] = () => {
     })
     .join("");
   const scene = [
-    rect(x, y, w, h, { rx: 18, fill: "#0A1322", stroke: C.line2, filter: "url(#shadow)" }),
+    rect(x, y, w, h, { rx: 18, fill: "#0A1322", stroke: C.line2 }),
     persp,
     floor,
     rect(lineX - 34, y + 120, 68, h - 120, { fill: C.amber, opacity: 0.1 }),
@@ -427,7 +425,7 @@ covers["migracao-rpa-python"] = () => {
     { c: C.blue, w: 260 },
     { c: C.green, w: 220 },
   ];
-  let left = card(lx, ly, 520, 640, { fill: C.s1, stroke: C.line2, filter: "url(#shadow)" });
+  let left = card(lx, ly, 520, 640, { fill: C.s1, stroke: C.line2 });
   left += text(lx + 28, ly + 44, "Main.xaml", { size: 18, font: MONO, fill: C.ink1 });
   left += rect(lx + 28, ly + 70, 464, 2, { fill: C.line2 });
   acts.forEach((a, i) => {
@@ -596,7 +594,7 @@ covers["submita"] = () => {
   const px = 130;
   const py = 110;
   const paper = [
-    rect(px, py, 480, 680, { rx: 10, fill: "#EEF2F7", filter: "url(#shadow)" }),
+    rect(px, py, 480, 680, { rx: 10, fill: "#EEF2F7", stroke: C.line2 }),
     pathEl(`M${px + 420} ${py} h60 v60 z`, { fill: "#C9D3E0" }),
     sk(px + 50, py + 70, 300, 18, "#1F2A3D"),
     sk(px + 50, py + 102, 220, 12, "#8090A6"),
@@ -624,7 +622,7 @@ covers["submita"] = () => {
       fill: C.s1,
       stroke: "url(#grad)",
       strokeWidth: 2,
-      filter: "url(#shadow)",
+      stroke: C.line2,
     }),
     pathEl(`M${ax + 44} 140 l7 17 17 7 -17 7 -7 17 -7 -17 -17 -7 17 -7z`, { fill: "url(#grad)" }),
     text(ax + 76, 172, "AI review", { size: 20, weight: 600, fill: C.ink0 }),
@@ -1060,7 +1058,7 @@ covers["broadcast"] = () => {
       fill: C.s1,
       stroke: "url(#grad)",
       strokeWidth: 2,
-      filter: "url(#shadow)",
+      stroke: C.line2,
     }),
     circle(sx + 70, sy + 76, 34, { fill: "none", stroke: C.blue, strokeWidth: 5 }),
     line(sx + 70, sy + 76, sx + 70, sy + 56, {
