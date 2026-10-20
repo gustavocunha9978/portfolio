@@ -5,8 +5,8 @@ import { resolveLocale, type LocaleParams } from "@/i18n/server";
 import { employerName } from "@/lib/employer";
 import { hasEmail } from "@/lib/links";
 import { pageMetadata } from "@/lib/metadata";
+import { resolveSkills } from "@/lib/skills";
 import { siteConfig } from "@/site.config";
-import { skillGroups } from "@/data/skills";
 
 export async function generateMetadata({ params }: LocaleParams): Promise<Metadata> {
   const locale = await resolveLocale(params);
@@ -18,6 +18,7 @@ export default async function HomePage({ params }: LocaleParams) {
   const locale = await resolveLocale(params);
   const t = await getTranslations({ locale, namespace: "meta" });
   const home = await getTranslations({ locale, namespace: "home" });
+  const skillGroups = await resolveSkills(locale);
 
   const person = {
     "@type": "Person",

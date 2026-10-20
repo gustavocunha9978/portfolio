@@ -3,8 +3,8 @@ import { getLocale, getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { getProjects } from "@/lib/content/loader";
 import { hasWhatsapp, whatsappUrl } from "@/lib/links";
+import { resolveSkills } from "@/lib/skills";
 import { siteConfig } from "@/site.config";
-import { skillGroups } from "@/data/skills";
 import { Reveal } from "@/components/motion/reveal";
 import { ProjectCard } from "@/components/projects/project-card";
 import { ProjectFeature } from "@/components/projects/project-feature";
@@ -20,6 +20,7 @@ export async function HomeView() {
   const t = await getTranslations("home");
   const projects = (await getProjects(locale)).map((p) => p.frontmatter);
   const featured = projects.filter((p) => p.featured);
+  const skillGroups = await resolveSkills(locale);
   const [lead, ...rest] = featured;
   const grid = rest.slice(0, 4);
   const more = rest.slice(4);

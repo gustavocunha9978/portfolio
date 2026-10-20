@@ -166,8 +166,10 @@
     },
     "seeCase": "Ver case",
     "skillsTitle": "Habilidades",
-    "skillsIntro": "Sem barra de porcentagem: só o quanto eu realmente uso cada coisa.",
-    "printable": "Versão para impressão"
+    "skillsIntro": "Sem barra de porcentagem: só o quanto eu realmente uso cada coisa. Clique numa habilidade para ver onde usei.",
+    "printable": "Versão para impressão",
+    "whereUsed": "Onde usei",
+    "toConfirm": "a confirmar"
   },
   "services": {
     "title": "Serviços",

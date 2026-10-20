@@ -166,8 +166,10 @@
     },
     "seeCase": "View case study",
     "skillsTitle": "Skills",
-    "skillsIntro": "No percentage bars. Just how much I actually use each one.",
-    "printable": "Print-friendly version"
+    "skillsIntro": "No percentage bars: just how much I actually use each thing. Click a skill to see where I used it.",
+    "printable": "Print-friendly version",
+    "whereUsed": "Where I used it",
+    "toConfirm": "to confirm"
   },
   "services": {
     "title": "Services",

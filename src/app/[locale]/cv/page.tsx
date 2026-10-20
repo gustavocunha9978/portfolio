@@ -4,13 +4,13 @@ import { getTranslations } from "next-intl/server";
 import { resolveLocale, type LocaleParams } from "@/i18n/server";
 import { getProjects } from "@/lib/content/loader";
 import { cvHref } from "@/lib/cv";
+import { resolveSkills } from "@/lib/skills";
 import { employerAt } from "@/lib/employer";
 import { formatPeriod } from "@/lib/format";
 import { hasEmail } from "@/lib/links";
 import { pageMetadata } from "@/lib/metadata";
 import { siteConfig } from "@/site.config";
 import { roleAndOrg, visibleExperience } from "@/lib/experience";
-import { skillGroups } from "@/data/skills";
 import { PrintButton } from "@/components/cv/print-button";
 import { buttonClass } from "@/components/ui/button";
 import { Todo } from "@/components/ui/todo";
@@ -34,6 +34,7 @@ export default async function CvPage({ params }: LocaleParams) {
   const home = await getTranslations({ locale, namespace: "home" });
   const featured = (await getProjects(locale)).map((p) => p.frontmatter).filter((p) => p.featured);
   const experience = visibleExperience(locale);
+  const skillGroups = await resolveSkills(locale);
   const jobs = experience.filter((e) => e.kind !== "education");
   const education = experience.filter((e) => e.kind === "education");
 
